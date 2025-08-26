@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=CrearPersona
+comment0.text=\r\n\ Clase\ ejecutable\ que\ crea\ una\ persona\ con\ datos\ constantes.\r\n\ <p>\r\n\ Asigna\ los\ datos\ de\ la\ persona\ como\ constantes,\ crea\ el\ objeto\ Persona\r\n\ y\ finalmente\ muestra\ sus\ datos\ por\ pantalla\ a\ traves\ del\ m\u00E9todo\ {@code\ mostrar()}.\r\n\ @author\ Alegre\ Ariel,\ Agust\u00EDn\ Antoniow.\r\n\ @version\ 1.0\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2

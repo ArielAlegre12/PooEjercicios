@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=CrearAlumno
+comment0.text=\r\n\ Crea\ una\ clase\ ejecutable\ de\ un\ alumno.\r\n\ <p>\r\n\ Debe\ recibir\ 3\ argumentos\ de\ lo\ contrario\ muestra\ un\ mensaje\ de\ error,\ finalmente\ visualiza\ los\ datos.\r\n\ @author\ Alegre\ Ariel,\ Agust\u00EDn\ Antoniow.\r\n\ @version\ 1.0\r\n\ \r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2

@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=CrearPunto
+comment0.text=\r\n\ Clase\ de\ tipo\ ejecutable\ de\ Punto.\r\n\ <p>\r\n\ permite\ calcular\ la\ distancia\ desde\ el\ punto\ 1\ al\ punto\ 2.\r\n\ recibe\ 4\ argumentos\ por\ la\ linea\ de\ comando\ que\ representan\r\n\ las\ coordenadas\ de\ dos\ puntos\ del\ plano\ cartesiano,\ x1,\ y1,\ x2,\ y2.\r\n\ Despues\ instancia\ dos\ objetos\ {@code\ Punto}\ y\ calcula\ la\ distancia\r\n\ entre\ ellos\ con\ el\ m\u00E9todo\ {@code\ distanciaA()}\r\n\ \r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2

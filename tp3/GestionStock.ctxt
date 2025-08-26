@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=GestionStock
+comment0.text=\r\n\ Clase\ ejecutable\ para\ probar\ la\ funcionalidad\ de\ la\ clase\ {@code\ Producto}.\r\n\ <p>\r\n\ Instancia\ un\ laboratorio\ y\ un\ producto\ asociado,\ simula\ una\ carga\ inicial\ de\ stock\r\n\ por\ promoci\u00F3n,\ una\ baja\ por\ destrucci\u00F3n,\ y\ muestra\ los\ datos\ del\ producto\ en\ cada\ paso.\r\n\ Tambi\u00E9n\ calcula\ y\ muestra\ el\ precio\ de\ lista\ y\ el\ precio\ al\ contado.\r\n\ Esta\ clase\ verifica\ el\ funcionamiento\ de\ los\ m\u00E9todos\ {@code\ ajuste()},\ {@code\ mostrar()},\r\n\ {@code\ precioLista()}\ y\ {@code\ precioContado()}\ de\ la\ clase\ {@code\ Producto}.\r\n\ \r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2

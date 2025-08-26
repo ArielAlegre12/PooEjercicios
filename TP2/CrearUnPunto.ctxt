@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=CrearUnPunto
+comment0.text=\r\n\ Clase\ ejecutable\ que\ permite\ crear\ un\ objeto\ {@link\ Punto}\r\n\ a\ partir\ de\ coordenadas\ ingresadas\ por\ el\ usuario.\r\n\ <p>\r\n\ Muestra\ las\ coordenadas\ del\ punto\ en\ consola.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ M\u00E9todo\ principal\ que\ solicita\ coordenadas\ al\ usuario,\r\n\ crea\ un\ punto\ y\ muestra\ su\ ubicaci\u00F3n.\r\n\r\n\ @param\ args\ argumentos\ de\ l\u00EDnea\ de\ comandos\ (no\ se\ utiliza\ ac\u00E1)\r\n
+numComments=2

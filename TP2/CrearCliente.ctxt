@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=CrearCliente
+comment0.text=\r\n\ Clase\ ejecutable\ que\ instancia\ un\ objeto\ Cliente\ y\ muestra\ sus\ datos.\r\n\ <p>\r\n\ La\ clase\ debe\ ejecutarse\ con\ 4\ argumentos\ desde\ la\ linea\ de\ comando.\r\n\ DNI(tipo\ int),\ apellido(tipo\ string),\ nombre(tipo\ string)\ y\ saldo(tipo\ double).\r\n\ Si\ no\ se\ ingresan\ los\ datos\ correctamente,\ muestra\ un\ mensaje\ de\ error\r\n\ \r\n\ @author\ Alegre\ Ariel,\ Agust\u00EDn\ Antoniow\r\n\ @version\ 1.0\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2

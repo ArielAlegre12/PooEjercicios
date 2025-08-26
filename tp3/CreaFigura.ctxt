@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=CreaFigura
+comment0.text=\r\n\ Clase\ ejecutable\ que\ permite\ crear\ y\ manipular\ figuras\ geom\u00E9tricas\ (C\u00EDrculo\ y\ Rect\u00E1ngulo).\r\n\ <p>\r\n\ \ Se\ utilizan\ objetos\ de\ tipo\ {@code\ Punto},\ {@code\ Circulo}\ y\ {@code\ Rectangulo}.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2

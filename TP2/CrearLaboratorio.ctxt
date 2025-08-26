@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=CrearLaboratorio
+comment0.text=\r\n\ Clase\ ejecutable\ que\ crea\ un\ laboratorio.\r\n\ <p>\r\n\ Asigna\ los\ datos\ del\ laboratorio\ como\ constantes,\ crea\ el\ objeto\ correspondiente\r\n\ y\ muestra\ su\ informaci\u00F3n\ mediante\ el\ m\u00E9todo\ {@code\ mostrar()}.\r\n\ @author\ Alegre\ Ariel,\ Agust\u00EDn\ Antoniow\r\n\ @version\ 1.0\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2

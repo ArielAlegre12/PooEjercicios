@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=CrearEmpleado
+comment0.text=\r\n\ Clase\ CrearEmpleado\ que\ crea\ el\ ejecutable\ de\ Empleado.\r\n\ <p>\r\n\ Este\ pide\ el\ ingreso\ de\ los\ datos\ por\ teclado.\r\n\ puede\ mostrar\ info\ del\ empleado,\ agregar\ el\ adicional\ de\ a\u00F1os\ trabajados,\r\n\ tambien\ el\ descuento\ del\ sueldo\ b\u00E1sico\ para\ la\ obra\ social\ y\ del\ seguro\ de\ vida.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2
