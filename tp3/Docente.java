@@ -1,33 +1,55 @@
-
 /**
- * Write a description of class Docente here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Creo la clase Docente
  */
-public class Docente
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
+public class Docente{
+    private String nombre;
+    private String grado;
+    private double sueldoBasico;
+    private double asignacionFamiliar;
+    
     /**
-     * Constructor for objects of class Docente
+     * Creo el constructor
      */
-    public Docente()
-    {
-        // initialise instance variables
-        x = 0;
+    public Docente(String p_nombre, String p_grado, double p_sueldoBasico, double p_asiFamiliar){
+        setNombre(p_nombre);
+        setGrado(p_grado);
+        setSueldoBasico(p_sueldoBasico);
+        setAsiFamiliar(p_asiFamiliar);
     }
-
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * Métodos setters
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    private void setNombre(String p_nombre){
+        nombre = p_nombre;
+    }
+    private void setGrado(String p_grado){
+        grado = p_grado;
+    }
+    private void setSueldoBasico(double p_sueldoBasico){
+        sueldoBasico = p_sueldoBasico;
+    }
+    private void setAsiFamiliar(double p_asiFamiliar){
+        asignacionFamiliar = p_asiFamiliar;
+    }
+    /**
+     * Métodos getters
+     */
+    public String getNombre(){
+        return nombre;
+    }
+    public String getGrado(){
+        return grado;
+    }
+    public double getSueldoBasico(){
+        return sueldoBasico;
+    }
+    public double getAsiFamiliar(){
+        return asignacionFamiliar;
+    }
+    /**
+     * Método que calcula el sueldo, sumando sueldoBasico + asignacionFamiliar
+     */
+    public double calcularSueldo(){
+        return getSueldoBasico() + getAsiFamiliar();
     }
 }
