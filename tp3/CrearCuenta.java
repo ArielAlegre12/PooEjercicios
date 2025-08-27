@@ -1,9 +1,17 @@
 import java.util.Scanner;
 /**
- * Crea un ejecutable de la clase CuentaBancaria
+ * Clase ejecutable que permite crear una cuenta bancaria y operar sobre ella.
+ * Simula un menú de opciones para consultar datos del usuario, depositar y extraer dinero.
+ * Cumple con las consignas de ingreso por teclado y colaboración entre objetos.
  */
 public class CrearCuenta{
     static Scanner teclado = new Scanner(System.in);
+    /**
+     * Método principal del programa.
+     * Instancia una cuenta bancaria y permite operar sobre ella mediante un menú interactivo.
+     * Las opciones incluyen ver datos del usuario, depositar dinero, extraer dinero y salir.
+     * Utiliza Scanner para el ingreso por teclado.
+     */
     public static void main(String args[]){
         int opcion;
         CuentaBancaria unUsuario = nuevaCuenta();
@@ -52,6 +60,11 @@ public class CrearCuenta{
         }while(opcion != 4);
         
     }
+    /**
+     * Solicita al usuario los datos personales por teclado y crea un objeto Persona.
+     * Este objeto será utilizado como titular de la cuenta bancaria.
+     * @return una instancia de la clase Persona con los datos ingresados
+     */
     public static Persona crearUsuario(){
         System.out.println("Ingrese el número de dni: ");
         int dni = teclado.nextInt();
@@ -64,7 +77,11 @@ public class CrearCuenta{
         return new Persona(dni, nombre, apellido, anioNacimiento);
        
     }
-    
+    /**
+     * Solicita el número de cuenta y los datos del titular.
+     * Crea una instancia de CuentaBancaria con el titular correspondiente.
+     * @return una cuenta bancaria inicializada con saldo cero y titular definido
+     */
     public static CuentaBancaria nuevaCuenta(){
         System.out.println("Ingrese el nro de cuenta: ");
         int nroCuenta = teclado.nextInt();
