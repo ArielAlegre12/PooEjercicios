@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=CrearCuenta
+comment0.text=\r\n\ Crea\ un\ ejecutable\ de\ la\ clase\ CuentaBancaria\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=Persona\ crearUsuario()
+comment3.params=
+comment3.target=CuentaBancaria\ nuevaCuenta()
+numComments=4
