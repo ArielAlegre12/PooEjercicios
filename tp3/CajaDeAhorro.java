@@ -15,6 +15,7 @@ public class CajaDeAhorro{
         this.setNroCuenta(p_nroCuenta);
         this.setTitular(p_titular);
         this.saldo = 0;
+        this.extraccionesPosibles = 10;
     }
     /**
      * Constructor que inicializa la cuenta ya con un saldo establecido
@@ -23,6 +24,7 @@ public class CajaDeAhorro{
         this.setNroCuenta(p_nroCuenta);
         this.setTitular(p_titular);
         this.setSaldo(p_saldo);
+        this.extraccionesPosibles = 10;
     }
     /**
      * Establece el número de la cuenta

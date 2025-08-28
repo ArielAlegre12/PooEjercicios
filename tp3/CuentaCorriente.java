@@ -18,6 +18,7 @@ public class CuentaCorriente{
         this.setNroCuenta(p_nroCuenta);
         this.setTitular(p_titular);
         this.saldo = 0;
+        this.limiteDescubierto = 500.0;
     }
     /**
      * Constructor que inicializa la cuenta con número, titular y saldo inicial.
@@ -29,6 +30,7 @@ public class CuentaCorriente{
         this.setNroCuenta(p_nroCuenta);
         this.setTitular(p_titular);
         this.setSaldo(p_saldo);
+        this.limiteDescubierto = 500.0;
     }
     /**
      * Establece el número de cuenta.
