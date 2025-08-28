@@ -16,6 +16,7 @@ public class Banco{
      * método que permite crear un titular, devolviendo el objeto listo para asignarlo.
      */
     public static Persona crearTitular(){
+        System.out.println("---- INGRESO DE DATOS ---");
         System.out.println("\nIngrese el DNI: ");
         int dni = teclado.nextInt();
         System.out.println("Ingrese el Nombre: ");
@@ -73,26 +74,32 @@ public class Banco{
                     p_unaCaja.mostrar();
                     break;
                 case 3:
-                    System.out.println("Ingrese el monto a depositar: ");
+                    System.out.println("---- CUENTA CORRIENTE ---");
+                    System.out.println("Ingrese el monto a depositar en Cuenta Corriente: ");
                     double montoCuenta = teclado.nextDouble();
                     p_unaCuenta.depositar(montoCuenta);
-                    System.out.println("Hecho. Saldo actual: " + p_unaCuenta.getSaldo());
+                    System.out.println("Hecho. Saldo actual de Cuenta Corriente: " + p_unaCuenta.getSaldo());
                     break;
                 case 4:
-                    System.out.println("Ingrese el monto a depositar: ");
+                    System.out.println("---- CUENTA DE AHORROS ---");
+                    System.out.println("Ingrese el monto a depositar en la Caja de Ahorros: ");
                     double montoCaja = teclado.nextDouble();
-                    p_unaCuenta.depositar(montoCaja);
-                    System.out.println("Hecho. Saldo actual: " + p_unaCuenta.getSaldo());
+                    p_unaCaja.depositar(montoCaja);
+                    System.out.println("Hecho. Saldo actual de la Caja de Ahorros: " + p_unaCaja.getSaldo());
                     break;
                 case 5:
-                    System.out.println("Ingrese el monto a extraer: ");
+                    System.out.println("---- CUENTA CORRIENTE ---");
+                    System.out.println("Ingrese el monto a extraer de la Cuenta Corriente: ");
                     double extraerCuenta = teclado.nextDouble();
                     p_unaCuenta.extraer(extraerCuenta);
+                    System.out.println("Hecho. Saldo actual de la Cuenta Corriente: " + p_unaCuenta.getSaldo());
                     break;
                 case 6:
-                    System.out.println("Ingrese el monto a extraer: ");
+                    System.out.println("---- CUENTA DE AHORROS ---");
+                    System.out.println("Ingrese el monto a extraer de la Caja de Ahorro: ");
                     double extraerCaja = teclado.nextDouble();
                     p_unaCaja.extraer(extraerCaja);
+                    System.out.println("Hecho. Saldo actual de la Caja de Ahorro: " + p_unaCaja.getSaldo());
                     break;
                 case 0:
                     System.out.println("Saliendo---");

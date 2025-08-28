@@ -118,8 +118,7 @@ public class CajaDeAhorro{
      * método que realiza el deposito a la cuenta bancaria del importe recibido.
      */
     public void depositar(double p_importe){
-        p_importe += getSaldo();
-        setSaldo(p_importe);
+        setSaldo(getSaldo() + p_importe);
     }
     /**
      * método para visualizar los datos de la caja de ahorro del titular.

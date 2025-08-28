@@ -119,11 +119,24 @@ public class CuentaCorriente{
         }
     }
     /**
-     * genera la extracción del dinero
+     * genera la extracción del dinero dependiendo si tiene saldo en la cuenta o si todavia no supero el limite de descubierto.
+     * primeramente se verifica el ingreso de un número negativo, de ser así sale del método.
+     * asignamos los valores a unas var temporales para trabajar con ellas.
+     * si el importe es menor o igual al saldo de la cuenta, se retira directamente de allí.
+     * de no ser así, se guarda el excedente para así descontarlo al limite de descubierto.
      */
     private void extraccion(double p_importe){
-        p_importe = getSaldo() - p_importe;
-        setSaldo(p_importe);
+        if(p_importe <= 0)return;
+        double saldoActual = getSaldo();
+        double descubiertoActual = getLimiteDescubierto();
+        
+        if(p_importe <= saldoActual){
+            setSaldo(saldoActual - p_importe);
+        }else{
+            double excedente = p_importe - saldoActual;
+            setSaldo(0);
+            setLimiteDescubierto(descubiertoActual - excedente);
+        }
     }
     /**
      * visualiza los datos de la cuenta
