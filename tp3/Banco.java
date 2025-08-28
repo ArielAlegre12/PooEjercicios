@@ -39,7 +39,7 @@ public class Banco{
         return new CuentaCorriente(nroCuenta, p_titular);
     }
     /**
-     * método que permite crear una cuenta corriente par una persona
+     * método que permite crear una cuenta corriente para una persona
      */
     public static CajaDeAhorro crearCajaAhorro(Persona p_titular){
         Random unNumero = new Random();
