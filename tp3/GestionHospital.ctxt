@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=GestionHospital
+comment0.text=\r\n\ clase\ ejecutable\ que\ instancia\ un\ hospital\ y\ permite\ el\ ingreso\ y\ la\ visualizaci\u00F3n\ de\ los\ datos.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2

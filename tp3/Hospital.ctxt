@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Hospital
+comment0.text=\r\n\ Clase\ del\ tipo\ Hospital\ el\ cual\ representa\ un\ hospital\ y\ el\ manejo\ de\ los\ pacientes.\r\n
+comment1.params=p_nombreHospital\ p_director\ p_paciente
+comment1.target=Hospital(java.lang.String,\ java.lang.String,\ Paciente)
+comment1.text=\r\n\ Inicializa\ al\ Hospital\ con\ sus\ respectivos\ datos.\r\n\ @param\ p_nombreHospital\r\n\ @param\ p_nombreDirector\r\n\ @param\ p_paciente\r\n
+comment2.params=p_nombreHospital
+comment2.target=void\ setNombreHospital(java.lang.String)
+comment2.text=\r\n\ m\u00E9todos\ setters\ y\ getters\ que\ establecen\ los\ datos\ del\ hospital.\r\n
+comment3.params=p_director
+comment3.target=void\ setDirector(java.lang.String)
+comment4.params=p_paciente
+comment4.target=void\ setPaciente(Paciente)
+comment5.params=
+comment5.target=java.lang.String\ getNombreHospital()
+comment6.params=
+comment6.target=java.lang.String\ getDirector()
+comment7.params=
+comment7.target=Paciente\ getPaciente()
+comment8.params=p_paciente
+comment8.target=void\ consultaDatosFilatorios(Paciente)
+comment8.text=\r\n\ m\u00E9todo\ que\ permite\ consultar\ los\ datos\ de\ los\ pacientes\ afiliados.\r\n
+numComments=9
