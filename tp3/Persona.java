@@ -9,27 +9,31 @@ public class Persona{
     private int nroDni;
     private String nombre;
     private String apellido;
-    private int anioNacimiento;
+    //private int anioNacimiento;
+    private Calendar fechaNacimiento;
     
-    Calendar fechaHoy = new GregorianCalendar();
-    int anioHoy = fechaHoy.get(Calendar.YEAR);
     
     /**
-     * Crea una nueva persona con los datos espicificados.
-     * @param p_dni Número de DNI
-     * @param p_nombre Nombre de la persona
-     * @param p_apellido apellido de la persona 
-     * @param p_anio Año de nacimiento pues
-     * 
-     * @author Ariel
-     * @version 1.0
+     * Constructor alternativo que permite crear una Persona solo con el año de nacimiento.
+     * @param p_dni Número de DNI.
+     * @param p_nombre Nombre.
+     * @param p_apellido Apellido.
+     * @param p_anio Año de nacimiento.
      */
-    public Persona(int p_nroDni, String p_nombre, String p_apellido, int p_anio){
-        setDni(p_nroDni);
-        setNombre(p_nombre);
-        setApellido(p_apellido);
-        setAnioNacimiento(p_anio);
-    }
+public Persona(int p_dni, String p_nombre, String p_apellido, int p_anio) {
+    this.setDni(p_dni);
+    this.setNombre(p_nombre);
+    this.setApellido(p_apellido);
+    setAnioNacimiento(p_anio);
+}
+public Persona(int p_dni, String p_nombre, String p_apellido, Calendar p_fecha) {
+    this.setDni(p_dni);
+    this.setNombre(p_nombre);
+    this.setApellido(p_apellido);
+    this.setFechaNacimiento(p_fecha);
+}
+
+
     /**
      * Métodos setters y getters para encapsular el acceso a los atributos privados.
      */
@@ -45,8 +49,16 @@ public class Persona{
         apellido = p_apellido;
     }
     
+    private void setFechaNacimiento(Calendar p_fecha){
+        fechaNacimiento = p_fecha;
+    }
+    
     private void setAnioNacimiento(int p_anio){
-        anioNacimiento = p_anio;
+        fechaNacimiento.set(Calendar.YEAR, p_anio);
+    }
+    
+    public int getAnioNacimiento(){
+        return getFechaNacimiento().get(Calendar.YEAR);
     }
     
     public int getDNI(){
@@ -61,15 +73,23 @@ public class Persona{
         return apellido;
     }
     
-    public int getAnioNacimiento(){
-        return anioNacimiento;
+    public Calendar getFechaNacimiento(){
+        return fechaNacimiento;
     }
     
     /**
      * defino el método que retorna la edad.
      */
     public int edad(){
-        return anioHoy - getAnioNacimiento();
+        Calendar hoy = Calendar.getInstance();
+        int edad = hoy.get(Calendar.YEAR) - getFechaNacimiento().get(Calendar.YEAR);
+        //verifico que no haya cumplido años aún
+        if(hoy.get(Calendar.MONTH) < getFechaNacimiento().get(Calendar.MONTH) ||
+            (hoy.get(Calendar.MONTH) == getFechaNacimiento().get(Calendar.MONTH) &&
+                hoy.get(Calendar.DAY_OF_MONTH) < getFechaNacimiento().get(Calendar.DAY_OF_MONTH))){
+                    edad--;
+                }
+                return edad;
     }
     
     /**
@@ -92,5 +112,15 @@ public class Persona{
     public void mostrar(){
         System.out.println("Nombre y Apellido: " + nomYape());
         System.out.println("DNI: " + getDNI() + "\t" + "Edad: " + edad() + " Años");
+    }
+    /**
+     * Verifica si hoy es el cumpleaños de la persona.
+     * @return true si hoy es el cumpleaños, false en caso contrario o si la fecha no está definida.
+     */
+    public boolean esCumpleaños(){
+        if(getFechaNacimiento() == null) return false;
+        Calendar hoy = Calendar.getInstance();
+        return hoy.get(Calendar.DAY_OF_MONTH) == getFechaNacimiento().get(Calendar.DAY_OF_MONTH) &&
+               hoy.get(Calendar.MONTH) == getFechaNacimiento().get(Calendar.MONTH);
     }
 }

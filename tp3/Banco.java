@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.util.GregorianCalendar;
+import java.util.Calendar;
 /**
  * Representa un banco, en el cual puede instanciarse un usuario 
  */
@@ -9,6 +11,9 @@ public class Banco{
         Persona unTitular = crearTitular();
         CuentaCorriente unaCuenta = crearCuentaCorriente(unTitular);
         CajaDeAhorro unaCaja = crearCajaAhorro(unTitular);
+        if(unTitular.esCumpleaños()){
+            System.out.println("\n----Feliz Cumpleaños Nro: " + unTitular.edad() + " -----\n");
+        }
         menuBanco(unaCuenta, unaCaja);
         
     }
@@ -25,8 +30,15 @@ public class Banco{
         String apellido = teclado.next();
         System.out.println("Ingrese el año en que nacio: ");
         int anioNacimiento = teclado.nextInt();
+        System.out.println("Ingrese el mes: ");
+        int mesNacimiento = teclado.nextInt();
+        System.out.println("Ingrese el día: ");
+        int diaNacimiento = teclado.nextInt();
+        Calendar fechaNacimiento = new GregorianCalendar(anioNacimiento, mesNacimiento - 1, diaNacimiento);
         
-        return new Persona(dni, nombre, apellido, anioNacimiento);
+        
+        
+        return new Persona(dni, nombre, apellido, fechaNacimiento);
     }
     /**
      * método que permite crear una cuenta corriente para una persona.
