@@ -52,8 +52,10 @@ public class Empleado{
         this.sueldoBasico = p_importe;
     }
     private void setAnioIngreso(int p_anio){
-        this.fechaIngreso.set(Calendar.YEAR, p_anio);
-    }
+    this.fechaIngreso = Calendar.getInstance();
+    this.fechaIngreso.set(Calendar.YEAR, p_anio);
+}
+
     private void setFechaIngreso(Calendar p_fechaIngreso){
         this.fechaIngreso = p_fechaIngreso;
     }
