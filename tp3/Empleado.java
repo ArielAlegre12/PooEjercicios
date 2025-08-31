@@ -1,10 +1,11 @@
 import java.util.*;
 import java.util.Scanner;
 /**
- * Clase {@code Empleado} que contiene distintos datos de un empleado.
+ * La clase {@code Empleado} modela los datos y comportamientos asociados a un empleado de la empresa.
  * <p>
- * En ella habra información como antiguedad, sueldo neto, etc
- * 
+ * Contiene información como CUIL, nombre, apellido, sueldo básico y fecha de ingreso.
+ * Permite calcular la antigüedad, el sueldo neto, descuentos, adicionales y verificar si hoy es su aniversario laboral.
+ * </p>
  */
 public class Empleado{
     private long cuil;
@@ -16,13 +17,14 @@ public class Empleado{
     private Calendar fechaIngreso;
     
     Scanner teclado = new Scanner(System.in);
-    
-    /**
-     * Creo el constructor correspondiente
-     * @param p_cuil (cuil del empleado)
-     * @param p_apellido (del empleado)
-     * @param p_nombre (del empleado)
-     * @param p_importe (Sueldo inicial del empleado)
+   /**
+     * Constructor que inicializa un empleado con año de ingreso.
+     *
+     * @param p_cuil       CUIL del empleado.
+     * @param p_apellido   Apellido del empleado.
+     * @param p_nombre     Nombre del empleado.
+     * @param p_importe    Sueldo básico del empleado.
+     * @param p_anio       Año de ingreso del empleado.
      */
     public Empleado(long p_cuil, String p_apellido, String p_nombre, double p_importe, int p_anio){
         this.setCuil(p_cuil);
@@ -31,6 +33,15 @@ public class Empleado{
         this.setSueldo(p_importe);
         this.setAnioIngreso(p_anio);
     }
+   /**
+    * Constructor que inicializa un empleado con fecha completa de ingreso.
+    *
+    * @param p_cuil         CUIL del empleado.
+    * @param p_apellido     Apellido del empleado.
+    * @param p_nombre       Nombre del empleado.
+    * @param p_importe      Sueldo básico del empleado.
+    * @param p_fechaIngreso Fecha de ingreso del empleado.
+    */
     public Empleado(long p_cuil, String p_apellido, String p_nombre, double p_importe, Calendar p_fechaIngreso){
         this.setCuil(p_cuil);
         this.setApellido(p_apellido);
@@ -54,7 +65,7 @@ public class Empleado{
     private void setAnioIngreso(int p_anio){
     this.fechaIngreso = Calendar.getInstance();
     this.fechaIngreso.set(Calendar.YEAR, p_anio);
-}
+    }
 
     private void setFechaIngreso(Calendar p_fechaIngreso){
         this.fechaIngreso = p_fechaIngreso;
@@ -130,12 +141,15 @@ public class Empleado{
     }
     
     /**
-     * método que retorna true o false dependiendo si se cumple un año de la fecha de ingreso.
+     * Verifica si hoy se cumple un nuevo aniversario desde la fecha de ingreso.
+     *
+     * @return {@code true} si el día y mes de hoy coinciden con los de la fecha de ingreso, {@code false} en caso contrario.
      */
-    public boolean esAniversario(){
-        if(getFechaIngreso() == null) return false;
-        Calendar hoy = Calendar.getInstance();
-        return hoy.get(Calendar.DAY_OF_MONTH) == getFechaIngreso().get(Calendar.DAY_OF_MONTH) &&
-               hoy.get(Calendar.MONTH) == getFechaIngreso().get(Calendar.MONTH);
-    }
+   public boolean esAniversario(){
+    if(getFechaIngreso() == null) return false;
+    Calendar hoy = Calendar.getInstance();
+    return hoy.get(Calendar.DAY_OF_MONTH) == getFechaIngreso().get(Calendar.DAY_OF_MONTH) &&
+           hoy.get(Calendar.MONTH) == getFechaIngreso().get(Calendar.MONTH);
+}
+
 }
