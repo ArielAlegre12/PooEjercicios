@@ -28,34 +28,34 @@ public class Paciente{
      * métodos accesores y mutadores en los que se establecen los distintos datos del paciente.
      */
     private void setHistoria(int p_historia){
-        historiaClinica = p_historia;
+        this.historiaClinica = p_historia;
     }
     private void setNombre(String p_nombre){
-        nombre = p_nombre;
+        this.nombre = p_nombre;
     }
     private void setDomicilio(String p_domicilio){
-        domicilio = p_domicilio;
+        this.domicilio = p_domicilio;
     }
     private void setNacido(Localidad p_localidadNacido){
-        localidadNacido = p_localidadNacido;
+        this.localidadNacido = p_localidadNacido;
     }
     private void setVive(Localidad p_localidadVive){
-        localidadVive = p_localidadVive;
+        this.localidadVive = p_localidadVive;
     }
     public int getHistoria(){
-        return historiaClinica;
+        return this.historiaClinica;
     }
     public String getNombre(){
-        return nombre;
+        return this.nombre;
     }
     public String getDomicilio(){
-        return nombre;
+        return this.nombre;
     }
     public Localidad getNacido(){
-        return localidadNacido;
+        return this.localidadNacido;
     }
     public Localidad getVive(){
-        return localidadVive;
+        return this.localidadVive;
     }
     /**
      * método para mostrar los datos del paciente, muestra

@@ -72,33 +72,33 @@ public class Empleado{
     }
     //getters
     public long getCuil(){
-        return cuil;
+        return this.cuil;
     }
     public String getApellido(){
-        return apellido;
+        return this.apellido;
     }
     public String getNombre(){
-        return nombre;
+        return this.nombre;
     }
     public double getSueldo(){
-        return sueldoBasico;
+        return this.sueldoBasico;
     }
     public int getAnioIngreso(){
         return this.fechaIngreso.get(Calendar.YEAR);
     }
-    public Calendar getFechaIngreso(){return fechaIngreso;}
+    public Calendar getFechaIngreso(){return this.fechaIngreso;}
     
     /**
      * Metodo {@code antiguedad()} que devuelve la cantidad de años trabajados
      */
     public int antiguedad(){
-        return anioHoy - getAnioIngreso();
+        return anioHoy - this.getAnioIngreso();
     }
     /**
      * Método {@code descuento()} que devuelve la cantidad descontada del sueldo neto
      */
     private double descuento(){
-        return ((getSueldo() * 2) / 100) + 1500;    
+        return ((this.getSueldo() * 2) / 100) + 1500;    
     }
     /**
      * Método {@code adicional()} que devuelve la cantidad de adicional dependiendo 
@@ -107,11 +107,11 @@ public class Empleado{
     private double adicional(){
         double adicional = 0;
         if(antiguedad() < 2){
-                    adicional = getSueldo() * 2 / 100;
+                    adicional = this.getSueldo() * 2 / 100;
             }else if(antiguedad() >= 10 && antiguedad() < 10){
-                adicional = getSueldo() * 4 / 100;
+                adicional = this.getSueldo() * 4 / 100;
             }else{
-                adicional = getSueldo() * 6 / 100;
+                adicional = this.getSueldo() * 6 / 100;
             }
             return adicional;
     }
@@ -120,24 +120,24 @@ public class Empleado{
      * y el seguro de vida.
      */
     public double sueldoNeto(){
-        return (getSueldo() - descuento());
+        return (this.getSueldo() - descuento());
     }
     //obtener nombre y apellido
     public String nomYape(){
-        return getNombre() + " " + getApellido();
+        return this.getNombre() + " " + this.getApellido();
     }
     //obtener apellido y nombre
     public String apeYnom(){
-        return getApellido() + ", " + getNombre();
+        return this.getApellido() + ", " + this.getNombre();
     }
     //visualizar datos
     public void mostrar(){
         System.out.println("Nombre y Apellido: " + nomYape());
-        System.out.println("CUIL: " + getCuil() + "\tAntiguedad: " + antiguedad() + " Años de servicio");
+        System.out.println("CUIL: " + this.getCuil() + "\tAntiguedad: " + antiguedad() + " Años de servicio");
         System.out.println("Sueldo neto: $" + sueldoNeto());
     }
     public String mostrarLinea(){
-        return getCuil() + "\t" + apeYnom() + "\t........ $" + sueldoNeto();  
+        return this.getCuil() + "\t" + apeYnom() + "\t........ $" + sueldoNeto();  
     }
     
     /**
@@ -146,10 +146,10 @@ public class Empleado{
      * @return {@code true} si el día y mes de hoy coinciden con los de la fecha de ingreso, {@code false} en caso contrario.
      */
    public boolean esAniversario(){
-    if(getFechaIngreso() == null) return false;
+    if(this.getFechaIngreso() == null) return false;
     Calendar hoy = Calendar.getInstance();
-    return hoy.get(Calendar.DAY_OF_MONTH) == getFechaIngreso().get(Calendar.DAY_OF_MONTH) &&
-           hoy.get(Calendar.MONTH) == getFechaIngreso().get(Calendar.MONTH);
+    return hoy.get(Calendar.DAY_OF_MONTH) == this.getFechaIngreso().get(Calendar.DAY_OF_MONTH) &&
+           hoy.get(Calendar.MONTH) == this.getFechaIngreso().get(Calendar.MONTH);
 }
 
 }

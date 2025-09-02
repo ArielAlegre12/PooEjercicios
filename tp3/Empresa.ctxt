@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Empresa
-comment0.text=\r\n\ Clase\ ejecutable\ {@code\ Empresa}\ que\ permite\ instanciar\ un\ objeto\ de\ tipo\ {@code\ Empleado}\r\n\ y\ verificar\ su\ comportamiento\ seg\u00FAn\ los\ m\u00E9todos\ definidos.\r\n\ <p>\r\n\ Solicita\ datos\ por\ teclado,\ crea\ un\ empleado\ con\ fecha\ de\ ingreso\ completa,\r\n\ muestra\ sus\ datos\ principales\ y\ eval\u00FAa\ si\ hoy\ es\ su\ aniversario\ laboral.\r\n
+comment0.text=\r\n\ Clase\ ejecutable\ {@code\ Empresa}\ que\ permite\ instanciar\ un\ empleado\ con\ o\ sin\ jefe,\r\n\ verificar\ si\ hoy\ es\ su\ aniversario\ laboral\ y\ emitir\ un\ permiso\ de\ salida\ firmado\ por\ el\ jefe\ si\ corresponde.\r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 numComments=2

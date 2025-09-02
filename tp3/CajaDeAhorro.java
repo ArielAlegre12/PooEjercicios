@@ -31,63 +31,63 @@ public class CajaDeAhorro{
      * @param p_nroCuenta Num identificador.
      */
     private void setNroCuenta(int p_nroCuenta){
-        nroCuenta = p_nroCuenta;
+        this.nroCuenta = p_nroCuenta;
     }
     /**
      * Establece el títular de la cuenta
      * @param p_titular persona dueña de la cuenta.
      */
     private void setTitular(Persona p_titular){
-        titular = p_titular;
+        this.titular = p_titular;
     }
     /**
      * Establece el saldo de la cuenta
      * @param p_saldo es el que recibe por el usuario
      */
     private void setSaldo(double p_saldo){
-        saldo =  p_saldo;
+        this.saldo =  p_saldo;
     }
     /**
      * establece la cantidad de extracciones que se pueden hacer
      * @param p_extracciones es la cantidad de extracciones posibles
      */
     private void setExtraccionesPosibles(int p_extracciones){
-        extraccionesPosibles = p_extracciones;
+        this.extraccionesPosibles = p_extracciones;
     }
     /**
      * devuelve el nro de cuenta
      * @return la identificación de la cuenta
      */
     public int getNroCuenta(){
-        return nroCuenta;
+        return this.nroCuenta;
     }
     /**
      * devuelve el titular de la cuenta
      * @return a la persona dueña de la cuenta
      */
     public Persona getTitular(){
-        return titular;
+        return this.titular;
     }
     /**
      * devuelve el saldo de la cuenta
      * @return saldo 
      */
     public double getSaldo(){
-        return saldo;
+        return this.saldo;
     }
     /**
      * devuelve la cantidad de extracciones permitidas
      * @return cantidad de extracciones que se pueden hacer
      */
     public int getExtraccionesPosibles(){
-        return extraccionesPosibles;    
+        return this.extraccionesPosibles;    
     }
     /**
      * método que verifica si es posible hacer una extracción.
      * devuelve true o false.
      */
     private boolean puedeExtraer(double p_importe){
-        if(p_importe <= getSaldo() && getExtraccionesPosibles() > 0){
+        if(p_importe <= this.getSaldo() && this.getExtraccionesPosibles() > 0){
             return true;
         }else{
             return false;
@@ -100,8 +100,8 @@ public class CajaDeAhorro{
     public void extraer(double p_importe){
         if(puedeExtraer(p_importe)){
             extraccion(p_importe);
-            setExtraccionesPosibles(getExtraccionesPosibles() - 1);
-        }else if(p_importe > getSaldo()){
+            this.setExtraccionesPosibles(this.getExtraccionesPosibles() - 1);
+        }else if(p_importe > this.getSaldo()){
             System.out.println("No puede extraer mas que el saldo!");
         }else{
             System.out.println("No tiene habilitadas mas extracciones!");
@@ -111,23 +111,23 @@ public class CajaDeAhorro{
      * método que realiza la extracción.
      */
     private void extraccion(double p_importe){
-        p_importe = getSaldo() - p_importe;
-        setSaldo(p_importe);
+        p_importe = this.getSaldo() - p_importe;
+        this.setSaldo(p_importe);
     }
     /**
      * método que realiza el deposito a la cuenta bancaria del importe recibido.
      */
     public void depositar(double p_importe){
-        setSaldo(getSaldo() + p_importe);
+        this.setSaldo(this.getSaldo() + p_importe);
     }
     /**
      * método para visualizar los datos de la caja de ahorro del titular.
      */
     public void mostrar(){
         System.out.println("Caja de Ahorro--");
-        System.out.println("Nro. Cuenta: " + getNroCuenta() + " - Saldo: " + getSaldo());
-        System.out.println("Titular: " + getTitular().nomYape());
-        System.out.println("Extracciones posibles: " + getExtraccionesPosibles());
+        System.out.println("Nro. Cuenta: " + this.getNroCuenta() + " - Saldo: " + this.getSaldo());
+        System.out.println("Titular: " + this.getTitular().nomYape());
+        System.out.println("Extracciones posibles: " + this.getExtraccionesPosibles());
     }
 
 }

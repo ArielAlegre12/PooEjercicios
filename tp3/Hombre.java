@@ -40,14 +40,14 @@ public class Hombre{
     private void setNombre(String p_nombre){this.nombre = p_nombre;}
     private void setApellido(String p_apellido){this.apellido = p_apellido;}
     private void setEdad(int p_edad){this.edad = p_edad;}
-    public void setEsposa(Mujer p_esposa){this.esposa = p_esposa;}
-    public void setEstadoCivil(String p_estadoCivil){this.estadoCivil = p_estadoCivil;}
+    private void setEsposa(Mujer p_esposa){this.esposa = p_esposa;}
+    private void setEstadoCivil(String p_estadoCivil){this.estadoCivil = p_estadoCivil;}
     
-    public String getNombre(){return nombre;}
-    public String getApellido(){return apellido;}
-    public int getEdad(){return edad;}
-    public Mujer getEsposa(){return esposa;}
-    public String getEstadoCivil(){return estadoCivil;}
+    public String getNombre(){return this.nombre;}
+    public String getApellido(){return this.apellido;}
+    public int getEdad(){return this.edad;}
+    public Mujer getEsposa(){return this.esposa;}
+    public String getEstadoCivil(){return this.estadoCivil;}
     
     /**
      * Establece el matrimonio con una mujer, si ambos están solteros.
@@ -56,11 +56,10 @@ public class Hombre{
      * @param p_mujer Objeto Mujer con quien se desea casar.
      */
     public void casarseCon(Mujer p_mujer){
-        if(p_mujer != null && this.getEsposa() == null && p_mujer.getEsposo() == null){
+        if(this.getEsposa() == null){
             this.setEsposa(p_mujer);
             this.setEstadoCivil("Casado");
-            p_mujer.setEsposo(this);
-            p_mujer.setEstadoCivil("Casada");
+            p_mujer.casarseCon(this);
         }
         
     }
@@ -79,7 +78,7 @@ public class Hombre{
     }
     
     public String datos(){
-        return getNombre() + " " + getApellido() + " de " + getEdad() + " años";
+        return this.getNombre() + " " + this.getApellido() + " de " + this.getEdad() + " años";
         }
     
     public void mostrarEstadoCivil(){
@@ -93,7 +92,7 @@ public class Hombre{
          if(this.getEstadoCivil() == "Casado"){
              System.out.println(this.datos() + " está casado con " + this.getEsposa().datos());
          }else{
-             System.out.println(getNombre() + " no está casado!(por suerte).\n");
+             System.out.println(this.getNombre() + " no está casado!(por suerte).\n");
          }
         
     }

@@ -37,71 +37,71 @@ public class CuentaCorriente{
      * @param p_nroCuenta Número identificador.
      */
     private void setNroCuenta(int p_nroCuenta){
-        nroCuenta = p_nroCuenta;
+        this.nroCuenta = p_nroCuenta;
     }
     /**
      * Establece el titular de la cuenta.
      * @param p_titular Persona dueña de la cuenta
      */
     private void setTitular(Persona p_titular){
-        titular = p_titular;
+        this.titular = p_titular;
     }
     /**
      * Establece el saldo de la cuenta.
      * @param p_saldo saldo actual de la cuenta
      */
     private void setSaldo(double p_saldo){
-        saldo = p_saldo;
+        this.saldo = p_saldo;
     }
     /**
      * Establece el limite de descubierto de la cuenta
      * @param p_limite es el permitido para retirar si la cuenta no posee el saldo suficiente
      */
     private void setLimiteDescubierto(double p_limite){
-        limiteDescubierto = p_limite;
+        this.limiteDescubierto = p_limite;
     }
      /**
       * Devuelve el número de cuenta.
       * @return el número de cuenta del usuario.
       */
     public int getNroCuenta(){
-        return nroCuenta;
+        return this.nroCuenta;
     }
     /**
      * Devuelve el titular de la cuenta.
      * @return Objeto Persona que representa al titular.
      */
     public Persona getTitular(){
-        return titular;
+        return this.titular;
     }
     /**
      * Devuelve el saldo actual de la cuenta.
      * @return Saldo disponible.
      */
     public double getSaldo(){
-        return saldo;
+        return this.saldo;
     }
     /**
      * Devuelve el límite de descubierto permitido.
      * @return Monto máximo permitido en negativo.
      */
     public double getLimiteDescubierto(){
-        return limiteDescubierto;
+        return this.limiteDescubierto;
     }
    /**
     * Realiza un depósito en la cuenta, sumando el importe al saldo actual.
     * @param p_importe Monto a depositar.
     */
     public void depositar(double p_importe){
-        p_importe += getSaldo();
-        setSaldo(p_importe);
+        p_importe += this.getSaldo();
+        this.setSaldo(p_importe);
     }
     /**
      * método que decide si puede o no retirar dinero 
      * @return true o fasle
      */
     private boolean puedeExtraer(double p_importe){
-        if(p_importe <= getSaldo() + getLimiteDescubierto()){
+        if(p_importe <= this.getSaldo() + this.getLimiteDescubierto()){
             return true;
         }else{
             return false;
@@ -127,15 +127,15 @@ public class CuentaCorriente{
      */
     private void extraccion(double p_importe){
         if(p_importe <= 0)return;
-        double saldoActual = getSaldo();
-        double descubiertoActual = getLimiteDescubierto();
+        double saldoActual = this.getSaldo();
+        double descubiertoActual = this.getLimiteDescubierto();
         
         if(p_importe <= saldoActual){
-            setSaldo(saldoActual - p_importe);
+            this.setSaldo(saldoActual - p_importe);
         }else{
             double excedente = p_importe - saldoActual;
-            setSaldo(0);
-            setLimiteDescubierto(descubiertoActual - excedente);
+            this.setSaldo(0);
+            this.setLimiteDescubierto(descubiertoActual - excedente);
         }
     }
     /**
@@ -143,8 +143,8 @@ public class CuentaCorriente{
      */
     public void mostrar(){
         System.out.println("-   Cuenta Corriente –");
-        System.out.println("Nro. Cuenta: " + getNroCuenta() + " -  Saldo: " + getSaldo());
-        System.out.println("Titular: " + getTitular().nomYape());
-        System.out.println("Descubierto: " + getLimiteDescubierto());
+        System.out.println("Nro. Cuenta: " + this.getNroCuenta() + " -  Saldo: " + this.getSaldo());
+        System.out.println("Titular: " + this.getTitular().nomYape());
+        System.out.println("Descubierto: " + this.getLimiteDescubierto());
     }   
 }

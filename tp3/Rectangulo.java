@@ -17,41 +17,41 @@ public class Rectangulo{
     }
     //setters
     private void setOrigen(Punto p_origen){
-        origen = p_origen;
+        this.origen = p_origen;
     }
     private void setAncho(double p_ancho){
-        ancho = p_ancho;
+        this.ancho = p_ancho;
     }
     private void setAlto(double p_alto){
-        alto = p_alto;
+        this.alto = p_alto;
     }
     //getters 
     public Punto getOrigen(){
-        return origen;
+        return this.origen;
     }
     public double getAncho(){
-        return ancho;
+        return this.ancho;
     }
     public double getAlto(){
-        return alto;
+        return this.alto;
     }
     
     public void desplazar(double p_dx, double p_dy){
-        this.origen.desplazar(p_dx, p_dy);
+        this.getOrigen().desplazar(p_dx, p_dy);
     }
     
     public void caracateristicas(){
         System.out.println("****** Rectangulo ******");
-        System.out.println("Orgien: " + this.origen.coordenadas() + " - Alto: "+ getAlto() + " - Ancho: " + getAncho());
+        System.out.println("Orgien: " + this.getOrigen().coordenadas() + " - Alto: "+ this.getAlto() + " - Ancho: " + getAncho());
         System.out.println("Superficie: " + superficie() + " - Perímetro: " + perimetro());
     }
     
     public double superficie(){
-       return getAlto() * getAncho();
+       return this.getAlto() * this.getAncho();
     }
     
     public double perimetro(){
-        return 2 * (getAlto() + getAncho());
+        return 2 * (this.getAlto() + this.getAncho());
     }
     
     public double distanciaA(Rectangulo otroRectangulo){

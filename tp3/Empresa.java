@@ -1,19 +1,11 @@
 import java.util.Scanner;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-/**
- * Instanciar un empleado
- */import java.util.Scanner;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
- * Clase ejecutable {@code Empresa} que permite instanciar un objeto de tipo {@code Empleado}
- * y verificar su comportamiento según los métodos definidos.
- * <p>
- * Solicita datos por teclado, crea un empleado con fecha de ingreso completa,
- * muestra sus datos principales y evalúa si hoy es su aniversario laboral.
- * */
+ * Clase ejecutable {@code Empresa} que permite instanciar un empleado con o sin jefe,
+ * verificar si hoy es su aniversario laboral y emitir un permiso de salida firmado por el jefe si corresponde.
+ */
 public class Empresa{
     public static void main(String args[]){
         Scanner teclado = new Scanner(System.in);
@@ -35,9 +27,6 @@ public class Empresa{
         Calendar fechaIngreso = new GregorianCalendar(anio, mes - 1, dia);
         Empleado unEmpleado = new Empleado(cuil, ape, nom, importe, fechaIngreso);
         unEmpleado.mostrar();
-        if(unEmpleado.esAniversario()){
-            System.out.println("Tiene permisio de salida.");
-        }
         
         System.out.println("Responde a un jefe?(1-si, 2-no)");
         int op = teclado.nextInt();
@@ -53,7 +42,7 @@ public class Empresa{
         EmpleadoConJefe empleado = new EmpleadoConJefe(cuil, ape, nom, importe, fechaIngreso, jefe);
         empleado.mostrarPantalla();
         if(unEmpleado.esAniversario() && empleado.getJefe() != null){
-            System.out.println("Tiene permisio de salida.");
+            System.out.println("Tiene permiso de salida.");
             System.out.println("Firmado por: " + empleado.getJefe().apeYnom());
         }
         

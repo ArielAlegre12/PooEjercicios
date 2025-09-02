@@ -19,16 +19,16 @@ public class Localidad{
      * de los getters y setters.
      */
     private void setNombre(String p_nombre){
-        nombre = p_nombre;
+        this.nombre = p_nombre;
     }
     private void setProvincia(String p_provincia){
-        provincia = p_provincia;
+        this.provincia = p_provincia;
     }
     public String getNombre(){
-        return nombre;
+        return this.nombre;
     }
     public String getProvincia(){
-        return provincia;
+        return this.provincia;
     }
     /**
      * Método que visualiza los datos de la Localidad.

@@ -15,8 +15,8 @@ public class CuentaBancaria{
      * @param p_titular Persona titular de la cuenta
      */
     public CuentaBancaria(int p_nroCuenta, Persona p_titular){
-        setNroCuenta(p_nroCuenta);
-        setTitular(p_titular);
+        this.setNroCuenta(p_nroCuenta);
+        this.setTitular(p_titular);
     }
     /**
      * Constructor que inicializa la cuenta con número, titular y saldo.
@@ -26,9 +26,9 @@ public class CuentaBancaria{
      * @param p_saldo Saldo inicial
      */
     public CuentaBancaria(int p_nroCuenta, Persona p_titular, double p_saldo){
-        setNroCuenta(p_nroCuenta);
-        setTitular(p_titular);
-        setSaldo(p_saldo);
+        this.setNroCuenta(p_nroCuenta);
+        this.setTitular(p_titular);
+        this.setSaldo(p_saldo);
     }
     /**
      * Asigna el número de cuenta.
@@ -36,7 +36,7 @@ public class CuentaBancaria{
      * @param p_nroCuenta Número de cuenta
      */
     private void setNroCuenta (int p_nroCuenta){
-        nroCuenta = p_nroCuenta;
+        this.nroCuenta = p_nroCuenta;
     }
     /**
      * Asigna el titular de la cuenta.
@@ -44,7 +44,7 @@ public class CuentaBancaria{
      * @param p_titular Persona titular
      */
     private void setTitular(Persona p_titular){
-        titular = p_titular;
+        this.titular = p_titular;
     }
     /**
      * Asigna el saldo de la cuenta.
@@ -52,7 +52,7 @@ public class CuentaBancaria{
      * @param p_saldo Monto a asignar como saldo
      */
     private void setSaldo(double p_saldo){
-        saldo = p_saldo;
+        this.saldo = p_saldo;
     }
     /**
      * Devuelve el número de cuenta.
@@ -60,7 +60,7 @@ public class CuentaBancaria{
      * @return Número de cuenta
      */
     public int getNroCuenta(){
-        return nroCuenta;
+        return this.nroCuenta;
     }
     /**
      * Devuelve el titular de la cuenta.
@@ -68,7 +68,7 @@ public class CuentaBancaria{
      * @return Persona titular
      */
     public Persona getTitular(){
-        return titular;
+        return this.titular;
     }
     /**
      * Devuelve el saldo actual de la cuenta.
@@ -76,7 +76,7 @@ public class CuentaBancaria{
      * @return Saldo disponible
      */
     public double getSaldo(){
-        return saldo;
+        return this.saldo;
     }
     /**
      * Realiza un depósito en la cuenta.
@@ -87,11 +87,11 @@ public class CuentaBancaria{
      */
     public double depositar(double p_importe){
         if(p_importe >= 0){
-            p_importe +=  getSaldo();
-            setSaldo(p_importe);
-            return getSaldo();
+            p_importe +=  this.getSaldo();
+            this.setSaldo(p_importe);
+            return this.getSaldo();
         }else{
-            return getSaldo();
+            return this.getSaldo();
         }
     }
     /**
@@ -102,12 +102,12 @@ public class CuentaBancaria{
      * @return Saldo resultante luego de la extracción
      */
     public double extraer(double p_importe){
-        if(p_importe <= getSaldo()){
-            p_importe = getSaldo() - p_importe;
-            setSaldo(p_importe);
-            return getSaldo();   
+        if(p_importe <= this.getSaldo()){
+            p_importe = this.getSaldo() - p_importe;
+            this.setSaldo(p_importe);
+            return this.getSaldo();   
         }else{
-            return getSaldo(); 
+            return this.getSaldo(); 
         }
     }
     /**
@@ -115,8 +115,8 @@ public class CuentaBancaria{
      */
     public void mostrar(){
         System.out.println("-Cuenta Bancaria-");
-        System.out.println("Titular: " + getTitular().nomYape() + "(" + getTitular().edad() + " Años)");
-        System.out.println("Saldo: " + getSaldo());
+        System.out.println("Titular: " + this.getTitular().nomYape() + "(" + this.getTitular().edad() + " Años)");
+        System.out.println("Saldo: " + this.getSaldo());
         
     }
     /**
@@ -126,6 +126,6 @@ public class CuentaBancaria{
      * @return Cadena con los datos de la cuenta
      */
     public String toStrinf(){
-        return getNroCuenta() + " " + getTitular().nomYape() + " " + getSaldo();
+        return this.getNroCuenta() + " " + this.getTitular().nomYape() + " " + this.getSaldo();
     }
 }

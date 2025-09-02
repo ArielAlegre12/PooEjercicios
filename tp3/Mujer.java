@@ -41,14 +41,14 @@ public class Mujer{
     private void setNombre(String p_nombre){this.nombre = p_nombre;}
     private void setApellido(String p_apellido){this.apellido = p_apellido;}
     private void setEdad(int p_edad){this.edad = p_edad;}
-    public void setEsposo(Hombre p_esposo){this.esposo = p_esposo;}
-    public void setEstadoCivil(String p_estado){this.estadoCivil = p_estado;}
+    private void setEsposo(Hombre p_esposo){this.esposo = p_esposo;}
+    private void setEstadoCivil(String p_estado){this.estadoCivil = p_estado;}
     
-    public String getNombre(){return nombre;}
-    public String getApellido(){return apellido;}
-    public int getEdad(){return edad;}
-    public Hombre getEsposo(){return esposo;}
-    public String getEstadoCivil(){return estadoCivil;}
+    public String getNombre(){return this.nombre;}
+    public String getApellido(){return this.apellido;}
+    public int getEdad(){return this.edad;}
+    public Hombre getEsposo(){return this.esposo;}
+    public String getEstadoCivil(){return this.estadoCivil;}
     
     /**
      * lleva a cabo el casamiento, si ambos están solteros.
@@ -57,11 +57,11 @@ public class Mujer{
      * @param p_hombre Objeto Hombre con quien se desea casar.
      */
     public void casarseCon(Hombre p_hombre){
-        if(p_hombre != null && this.getEsposo() == null && p_hombre.getEsposa() == null){
+        if(this.getEsposo() == null ){
             this.setEsposo(p_hombre);
             this.setEstadoCivil("Casada");
-            p_hombre.setEsposa(this);
-            p_hombre.setEstadoCivil("Casado");
+            p_hombre.casarseCon(this);
+            
         }
     }
     
@@ -83,7 +83,7 @@ public class Mujer{
      * @return Nombre, apellido y edad en formato legible.
      */
     public String datos(){
-        return getNombre() + " " + getApellido() + " de " + getEdad() + " años";
+        return this.getNombre() + " " + this.getApellido() + " de " + this.getEdad() + " años";
     }
     /**
      * Muestra por pantalla los datos personales y el estado civil actual.
@@ -99,7 +99,7 @@ public class Mujer{
         if(this.getEstadoCivil() == "Casada"){
             System.out.println(this.datos() + " está casada con " + this.getEsposo().datos());
         }else{
-            System.out.println(getNombre() + " no está casada!(por suerte).\n");
+            System.out.println(this.getNombre() + " no está casada!(por suerte).\n");
         }
     }
     }

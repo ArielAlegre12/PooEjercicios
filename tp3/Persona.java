@@ -38,43 +38,43 @@ public Persona(int p_dni, String p_nombre, String p_apellido, Calendar p_fecha) 
      * Métodos setters y getters para encapsular el acceso a los atributos privados.
      */
     private void setDni(int p_nroDni){
-        nroDni = p_nroDni;
+       this. nroDni = p_nroDni;
     }
     
     private void setNombre(String p_nombre){
-        nombre = p_nombre;
+        this.nombre = p_nombre;
     }
     
     private void setApellido(String p_apellido){
-        apellido = p_apellido;
+        this.apellido = p_apellido;
     }
     
     private void setFechaNacimiento(Calendar p_fecha){
-        fechaNacimiento = p_fecha;
+        this.fechaNacimiento = p_fecha;
     }
     
     private void setAnioNacimiento(int p_anio){
-        fechaNacimiento.set(Calendar.YEAR, p_anio);
+        this.fechaNacimiento.set(Calendar.YEAR, p_anio);
     }
     
     public int getAnioNacimiento(){
-        return getFechaNacimiento().get(Calendar.YEAR);
+        return this.getFechaNacimiento().get(Calendar.YEAR);
     }
     
     public int getDNI(){
-        return nroDni;
+        return this.nroDni;
     }
     
     public String getNombre(){
-        return nombre;
+        return this.nombre;
     }
     
     public String getApellido(){
-        return apellido;
+        return this.apellido;
     }
     
     public Calendar getFechaNacimiento(){
-        return fechaNacimiento;
+        return this.fechaNacimiento;
     }
     
     /**
@@ -84,9 +84,9 @@ public Persona(int p_dni, String p_nombre, String p_apellido, Calendar p_fecha) 
         Calendar hoy = Calendar.getInstance();
         int edad = hoy.get(Calendar.YEAR) - getFechaNacimiento().get(Calendar.YEAR);
         //verifico que no haya cumplido años aún
-        if(hoy.get(Calendar.MONTH) < getFechaNacimiento().get(Calendar.MONTH) ||
-            (hoy.get(Calendar.MONTH) == getFechaNacimiento().get(Calendar.MONTH) &&
-                hoy.get(Calendar.DAY_OF_MONTH) < getFechaNacimiento().get(Calendar.DAY_OF_MONTH))){
+        if(hoy.get(Calendar.MONTH) < this.getFechaNacimiento().get(Calendar.MONTH) ||
+            (hoy.get(Calendar.MONTH) == this.getFechaNacimiento().get(Calendar.MONTH) &&
+                hoy.get(Calendar.DAY_OF_MONTH) < this.getFechaNacimiento().get(Calendar.DAY_OF_MONTH))){
                     edad--;
                 }
                 return edad;
@@ -96,14 +96,14 @@ public Persona(int p_dni, String p_nombre, String p_apellido, Calendar p_fecha) 
      * defino el método que retorna el nombre y apellido
      */
     public String nomYape(){
-        return getNombre() + " " + getApellido();
+        return this.getNombre() + " " + this.getApellido();
     }
     
     /**
      * defino el método que retorna el apellido y nombre;
      */
     public String apeYnom(){
-        return getApellido() + ", " + getNombre();
+        return this.getApellido() + ", " + this.getNombre();
     }
     
     /**
@@ -111,7 +111,7 @@ public Persona(int p_dni, String p_nombre, String p_apellido, Calendar p_fecha) 
      */
     public void mostrar(){
         System.out.println("Nombre y Apellido: " + nomYape());
-        System.out.println("DNI: " + getDNI() + "\t" + "Edad: " + edad() + " Años");
+        System.out.println("DNI: " + this.getDNI() + "\t" + "Edad: " + edad() + " Años");
     }
     /**
      * Verifica si hoy es el cumpleaños de la persona.
@@ -120,7 +120,7 @@ public Persona(int p_dni, String p_nombre, String p_apellido, Calendar p_fecha) 
     public boolean esCumpleaños(){
         if(getFechaNacimiento() == null) return false;
         Calendar hoy = Calendar.getInstance();
-        return hoy.get(Calendar.DAY_OF_MONTH) == getFechaNacimiento().get(Calendar.DAY_OF_MONTH) &&
-               hoy.get(Calendar.MONTH) == getFechaNacimiento().get(Calendar.MONTH);
+        return hoy.get(Calendar.DAY_OF_MONTH) == this.getFechaNacimiento().get(Calendar.DAY_OF_MONTH) &&
+               hoy.get(Calendar.MONTH) == this.getFechaNacimiento().get(Calendar.MONTH);
     }
 }

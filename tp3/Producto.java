@@ -75,11 +75,11 @@ public class Producto{
         this.lab = p_lab;
     }
     private void setStock(int p_stock){
-        stock = p_stock;
+        this.stock = p_stock;
     }
     
     public int getStock(){
-        return stock;
+        return this.stock;
     }
     public int getCodigo(){
         return this.codigo;
@@ -111,7 +111,7 @@ public class Producto{
         System.out.println("Rubro: " + this.getRubro());
         System.out.println("Descripcion: " + this.getDescripcion());
         System.out.println("Precio costo: " + this.getCosto());
-        System.out.println("Stock: " + getStock() + " Stock valorizado: $" + stockValorizado() + "\n");
+        System.out.println("Stock: " + this.getStock() + " Stock valorizado: $" + stockValorizado() + "\n");
     }
      
     /**
