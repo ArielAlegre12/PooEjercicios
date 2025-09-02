@@ -33,7 +33,7 @@ public class Empresa{
         System.out.println("Ingrese el dia de ingreso: ");
         int dia = teclado.nextInt();
         Calendar fechaIngreso = new GregorianCalendar(anio, mes - 1, dia);
-        Empleado unEmpleado = new Empleado(cuil, nom, ape, importe, fechaIngreso);
+        Empleado unEmpleado = new Empleado(cuil, ape, nom, importe, fechaIngreso);
         unEmpleado.mostrar();
         if(unEmpleado.esAniversario()){
             System.out.println("Tiene permisio de salida.");
@@ -48,9 +48,9 @@ public class Empresa{
             System.out.println("Ingrese el apellido: ");
             String apellido = teclado.next();
             
-            jefe = new EmpleadoConJefe(0, nombre, apellido, 0, 0);
+            jefe = new EmpleadoConJefe(0, apellido, nombre, 0, 0);
         }
-        EmpleadoConJefe empleado = new EmpleadoConJefe(cuil, nom, ape, importe, fechaIngreso, jefe);
+        EmpleadoConJefe empleado = new EmpleadoConJefe(cuil, ape, nom, importe, fechaIngreso, jefe);
         empleado.mostrarPantalla();
         if(unEmpleado.esAniversario() && empleado.getJefe() != null){
             System.out.println("Tiene permisio de salida.");
