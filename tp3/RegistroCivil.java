@@ -4,7 +4,7 @@ import  java.util.Scanner;
  * 
  * Instancia objetos de las clases {@code Mujer} y {@code Hombre} a partir de datos ingresados por teclado,
  * establece el vínculo matrimonial entre ellos y muestra el resultado por pantalla.
- * 
+ * @Author Alegre Ariel, Antoniow Agustín.
 */
 public class RegistroCivil{
     

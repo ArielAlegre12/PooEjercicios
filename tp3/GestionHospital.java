@@ -1,6 +1,7 @@
 import java.util.Scanner;
 /**
  * clase ejecutable que instancia un hospital y permite el ingreso y la visualización de los datos.
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class GestionHospital{
     public static void main(String args[]){

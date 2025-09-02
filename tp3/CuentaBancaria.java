@@ -1,6 +1,7 @@
 /**
  * Representa una cuenta bancaria con número de cuenta, saldo y titular.
  * Permite realizar depósitos, extracciones y mostrar información asociada.
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class CuentaBancaria{
     private int nroCuenta;

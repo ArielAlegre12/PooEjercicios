@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=CrearCuenta
-comment0.text=\r\n\ Clase\ ejecutable\ que\ permite\ crear\ una\ cuenta\ bancaria\ y\ operar\ sobre\ ella.\r\n\ Simula\ un\ men\u00FA\ de\ opciones\ para\ consultar\ datos\ del\ usuario,\ depositar\ y\ extraer\ dinero.\r\n\ Cumple\ con\ las\ consignas\ de\ ingreso\ por\ teclado\ y\ colaboraci\u00F3n\ entre\ objetos.\r\n
+comment0.text=\r\n\ Clase\ ejecutable\ que\ permite\ crear\ una\ cuenta\ bancaria\ y\ operar\ sobre\ ella.\r\n\ Simula\ un\ men\u00FA\ de\ opciones\ para\ consultar\ datos\ del\ usuario,\ depositar\ y\ extraer\ dinero.\r\n\ Cumple\ con\ las\ consignas\ de\ ingreso\ por\ teclado\ y\ colaboraci\u00F3n\ entre\ objetos.\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 comment1.text=\r\n\ M\u00E9todo\ principal\ del\ programa.\r\n\ Instancia\ una\ cuenta\ bancaria\ y\ permite\ operar\ sobre\ ella\ mediante\ un\ men\u00FA\ interactivo.\r\n\ Las\ opciones\ incluyen\ ver\ datos\ del\ usuario,\ depositar\ dinero,\ extraer\ dinero\ y\ salir.\r\n\ Utiliza\ Scanner\ para\ el\ ingreso\ por\ teclado.\r\n

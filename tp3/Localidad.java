@@ -1,5 +1,6 @@
 /**
  * Clase del tipo Localidad, la cual permite modelar una localidad de una provincia.
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class Localidad{
     private String nombre;

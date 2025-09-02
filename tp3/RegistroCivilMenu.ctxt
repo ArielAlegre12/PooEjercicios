@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=RegistroCivilMenu
-comment0.text=\r\n\ Clase\ ejecutable\ que\ simula\ un\ Registro\ Civil\ con\ men\u00FA\ interactivo.\r\n\ \r\n\ Permite\ crear\ registros\ de\ un\ hombre\ y\ una\ mujer,\ establecer\ v\u00EDnculos\ matrimoniales\ entre\ ellos,\r\n\ mostrar\ el\ estado\ civil,\ consultar\ con\ qui\u00E9n\ est\u00E1n\ casados\ y\ realizar\ divorcios.\r\n\ \r\n
+comment0.text=\r\n\ Clase\ ejecutable\ que\ simula\ un\ Registro\ Civil\ con\ men\u00FA\ interactivo.\r\n\ \r\n\ Permite\ crear\ registros\ de\ un\ hombre\ y\ una\ mujer,\ establecer\ v\u00EDnculos\ matrimoniales\ entre\ ellos,\r\n\ mostrar\ el\ estado\ civil,\ consultar\ con\ qui\u00E9n\ est\u00E1n\ casados\ y\ realizar\ divorcios.\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 comment2.params=

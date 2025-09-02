@@ -5,7 +5,7 @@ import java.util.Scanner;
  * <p>
  * Contiene información como CUIL, nombre, apellido, sueldo básico y fecha de ingreso.
  * Permite calcular la antigüedad, el sueldo neto, descuentos, adicionales y verificar si hoy es su aniversario laboral.
- * </p>
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class Empleado{
     private long cuil;

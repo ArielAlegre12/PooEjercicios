@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Docente
-comment0.text=\r\n\ Creo\ la\ clase\ Docente\ el\ caul\ representa\ a\ uno,\ con\ datos\ como\ \r\n\ nombre,\ grado\ a\ cargo,\ sueldo\ b\u00E1sico\ y\ asignaci\u00F3n\ familiar.\r\n\ Esta\ clase\ permite\ acceder\ a\ estos\ datos\ y\ modificarlos,\ tambi\u00E9n\r\n\ calcula\ el\ sueldo\ a\ trav\u00E9s\ de\ sus\ m\u00E9todos.\r\n
+comment0.text=\r\n\ Creo\ la\ clase\ Docente\ el\ caul\ representa\ a\ uno,\ con\ datos\ como\ \r\n\ nombre,\ grado\ a\ cargo,\ sueldo\ b\u00E1sico\ y\ asignaci\u00F3n\ familiar.\r\n\ Esta\ clase\ permite\ acceder\ a\ estos\ datos\ y\ modificarlos,\ tambi\u00E9n\r\n\ calcula\ el\ sueldo\ a\ trav\u00E9s\ de\ sus\ m\u00E9todos.\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
 comment1.params=p_nombre\ p_grado\ p_sueldoBasico\ p_asiFamiliar
 comment1.target=Docente(java.lang.String,\ java.lang.String,\ double,\ double)
 comment1.text=\r\n\ Creo\ el\ constructor\ que\ incializa\ al\ docente\ con\ sus\ respectivos\ datos.\r\n\ @param\ p_nombre\ nombre\ del\ docente.\r\n\ @param\ p_grado\ grado\ a\ cargo\ del\ docente.\r\n\ @param\ p_sueldoBasico\ sueldo\ b\u00E1sico\ del\ docente.\r\n\ @param\ p_asiFamiliar\ monto\ de\ asignaci\u00F3n\ familiar\ del\ docente.\r\n

@@ -1,5 +1,10 @@
 /**
- * Crear clase Escuela
+ * La clase {@code Escuela} representa una institución educativa que conoce a un {@code Docente}
+ * y puede emitir su recibo de sueldo.
+ * <p>
+ * Contiene información básica como nombre, domicilio y director, y mantiene una relación
+ * directa con un objeto colaborador de tipo {@code Docente}.
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class Escuela{
     private String nombre;

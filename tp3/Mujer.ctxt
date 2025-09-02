@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Mujer
-comment0.text=\r\n\ Clase\ Mujer\ que\ representa\ los\ datos\ personales\ y\ el\ estado\ civil\ de\ una\ mujer.\r\n\ Incluye\ nombre,\ apellido,\ edad,\ estado\ civil\ y\ referencia\ al\ esposo\ (objeto\ Hombre).\r\n
+comment0.text=\r\n\ Clase\ Mujer\ que\ representa\ los\ datos\ personales\ y\ el\ estado\ civil\ de\ una\ mujer.\r\n\ Incluye\ nombre,\ apellido,\ edad,\ estado\ civil\ y\ referencia\ al\ esposo\ (objeto\ Hombre).\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
 comment1.params=p_nombre\ p_apellido\ p_edad
 comment1.target=Mujer(java.lang.String,\ java.lang.String,\ int)
 comment1.text=\r\n\ Constructor\ que\ inicializa\ una\ mujer\ como\ soltera,\ sin\ esposo\ asignado.\r\n\ \r\n\ @param\ p_nombre\ \ \ Nombre\ de\ la\ mujer.\r\n\ @param\ p_apellido\ Apellido\ de\ la\ mujer.\r\n\ @param\ p_edad\ \ \ \ \ Edad\ de\ la\ mujer.\r\n

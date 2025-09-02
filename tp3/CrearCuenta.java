@@ -3,6 +3,7 @@ import java.util.Scanner;
  * Clase ejecutable que permite crear una cuenta bancaria y operar sobre ella.
  * Simula un menú de opciones para consultar datos del usuario, depositar y extraer dinero.
  * Cumple con las consignas de ingreso por teclado y colaboración entre objetos.
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class CrearCuenta{
     static Scanner teclado = new Scanner(System.in);

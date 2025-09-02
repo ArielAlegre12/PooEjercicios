@@ -2,6 +2,7 @@
  * Clase Hombre que representa los datos personales y el estado civil de un hombre.
  * Incluye nombre, apellido, edad, estado civil y referencia a la esposa (objeto Mujer).
  * Permite gestionar vínculos matrimoniales y emitir información sobre su situación.
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class Hombre{
     private String nombre;

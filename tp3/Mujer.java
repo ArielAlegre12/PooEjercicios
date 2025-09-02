@@ -1,6 +1,7 @@
 /**
  * Clase Mujer que representa los datos personales y el estado civil de una mujer.
  * Incluye nombre, apellido, edad, estado civil y referencia al esposo (objeto Hombre).
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class Mujer{
     private String nombre;

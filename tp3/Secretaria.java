@@ -1,6 +1,11 @@
 import java.util.Scanner;
 /**
- * Creo clase ejecutable Secretaria
+ * Clase ejecutable {@code Secretaria} que permite instanciar un objeto {@code Docente}
+ * y una {@code Escuela} que lo contiene como colaborador, para emitir un recibo de sueldo.
+ * <p>
+ * Solicita los datos del docente y de la escuela por teclado, crea los objetos correspondientes
+ * y muestra el recibo con desglose de sueldo básico, asignación familiar y total.
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class Secretaria{
     public static void main(String args[]){

@@ -4,6 +4,7 @@ import java.util.Scanner;
  * Clase ejecutable que permite crear y manipular figuras geométricas (Círculo y Rectángulo).
  * <p>
  *  Se utilizan objetos de tipo {@code Punto}, {@code Circulo} y {@code Rectangulo}.
+ *  @Author Alegre Ariel, Antoniow Agustín.
  */
 public class CreaFigura{
     public static void main(String args[]){

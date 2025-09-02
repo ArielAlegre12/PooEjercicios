@@ -4,6 +4,7 @@ import java.util.*;
  * fecha de nacimiento.
  * 
  * Permite calcular la edad actual y mostrar los datos personales.
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class Persona{
     private int nroDni;

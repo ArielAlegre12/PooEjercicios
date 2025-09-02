@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=RegistroCivil
-comment0.text=\r\n\ Clase\ ejecutable\ que\ simula\ el\ Registro\ Civil\ y\ emite\ un\ certificado\ de\ matrimonio.\r\n\ \r\n\ Instancia\ objetos\ de\ las\ clases\ {@code\ Mujer}\ y\ {@code\ Hombre}\ a\ partir\ de\ datos\ ingresados\ por\ teclado,\r\n\ establece\ el\ v\u00EDnculo\ matrimonial\ entre\ ellos\ y\ muestra\ el\ resultado\ por\ pantalla.\r\n\ \r\n
+comment0.text=\r\n\ Clase\ ejecutable\ que\ simula\ el\ Registro\ Civil\ y\ emite\ un\ certificado\ de\ matrimonio.\r\n\ \r\n\ Instancia\ objetos\ de\ las\ clases\ {@code\ Mujer}\ y\ {@code\ Hombre}\ a\ partir\ de\ datos\ ingresados\ por\ teclado,\r\n\ establece\ el\ v\u00EDnculo\ matrimonial\ entre\ ellos\ y\ muestra\ el\ resultado\ por\ pantalla.\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 numComments=2

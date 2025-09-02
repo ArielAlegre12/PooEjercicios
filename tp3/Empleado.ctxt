@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Empleado
-comment0.text=\r\n\ La\ clase\ {@code\ Empleado}\ modela\ los\ datos\ y\ comportamientos\ asociados\ a\ un\ empleado\ de\ la\ empresa.\r\n\ <p>\r\n\ Contiene\ informaci\u00F3n\ como\ CUIL,\ nombre,\ apellido,\ sueldo\ b\u00E1sico\ y\ fecha\ de\ ingreso.\r\n\ Permite\ calcular\ la\ antig\u00FCedad,\ el\ sueldo\ neto,\ descuentos,\ adicionales\ y\ verificar\ si\ hoy\ es\ su\ aniversario\ laboral.\r\n\ </p>\r\n
+comment0.text=\r\n\ La\ clase\ {@code\ Empleado}\ modela\ los\ datos\ y\ comportamientos\ asociados\ a\ un\ empleado\ de\ la\ empresa.\r\n\ <p>\r\n\ Contiene\ informaci\u00F3n\ como\ CUIL,\ nombre,\ apellido,\ sueldo\ b\u00E1sico\ y\ fecha\ de\ ingreso.\r\n\ Permite\ calcular\ la\ antig\u00FCedad,\ el\ sueldo\ neto,\ descuentos,\ adicionales\ y\ verificar\ si\ hoy\ es\ su\ aniversario\ laboral.\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
 comment1.params=p_cuil\ p_apellido\ p_nombre\ p_importe\ p_anio
 comment1.target=Empleado(long,\ java.lang.String,\ java.lang.String,\ double,\ int)
 comment1.text=\r\n\ Constructor\ que\ inicializa\ un\ empleado\ con\ a\u00F1o\ de\ ingreso.\r\n\r\n\ @param\ p_cuil\ \ \ \ \ \ \ CUIL\ del\ empleado.\r\n\ @param\ p_apellido\ \ \ Apellido\ del\ empleado.\r\n\ @param\ p_nombre\ \ \ \ \ Nombre\ del\ empleado.\r\n\ @param\ p_importe\ \ \ \ Sueldo\ b\u00E1sico\ del\ empleado.\r\n\ @param\ p_anio\ \ \ \ \ \ \ A\u00F1o\ de\ ingreso\ del\ empleado.\r\n

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=EmpleadoConJefe
-comment0.text=\r\n\ Representa\ a\ un\ empleado\ dentro\ de\ una\ estructura\ jer\u00E1rquica\ empresarial.\r\n\ Cada\ empleado\ puede\ tener\ asignado\ un\ jefe\ (otro\ objeto\ de\ tipo\ {@code\ EmpleadoConJefe}),\r\n\ o\ ser\ el\ Gerente\ General\ si\ no\ tiene\ jefe\ asignado.\r\n
+comment0.text=\r\n\ Representa\ a\ un\ empleado\ dentro\ de\ una\ estructura\ jer\u00E1rquica\ empresarial.\r\n\ Cada\ empleado\ puede\ tener\ asignado\ un\ jefe\ (otro\ objeto\ de\ tipo\ {@code\ EmpleadoConJefe}),\r\n\ o\ ser\ el\ Gerente\ General\ si\ no\ tiene\ jefe\ asignado.\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
 comment1.params=p_cuil\ p_apellido\ p_nombre\ p_importe\ p_fecha\ p_jefe
 comment1.target=EmpleadoConJefe(long,\ java.lang.String,\ java.lang.String,\ double,\ java.util.Calendar,\ EmpleadoConJefe)
 comment1.text=\r\n\ Constructor\ completo\ que\ inicializa\ todos\ los\ atributos,\ incluyendo\ el\ jefe.\r\n\r\n\ @param\ p_cuil\ \ \ \ \ CUIL\ del\ empleado\r\n\ @param\ p_apellido\ Apellido\ del\ empleado\r\n\ @param\ p_nombre\ \ \ Nombre\ del\ empleado\r\n\ @param\ p_importe\ \ Sueldo\ b\u00E1sico\r\n\ @param\ p_fecha\ \ \ \ Fecha\ de\ ingreso\ (tipo\ {@code\ Calendar})\r\n\ @param\ p_jefe\ \ \ \ \ Referencia\ al\ jefe\ del\ empleado\ (puede\ ser\ {@code\ null})\r\n

@@ -1,6 +1,7 @@
 /**
  * Clase del tipo paciente, el cual modela uno con sus datos principales.
  * por ej: De donde es, su historial clinico,  el domicilio.
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class Paciente{
     private int historiaClinica;

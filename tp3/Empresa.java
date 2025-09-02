@@ -5,6 +5,7 @@ import java.util.GregorianCalendar;
 /**
  * Clase ejecutable {@code Empresa} que permite instanciar un empleado con o sin jefe,
  * verificar si hoy es su aniversario laboral y emitir un permiso de salida firmado por el jefe si corresponde.
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class Empresa{
     public static void main(String args[]){

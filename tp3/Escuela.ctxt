@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Escuela
-comment0.text=\r\n\ Crear\ clase\ Escuela\r\n
+comment0.text=\r\n\ La\ clase\ {@code\ Escuela}\ representa\ una\ instituci\u00F3n\ educativa\ que\ conoce\ a\ un\ {@code\ Docente}\r\n\ y\ puede\ emitir\ su\ recibo\ de\ sueldo.\r\n\ <p>\r\n\ Contiene\ informaci\u00F3n\ b\u00E1sica\ como\ nombre,\ domicilio\ y\ director,\ y\ mantiene\ una\ relaci\u00F3n\r\n\ directa\ con\ un\ objeto\ colaborador\ de\ tipo\ {@code\ Docente}.\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
 comment1.params=p_nombre\ p_domicilio\ p_director\ p_docente
 comment1.target=Escuela(java.lang.String,\ java.lang.String,\ java.lang.String,\ Docente)
 comment1.text=\r\n\ m\u00E9todo\ constructor\r\n

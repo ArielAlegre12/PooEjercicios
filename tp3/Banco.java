@@ -4,6 +4,7 @@ import java.util.GregorianCalendar;
 import java.util.Calendar;
 /**
  * Representa un banco, en el cual puede instanciarse un usuario 
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class Banco{
     static Scanner teclado  = new Scanner(System.in);

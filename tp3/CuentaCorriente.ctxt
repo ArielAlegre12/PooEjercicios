@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=CuentaCorriente
-comment0.text=\r\n\ Representa\ una\ cuenta\ corriente\ bancaria,\ con\ saldo,\ titular\ y\ l\u00EDmite\ de\ descubierto.\r\n\ Permite\ realizar\ dep\u00F3sitos\ y\ controlar\ extracciones\ seg\u00FAn\ el\ saldo\ disponible.\r\n
+comment0.text=\r\n\ Representa\ una\ cuenta\ corriente\ bancaria,\ con\ saldo,\ titular\ y\ l\u00EDmite\ de\ descubierto.\r\n\ Permite\ realizar\ dep\u00F3sitos\ y\ controlar\ extracciones\ seg\u00FAn\ el\ saldo\ disponible.\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
 comment1.params=p_nroCuenta\ p_titular
 comment1.target=CuentaCorriente(int,\ Persona)
 comment1.text=\r\n\ Constructor\ que\ inicializa\ la\ cuenta\ con\ n\u00FAmero\ y\ titular.\r\n\ El\ saldo\ se\ establece\ en\ cero.\r\n\ @param\ p_nroCuenta\ N\u00FAmero\ identificador\ de\ la\ cuenta.\r\n\ @param\ p_titular\ Persona\ titular\ de\ la\ cuenta.\r\n

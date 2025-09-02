@@ -3,6 +3,7 @@ import java.util.Calendar;
  * Representa a un empleado dentro de una estructura jerárquica empresarial.
  * Cada empleado puede tener asignado un jefe (otro objeto de tipo {@code EmpleadoConJefe}),
  * o ser el Gerente General si no tiene jefe asignado.
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class EmpleadoConJefe{
     private long cuil;

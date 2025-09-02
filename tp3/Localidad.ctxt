@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Localidad
-comment0.text=\r\n\ Clase\ del\ tipo\ Localidad,\ la\ cual\ permite\ modelar\ una\ localidad\ de\ una\ provincia.\r\n
+comment0.text=\r\n\ Clase\ del\ tipo\ Localidad,\ la\ cual\ permite\ modelar\ una\ localidad\ de\ una\ provincia.\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
 comment1.params=p_nombre\ p_provincia
 comment1.target=Localidad(java.lang.String,\ java.lang.String)
 comment1.text=\r\n\ Constructor\ \ que\ inicializa\ la\ localidad\r\n\ @param\ p_nombre\ nombre\ la\ localidad.\r\n\ @param\ p_provincia\ provincia\ a\ la\ cual\ pertenece\ la\ localidad.\r\n

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Banco
-comment0.text=\r\n\ Representa\ un\ banco,\ en\ el\ cual\ puede\ instanciarse\ un\ usuario\ \r\n
+comment0.text=\r\n\ Representa\ un\ banco,\ en\ el\ cual\ puede\ instanciarse\ un\ usuario\ \r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 comment2.params=

@@ -4,7 +4,7 @@ import java.util.Scanner;
   * 
   * Permite crear registros de un hombre y una mujer, establecer vínculos matrimoniales entre ellos,
   * mostrar el estado civil, consultar con quién están casados y realizar divorcios.
-  * 
+  * @Author Alegre Ariel, Antoniow Agustín.
 */
 public class RegistroCivilMenu{
     static Scanner teclado = new Scanner(System.in);

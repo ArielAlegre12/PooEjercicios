@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=CuentaBancaria
-comment0.text=\r\n\ Representa\ una\ cuenta\ bancaria\ con\ n\u00FAmero\ de\ cuenta,\ saldo\ y\ titular.\r\n\ Permite\ realizar\ dep\u00F3sitos,\ extracciones\ y\ mostrar\ informaci\u00F3n\ asociada.\r\n
+comment0.text=\r\n\ Representa\ una\ cuenta\ bancaria\ con\ n\u00FAmero\ de\ cuenta,\ saldo\ y\ titular.\r\n\ Permite\ realizar\ dep\u00F3sitos,\ extracciones\ y\ mostrar\ informaci\u00F3n\ asociada.\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
 comment1.params=p_nroCuenta\ p_titular
 comment1.target=CuentaBancaria(int,\ Persona)
 comment1.text=\r\n\ Constructor\ que\ inicializa\ la\ cuenta\ con\ n\u00FAmero\ y\ titular.\r\n\ El\ saldo\ se\ inicializa\ en\ 0.\r\n\r\n\ @param\ p_nroCuenta\ N\u00FAmero\ de\ cuenta\r\n\ @param\ p_titular\ Persona\ titular\ de\ la\ cuenta\r\n

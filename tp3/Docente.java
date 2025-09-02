@@ -3,6 +3,7 @@
  * nombre, grado a cargo, sueldo básico y asignación familiar.
  * Esta clase permite acceder a estos datos y modificarlos, también
  * calcula el sueldo a través de sus métodos.
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class Docente{
     private String nombre;

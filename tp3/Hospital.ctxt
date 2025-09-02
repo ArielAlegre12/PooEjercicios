@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Hospital
-comment0.text=\r\n\ Clase\ del\ tipo\ Hospital\ el\ cual\ representa\ un\ hospital\ y\ el\ manejo\ de\ los\ pacientes.\r\n
+comment0.text=\r\n\ Clase\ del\ tipo\ Hospital\ el\ cual\ representa\ un\ hospital\ y\ el\ manejo\ de\ los\ pacientes.\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
 comment1.params=p_nombreHospital\ p_director\ p_paciente
 comment1.target=Hospital(java.lang.String,\ java.lang.String,\ Paciente)
 comment1.text=\r\n\ Inicializa\ al\ Hospital\ con\ sus\ respectivos\ datos.\r\n\ @param\ p_nombreHospital\r\n\ @param\ p_nombreDirector\r\n\ @param\ p_paciente\r\n

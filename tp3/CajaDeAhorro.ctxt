@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=CajaDeAhorro
-comment0.text=\r\n\ Represente\ una\ caja\ de\ ahorro\r\n
+comment0.text=\r\n\ La\ clase\ {@code\ CajaDeAhorro}\ representa\ una\ cuenta\ bancaria\ que\ permite\ realizar\ dep\u00F3sitos\ y\ extracciones\r\n\ con\ un\ l\u00EDmite\ de\ operaciones.\ Est\u00E1\ asociada\ a\ un\ titular\ de\ tipo\ {@code\ Persona},\ y\ mantiene\ control\ sobre\r\n\ el\ saldo\ disponible\ y\ la\ cantidad\ de\ extracciones\ posibles.\r\n\ <p>\r\n\ Se\ puede\ instanciar\ con\ o\ sin\ saldo\ inicial,\ y\ por\ defecto\ se\ permiten\ hasta\ 10\ extracciones.\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
 comment1.params=p_nroCuenta\ p_titular
 comment1.target=CajaDeAhorro(int,\ Persona)
 comment1.text=\r\n\ Constructor\ que\ inicializa\ la\ cuenta\ con\ n\u00FAmero\ de\ cuenta\ y\ nombre\ de\ titular,\ el\ saldo\ incia\ en\ 0.\r\n\ @param\ p_nroCuenta\ es\ el\ num\ de\ la\ cuenta\ del\ titular\r\n\ @param\ p_titular\ de\ la\ cuenta\r\n

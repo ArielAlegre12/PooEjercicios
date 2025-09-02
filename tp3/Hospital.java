@@ -1,5 +1,6 @@
 /**
  * Clase del tipo Hospital el cual representa un hospital y el manejo de los pacientes.
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class Hospital{
     private String nombreHospital;

@@ -1,5 +1,10 @@
 /**
- * Represente una caja de ahorro
+ * La clase {@code CajaDeAhorro} representa una cuenta bancaria que permite realizar depósitos y extracciones
+ * con un límite de operaciones. Está asociada a un titular de tipo {@code Persona}, y mantiene control sobre
+ * el saldo disponible y la cantidad de extracciones posibles.
+ * <p>
+ * Se puede instanciar con o sin saldo inicial, y por defecto se permiten hasta 10 extracciones.
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class CajaDeAhorro{
     private int nroCuenta;

@@ -1,6 +1,7 @@
 /**
  * Representa una cuenta corriente bancaria, con saldo, titular y límite de descubierto.
  * Permite realizar depósitos y controlar extracciones según el saldo disponible.
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class CuentaCorriente{
     private int nroCuenta;

@@ -1,5 +1,6 @@
 /**
  * Clase circulo, el cual representa uno estableciendo su radio y el centro.
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 public class Circulo{
     private double radio;

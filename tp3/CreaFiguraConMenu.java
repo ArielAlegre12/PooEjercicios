@@ -7,6 +7,7 @@ import java.util.Random;
  * cumpliendo con unos de los requerimientos del tp de tener un menú interactivo
  * Se utilizan objetos de tipo {@code Punto}, {@code Circulo} y {@code Rectangulo}.
  * </p>
+ * @Author Alegre Ariel, Antoniow Agustín.
  */
 
 public class CreaFiguraConMenu {

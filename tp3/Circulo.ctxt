@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Circulo
-comment0.text=\r\n\ Clase\ circulo,\ el\ cual\ representa\ uno\ estableciendo\ su\ radio\ y\ el\ centro.\r\n
+comment0.text=\r\n\ Clase\ circulo,\ el\ cual\ representa\ uno\ estableciendo\ su\ radio\ y\ el\ centro.\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
 comment1.params=p_radio\ p_centro
 comment1.target=Circulo(double,\ Punto)
 comment1.text=\r\n\ Constructor\ que\ inicaliza\ el\ circulo\ con\ un\ radio\ y\ un\ centro.\r\n\ @param\ p_radio\ radio\ del\ circulo.\r\n\ @param\ p_centro\ centro\ del\ circulo\ de\ tipo\ Punto.\r\n

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Paciente
-comment0.text=\r\n\ Clase\ del\ tipo\ paciente,\ el\ cual\ modela\ uno\ con\ sus\ datos\ principales.\r\n\ por\ ej\:\ De\ donde\ es,\ su\ historial\ clinico,\ \ el\ domicilio.\r\n
+comment0.text=\r\n\ Clase\ del\ tipo\ paciente,\ el\ cual\ modela\ uno\ con\ sus\ datos\ principales.\r\n\ por\ ej\:\ De\ donde\ es,\ su\ historial\ clinico,\ \ el\ domicilio.\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
 comment1.params=p_historia\ p_nombre\ p_domicilio\ p_localidadNacido\ p_localidadVive
 comment1.target=Paciente(int,\ java.lang.String,\ java.lang.String,\ Localidad,\ Localidad)
 comment1.text=\r\n\ Inicializa\ al\ paciente\ con\ sus\ datos.\r\n\ @param\ p_historia\ n\u00FAmero\ de\ historia\ clinica\ del\ paciente.\r\n\ @param\ p_nombre\ nombre\ del\ paciente.\r\n\ @param\ p_domicilio\ domicilio\ del\ paciente.\r\n\ @param\ p_localidadNacido\ localidad\ en\ la\ que\ naci\u00F3.\r\n\ @param\ p_localidadVive\ localidad\ donde\ vive.\r\n
