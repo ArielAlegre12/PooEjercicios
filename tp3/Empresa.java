@@ -39,5 +39,23 @@ public class Empresa{
             System.out.println("Tiene permisio de salida.");
         }
         
+        System.out.println("Responde a un jefe?(1-si, 2-no)");
+        int op = teclado.nextInt();
+        EmpleadoConJefe jefe = null;
+        if(op == 1){
+            System.out.println("Ingrese el nombre: ");
+            String nombre = teclado.next();
+            System.out.println("Ingrese el apellido: ");
+            String apellido = teclado.next();
+            
+            jefe = new EmpleadoConJefe(0, nombre, apellido, 0, 0);
+        }
+        EmpleadoConJefe empleado = new EmpleadoConJefe(cuil, nom, ape, importe, fechaIngreso, jefe);
+        empleado.mostrarPantalla();
+        if(unEmpleado.esAniversario() && empleado.getJefe() != null){
+            System.out.println("Tiene permisio de salida.");
+            System.out.println("Firmado por: " + empleado.getJefe().apeYnom());
+        }
+        
     }
 }
