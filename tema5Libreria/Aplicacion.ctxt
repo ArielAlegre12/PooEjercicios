@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Aplicacion
+comment0.text=\r\n\ Clase\ para\ interactuar\ con\ la\ libreria.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=Autor\ crearAutor()
+comment3.params=
+comment3.target=Libro\ crearLibro()
+comment4.params=p_libreria
+comment4.target=void\ menu(Libreria)
+comment5.params=p_libros\ p_libreria
+comment5.target=void\ quitarLibros(java.util.ArrayList,\ Libreria)
+comment6.params=p_libros\ p_libreria
+comment6.target=void\ editarLibros(java.util.ArrayList,\ Libreria)
+comment7.params=p_libro
+comment7.target=void\ menuLibro(Libro)
+numComments=8
