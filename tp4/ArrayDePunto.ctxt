@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=ArrayDePunto
+comment0.text=\r\n\ Clase\ Array\ de\ Punto\ donde\ trabajamos\ con\ un\ array\ de\ manera\ estatica.\ contiene\ 6\ elementos.\r\n\ lo\ recorremos\ a\ tr\u00E1ves\ de\ un\ for.\r\n\ @Author\ Alegre\ Ariel,\ Agust\u00EDn\ Antoniow.\r\n
+comment1.params=p_puntos
+comment1.target=ArrayDePunto(Punto)
+comment1.text=\r\n\ Constructor\ el\ cual\ recibe\ al\ menos\ 1\ elemento.\r\n\ @param\ p_puntos\ es\ el\ punto\ de\ tipo\ Punto\ que\ contiene\ las\ coordenadas.\r\n
+comment2.params=
+comment2.target=ArrayDePunto()
+comment2.text=\r\n\ Constructor\ que\ no\ recibe\ nada.\ entonces\ s\u00F3lo\ incializa\ el\ array.\r\n
+comment3.params=p_punto
+comment3.target=void\ setPuntos(Punto)
+comment3.text=\r\n\ M\u00E9todo\ mutador\ para\ asignar\ un\ punto\ al\ array.\r\n\ una\ vez\ asignado\ en\ la\ posici\u00F3n\ m\u00E1s\ pronta\ y\ libre,\ sale\ del\ bucle.\r\n\ @p_punto\ punto\ que\ recibe\ para\ asignar\ al\ array\ si\ hay\ espacio\ disponible.\r\n
+comment4.params=p_puntos
+comment4.target=void\ agregarPunto(Punto)
+comment4.text=\r\n\ M\u00E9todo\ para\ agregar\ un\ punto.\r\n
+comment5.params=
+comment5.target=Punto[]\ getPuntos()
+comment6.params=
+comment6.target=void\ recorrerArray()
+comment6.text=\r\n\ M\u00E9todo\ para\ poder\ visualizar\ todos\ los\ elementos\ del\ array,\ mostrando\ sus\ coordenadas\ y\ la\ distancia\ que\ tiene\ el\ actual\ con\ el\ siguiente.\r\n\ usamos\ length\ -1\ para\ asi\ no\ sufrir\ un\ error\ al\ querer\ comparar\ con\ algo\ que\ no\ existe(en\ el\ caso\ del\ ultimo\ elemento).\r\n\ Mostrara\ 5\ distancias\:\r\n\ p1\ y\ p2\r\n\ p2\ y\ p3\r\n\ p3\ y\ p4\r\n\ p4\ y\ p5\r\n\ p5\ y\ p6\r\n
+numComments=7
