@@ -4,6 +4,7 @@
  */
 import java.util.Calendar;
 import java.util.*;
+import java.text.SimpleDateFormat;
 public class Pedido{
     private Calendar fecha;
     private Cliente cliente;
@@ -29,6 +30,7 @@ public class Pedido{
         this.setProductos(new ArrayList<Producto>());
         this.agregarProducto(p_producto);
     }
+
     /**
      * Método para agregar un procuto.
      */
@@ -46,7 +48,7 @@ public class Pedido{
      */
     private void setFecha(Calendar p_fecha){this.fecha = p_fecha;}
     private void setCliente(Cliente p_cliente){this.cliente = p_cliente;}
-    private void setProductos(ArrayList<Producto> p_productos){this.productos = productos;}
+    private void setProductos(ArrayList<Producto> p_productos){this.productos = p_productos;}
     
     public Calendar getFecha(){return this.fecha;}
     public Cliente getCliente(){return this.cliente;}
@@ -74,14 +76,30 @@ public class Pedido{
     }
     /**
      * Método para visualizar los detalles del pedido del cliente.
+     * utilizo un for each, tambien genero dos var temporales las cuales guardan el
+     * valor del precio de lista y contado pero con sólo dos decimales.
+     * tambien uso printf para alinear las columnas con mejor precisión,
+     * -20s imprime el texto alineado a la izquierda ocupando 20 espacios.
+     * 15s imprime el texto a la derecha, ocupando 15 espacios.
+     * 20s imprime el texto a la derecha, ocupando 20 espacios.
      */
     public void mostrarPedido(){
-        System.out.println("****** Detalle del pedido ****** Fecha: " + this.getFecha());
-        System.out.println("Producto\tPrecio Lista\tPrecio Contado");
-        System.out.println("------------------------------------------");
-        for(Producto unProducto: this.getProductos()){
-            System.out.println(unProducto.getDescripcion() + "\t" + unProducto.precioLista() + "\t" + unProducto.precioContado());
+        
+        SimpleDateFormat formato = new SimpleDateFormat("dd 'de' MMMM 'de' yyyy");
+        System.out.println("****** Detalle del pedido ****** Fecha: " + formato.format(this.getFecha().getTime()));
+        System.out.println();
+        System.out.printf("%-20s %15s %20s\n", "Producto", "Precio Lista", "Precio Contado");
+        System.out.println("--------------------------------------------------------");
+
+        for(Producto unProducto : this.getProductos()){
+            System.out.printf("%-20s %15.2f %20.2f\n",
+            unProducto.getDescripcion(),
+            unProducto.precioLista(),
+            unProducto.precioContado());
         }
-        System.out.println("*** Total------" + this.totalFinanciado() + "\t" + this.totalAlContado());
-    }
+
+        System.out.println("--------------------------------------------------------");
+        System.out.printf("***  Total ------ %15.2f %20.2f\n", this.totalFinanciado(), this.totalAlContado());
+}
+
 }

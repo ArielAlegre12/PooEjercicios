@@ -78,14 +78,14 @@ public class TomaPedido{
                     System.out.println("\nhecho\n");
                     break;
                 case 2:
-                    if(unPedido.getProductos() != null){
+                    if(unPedido.getProductos().size() > 0){
                         codigosProductos(unPedido);
                         System.out.println("Ingrese el codigo del que desea eliminar: ");
                         int cod = teclado.nextInt();
                         eliminar(cod, unPedido);
-                        break;
                         }else{
-                        System.out.println("No hay nada para eliminar.");}
+                        System.out.println("No hay nada para eliminar.\n");}
+                        break;
                 case 3:
                     unPedido.mostrarPedido();
                     break;
