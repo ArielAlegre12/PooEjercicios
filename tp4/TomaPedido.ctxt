@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=TomaPedido
+comment0.text=\r\n\ Clase\ ejecutable\ que\ toma\ el\ pedido\ del\ cliente.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=Cliente\ crearCliente()
+comment2.text=\r\n\ M\u00E9todo\ para\ crear\ un\ cliente\ y\ retornar\ los\ datos.\r\n
+comment3.params=
+comment3.target=Laboratorio\ crearLab()
+comment3.text=\r\n\ M\u00E9todo\ para\ crear\ un\ laboratorio.\r\n
+comment4.params=
+comment4.target=Producto\ crearProducto()
+comment4.text=\r\n\ M\u00E9todo\ para\ crear\ un\ producto.\r\n
+comment5.params=unCliente\ unPedido
+comment5.target=void\ menu(Cliente,\ Pedido)
+comment5.text=\r\n\ Men\u00FA\ iterativo\r\n
+comment6.params=p_unPedido
+comment6.target=void\ codigosProductos(Pedido)
+comment6.text=\r\n\ Muestra\ la\ lista\ de\ codigo\ y\ descripci\u00F3n\ del\ producto.\r\n
+comment7.params=p_cod\ p_unPedido
+comment7.target=void\ eliminar(int,\ Pedido)
+comment7.text=\r\n\ Elimina\ el\ producto\ eligiendo\ su\ codigo.\r\n
+numComments=8
