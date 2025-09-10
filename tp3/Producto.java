@@ -113,7 +113,7 @@ public class Producto{
         System.out.println("Rubro: " + this.getRubro());
         System.out.println("Descripcion: " + this.getDescripcion());
         System.out.println("Precio costo: " + this.getCosto());
-        System.out.println("Stock: " + this.getStock() + " Stock valorizado: $" + stockValorizado() + "\n");
+        System.out.println("Stock: " + this.getStock() + " Stock valorizado: $" + this.stockValorizado() + "\n");
     }
      
     /**

@@ -55,7 +55,7 @@ public class Escuela{
      * método para imprimir el recibo del docente
      */
     public void imprimirRecibo(Docente p_docente){
-        System.out.println("Escuela: " + this.getNombre() + "  Domicilio: " + this.getDomicilio() + "  " + " Director: " + getDirector());
+        System.out.println("Escuela: " + this.getNombre() + "  Domicilio: " + this.getDomicilio() + "  " + " Director: " + this.getDirector());
         System.out.println("-----------------------------------------------------------------");
         System.out.println("Docente:   " + p_docente.getNombre());
         System.out.println("Sueldo:------------------- $" + p_docente.calcularSueldo());

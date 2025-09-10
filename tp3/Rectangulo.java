@@ -69,8 +69,8 @@ public class Rectangulo{
      */
     public void caracateristicas(){
         System.out.println("****** Rectangulo ******");
-        System.out.println("Orgien: " + this.getOrigen().coordenadas() + " - Alto: "+ this.getAlto() + " - Ancho: " + getAncho());
-        System.out.println("Superficie: " + superficie() + " - Perímetro: " + perimetro());
+        System.out.println("Orgien: " + this.getOrigen().coordenadas() + " - Alto: "+ this.getAlto() + " - Ancho: " + this.getAncho());
+        System.out.println("Superficie: " + this.superficie() + " - Perímetro: " + this.perimetro());
     }
     /**
      * Calcula la superficie del rectángulo.

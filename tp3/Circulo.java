@@ -52,7 +52,7 @@ public class Circulo{
     public void caracteristicas(){
         System.out.println(" ****** Circulo ****** ");
         System.out.println("Centro: " + this.getCentro().coordenadas() + "  -Radio: " + this.getRadio());
-        System.out.println(String.format("Superficie: %.2f -Perímetro: %.2f\n", superficie(), perimetro()));
+        System.out.println(String.format("Superficie: %.2f -Perímetro: %.2f\n", this.superficie(), this.perimetro()));
     }
     /**
      * Método para obtener la superficie del circulo.

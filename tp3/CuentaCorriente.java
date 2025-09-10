@@ -114,7 +114,7 @@ public class CuentaCorriente{
      */
     public void extraer(double p_importe){
         if(puedeExtraer(p_importe)){
-            extraccion(p_importe);
+            this.extraccion(p_importe);
         }else{
             System.out.println("El importe de extraccion sobrepasa el límite de descubierto");
         }

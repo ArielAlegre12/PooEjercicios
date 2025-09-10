@@ -145,7 +145,7 @@ public class EmpleadoConJefe{
     }
     //muestra los datos concatenados.
     public String mostrarLinea(){
-        return this.getCuil() + "\t" + apeYnom() + "\t........ $" + sueldoNeto();  
+        return this.getCuil() + "\t" + this.apeYnom() + "\t........ $" + this.sueldoNeto();  
     }
     /**
      * Muestra por pantalla los datos completos del empleado.
@@ -153,9 +153,9 @@ public class EmpleadoConJefe{
      * Si no tiene jefe, se indica que es el Gerente General.
      */
     public void mostrarPantalla(){
-        System.out.println("Nombre y Apellido: " + nomYape());
-        System.out.println("CUIL: " + this.getCuil() + " Antiguedad: " + antiguedad() + " Años de servicio.");
-        System.out.println("Sueldo Neto: $" + sueldoNeto());
+        System.out.println("Nombre y Apellido: " + this.nomYape());
+        System.out.println("CUIL: " + this.getCuil() + " Antiguedad: " + this.antiguedad() + " Años de servicio.");
+        System.out.println("Sueldo Neto: $" + this.sueldoNeto());
         if(this.getJefe() != null){
             System.out.println("Responde a " + this.getJefe().apeYnom());
         }else{

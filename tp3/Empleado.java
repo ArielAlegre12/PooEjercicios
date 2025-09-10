@@ -132,12 +132,12 @@ public class Empleado{
     }
     //visualizar datos
     public void mostrar(){
-        System.out.println("Nombre y Apellido: " + nomYape());
-        System.out.println("CUIL: " + this.getCuil() + "\tAntiguedad: " + antiguedad() + " Años de servicio");
-        System.out.println("Sueldo neto: $" + sueldoNeto());
+        System.out.println("Nombre y Apellido: " + this.nomYape());
+        System.out.println("CUIL: " + this.getCuil() + "\tAntiguedad: " + this.antiguedad() + " Años de servicio");
+        System.out.println("Sueldo neto: $" + this.sueldoNeto());
     }
     public String mostrarLinea(){
-        return this.getCuil() + "\t" + apeYnom() + "\t........ $" + sueldoNeto();  
+        return this.getCuil() + "\t" + this.apeYnom() + "\t........ $" + this.sueldoNeto();  
     }
     
     /**

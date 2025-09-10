@@ -111,8 +111,8 @@ public Persona(int p_dni, String p_nombre, String p_apellido, Calendar p_fecha) 
      * defino el método que muestra la info de una persona
      */
     public void mostrar(){
-        System.out.println("Nombre y Apellido: " + nomYape());
-        System.out.println("DNI: " + this.getDNI() + "\t" + "Edad: " + edad() + " Años");
+        System.out.println("Nombre y Apellido: " + this.nomYape());
+        System.out.println("DNI: " + this.getDNI() + "\t" + "Edad: " + this.edad() + " Años");
     }
     /**
      * Verifica si hoy es el cumpleaños de la persona.
