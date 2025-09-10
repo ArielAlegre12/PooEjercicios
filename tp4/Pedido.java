@@ -1,10 +1,10 @@
+import java.util.Calendar;
+import java.util.*;
+import java.text.SimpleDateFormat;
 /**
  * Clase Pedido el cual puede manejar 1 o más productos.
  * trabajando con colecciones y conocimiento entre clases.
  */
-import java.util.Calendar;
-import java.util.*;
-import java.text.SimpleDateFormat;
 public class Pedido{
     private Calendar fecha;
     private Cliente cliente;

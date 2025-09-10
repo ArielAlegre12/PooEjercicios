@@ -1,4 +1,3 @@
-import java.util.Scanner;
 /**
  * Representa un producto comercializado por una droguería.
  * Cada producto tiene un código, rubro, descripción, costo, stock,
@@ -12,7 +11,7 @@ public class Producto{
     private String rubro;
     private String descripcion;
     private double costo;
-    private int stock = 0;
+    private int stock;
     private double porcPtoRepo;
     private int existMinima;
     private Laboratorio lab;
@@ -51,6 +50,9 @@ public class Producto{
         this.setDescripcion(p_desc);
         this.setCosto(p_costo);
         this.setLaboratorio(p_lab);
+        this.existMinima = 0;
+        this.porcPtoRepo = 0;
+        this.stock = 0;
     }
                     
     private void setCodigo(int p_codigo){
@@ -119,19 +121,7 @@ public class Producto{
      * @param p_cantidad cantidad a ajustar (positiva o negativa)
      */
     public void ajuste(int p_cantidad){
-        Scanner teclado = new Scanner(System.in);
-        System.out.println("Desea quitar o agregar el stock?(1-agregar, 2-quitar): ");
-        int opcion = teclado.nextInt();
-        if(opcion  == 1){
-            this.setStock(this.getStock() + p_cantidad);
-            return;
-        }else if(opcion ==  2){
-            this.setStock(this.getStock() - p_cantidad);
-            return;
-        }else{
-            System.out.println("Opcion incorrecta!");
-            return;
-        }
+        this.setStock(this.getStock() + p_cantidad);
     }
     
     /**

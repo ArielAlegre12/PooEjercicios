@@ -16,8 +16,8 @@ public class Punto{
      * Inicializa el punto en el origen (0,0).
      */
     public Punto(){
-        x = 0;
-        y = 0;
+        this.x = 0;
+        this.y = 0;
     }
     
     /**
@@ -28,8 +28,8 @@ public class Punto{
      * @param p_y coordenada Y del punto
      */
     public Punto(double p_x, double p_y){
-        setX(p_x);
-        setY(p_y);
+        this.setX(p_x);
+        this.setY(p_y);
     }
     
     /**
@@ -38,7 +38,7 @@ public class Punto{
      * @param p_x nuevo valor para X
      */
     private void setX(double p_x){
-        x = p_x;
+        this.x = p_x;
     }
     
      /**
@@ -47,7 +47,7 @@ public class Punto{
      * @param p_y nuevo valor para Y
      */
     private void setY(double p_y){
-        y = p_y;
+        this.y = p_y;
     }
     
      /**
@@ -56,7 +56,7 @@ public class Punto{
      * @return valor de X
      */
     public double getX(){
-        return x;
+        return this.x;
     }
     
     /**
@@ -65,7 +65,7 @@ public class Punto{
      * @return valor de Y
      */
     public double getY(){
-        return y;
+        return this.y;
     }
     
      /**
@@ -75,15 +75,15 @@ public class Punto{
      * @param p_dy desplazamiento en Y
      */
     public void desplazar(double p_dx, double p_dy){
-        x = x + p_dx;
-        y = y + p_dy;
+        this.setX(this.getX() + p_dx);
+        this.setY(this.getY() + p_dy);
     }
     
     /**
      * Muestra las coordenadas del punto por consola.
      */
     public void mostrar(){
-        System.out.println("Punto.X " + getX() + " Y: " + getY());
+        System.out.println("Punto.X " + this.getX() + " Y: " + this.getY());
     }
     
      /**
@@ -92,7 +92,7 @@ public class Punto{
      * @return cadena con el formato "(x y)"
      */ 
     public String coordenadas(){
-        return "(" + getX() + " " + getY() + ")";
+        return "(" + this.getX() + " " + this.getY() + ")";
     }
     
     

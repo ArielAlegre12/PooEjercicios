@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=Pedido
+comment0.text=\r\n\ Clase\ Pedido\ el\ cual\ puede\ manejar\ 1\ o\ m\u00E1s\ productos.\r\n\ trabajando\ con\ colecciones\ y\ conocimiento\ entre\ clases.\r\n
 comment1.params=p_fecha\ p_cliente\ p_productos
 comment1.target=Pedido(java.util.Calendar,\ Cliente,\ java.util.ArrayList)
 comment1.text=\r\n\ Constructor\ el\ cual\ recibe\ una\ lista\ de\ productos.\r\n\ @param\ p_fecha\ fecha\ del\ pedido\r\n\ @param\ \ \ p_cliente\ cliente\ que\ hace\ el\ pedido.\r\n\ @param\ p_productos\ arrays\ que\ contiene\ los\ productos.\r\n
