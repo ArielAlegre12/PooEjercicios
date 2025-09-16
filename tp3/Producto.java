@@ -153,7 +153,7 @@ public class Producto{
      * @return línea resumen del producto
      */
     public String mostrarLinea(){
-        return this.getDescripcion() + " " + precioLista() + " " + precioContado();
+        return this.getDescripcion() + " " + this.precioLista() + " " + this.precioContado();
     }
     
     /**
@@ -161,7 +161,7 @@ public class Producto{
      * @param p_porce nuevo porcentaje
      */
     public void ajustarPtoRepo(double p_porce){
-        this.porcPtoRepo = p_porce;
+        this.setPorcPtoRepo(p_porce);
     }
     
     /**
@@ -169,7 +169,7 @@ public class Producto{
      * @param p_cantidad nueva cantidad mínima
      */
     public void ajustarExistMin(int p_cantidad){
-        this.existMinima = p_cantidad;
+        this.setExistMinima(p_cantidad);
     }
     
     

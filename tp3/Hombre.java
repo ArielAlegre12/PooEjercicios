@@ -15,12 +15,13 @@ public class Hombre{
      * @param p_nombre nombre del hombre.
      * @param p_apellido apellido del hombre.
      * @param p_edad edad del hombre.
+     * Coloca el estado civil del hombre en Soltero.
      */
     public Hombre(String p_nombre, String p_apellido, int p_edad){
         this.setNombre(p_nombre);
         this.setApellido(p_apellido);
         this.setEdad(p_edad);
-        this.estadoCivil = "soltero";
+        this.setEstadoCivil("soltero");
     }
     /**
      * Constructor el cual inicializa al hombre ya con esposa.
@@ -28,12 +29,14 @@ public class Hombre{
      * @param p_apellido apellido del hombre.
      * @param p_edad edad del hombre.
      * @param p_esposa esposa del hombre.
+     * Coloca el estado civil del hombre en Casado.
      */
     public Hombre(String p_nombre, String p_apellido, int p_edad, Mujer p_esposa){
         this.setNombre(p_nombre);
         this.setApellido(p_apellido);
         this.setEdad(p_edad);
         this.setEsposa(p_esposa);
+        this.setEstadoCivil("Casado");
     }
     /**
      * Métodos setters y getters
@@ -75,7 +78,7 @@ public class Hombre{
         this.setEsposa(null);
         this.setEstadoCivil("Divorciado");
         ex.divorcio();
-           }
+        }
     }
     
     public String datos(){

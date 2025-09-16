@@ -12,8 +12,6 @@ public class Empleado{
     private String apellido;
     private String nombre;
     private double sueldoBasico;
-    Calendar fechaHoy = new GregorianCalendar();
-    int anioHoy  = fechaHoy.get(Calendar.YEAR);
     private Calendar fechaIngreso;
     
     Scanner teclado = new Scanner(System.in);
@@ -89,10 +87,12 @@ public class Empleado{
     public Calendar getFechaIngreso(){return this.fechaIngreso;}
     
     /**
-     * Metodo {@code antiguedad()} que devuelve la cantidad de años trabajados
+     * Calcula la antigüedad del empleado en años.
+     * @return cantidad de años desde la fecha de ingreso hasta el año actual
      */
     public int antiguedad(){
-        return anioHoy - this.getAnioIngreso();
+        Calendar hoy = Calendar.getInstance();
+        return hoy.get(Calendar.YEAR) - this.getAnioIngreso();
     }
     /**
      * Método {@code descuento()} que devuelve la cantidad descontada del sueldo neto
@@ -120,7 +120,7 @@ public class Empleado{
      * y el seguro de vida.
      */
     public double sueldoNeto(){
-        return (this.getSueldo() - descuento());
+        return (this.getSueldo() - this.descuento());
     }
     //obtener nombre y apellido
     public String nomYape(){

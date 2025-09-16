@@ -15,12 +15,13 @@ public class Mujer{
      * @param p_nombre   Nombre de la mujer.
      * @param p_apellido Apellido de la mujer.
      * @param p_edad     Edad de la mujer.
+     * se agrega el estado civil como Soltera.
      */
     public Mujer(String p_nombre, String p_apellido, int p_edad){
         this.setNombre(p_nombre);
         this.setApellido(p_apellido);
         this.setEdad(p_edad);
-        this.estadoCivil = "Soltera";
+        this.setEstadoCivil("Soltera");
     }
     /**
      * Constructor que inicializa una mujer con esposo asignado.
@@ -29,12 +30,14 @@ public class Mujer{
      * @param p_apellido Apellido de la mujer.
      * @param p_edad     Edad de la mujer.
      * @param p_esposo   Objeto Hombre que representa al esposo.
+     * se agrega el estado civil como Casada.
      */
     public Mujer(String p_nombre, String p_apellido, int p_edad, Hombre p_esposo){
         this.setNombre(p_nombre);
         this.setApellido(p_apellido);
         this.setEdad(p_edad);
         this.setEsposo(p_esposo);
+        this.setEstadoCivil("Casada");
     }
     /**
      * Métodos setters y getters

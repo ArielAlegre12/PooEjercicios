@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Carrera
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=Alumno\ crearAlumno()
+comment2.text=\r\n\ Crear\ un\ alumno\ y\ retornar\ datos.\r\n
+comment3.params=p_curso
+comment3.target=int\ seleccionarLu(Curso)
+comment3.text=\r\n\ peque\u00F1o\ m\u00E9todo\ para\ que\ ingrese\ el\ lu\ que\ desea\ seleccionar.\r\n
+comment4.params=p_curso
+comment4.target=void\ menu(Curso)
+comment4.text=\r\n\ Peque\u00F1o\ men\u00FA\ interactivo\r\n
+numComments=5

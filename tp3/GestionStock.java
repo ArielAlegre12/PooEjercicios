@@ -16,7 +16,7 @@ public class GestionStock{
         
         unProducto.ajuste(500);
         unProducto.mostrar();
-        unProducto.ajuste(200);
+        unProducto.ajuste(-200);
         unProducto.mostrar();
         unProducto.precioLista();
         unProducto.precioContado();

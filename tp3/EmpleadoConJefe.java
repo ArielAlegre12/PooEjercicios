@@ -133,7 +133,7 @@ public class EmpleadoConJefe{
      * @return sueldo neto
      */
     public double sueldoNeto(){
-        return (this.getSueldoBasico() - descuento());
+        return (this.getSueldoBasico() - this.descuento());
     }
     //obtener nombre y apellido
     public String nomYape(){
