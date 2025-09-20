@@ -22,8 +22,8 @@ public class Curso{
      * @param p_alumno lista de 1 o más alumnos del curso.
      */
     public Curso(String p_nombre, HashMap p_alumnos){
-        setNombre(p_nombre);
-        setAlumnos(p_alumnos);
+        this.setNombre(p_nombre);
+        this.setAlumnos(p_alumnos);
     }
     /**
      * métodos setters y getters.
