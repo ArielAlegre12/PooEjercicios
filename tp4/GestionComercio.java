@@ -1,5 +1,14 @@
 /**
- * Gestión comercio que instancia un comercio y varios empleados.
+ * La clase {@code GestionComercio} representa el punto de entrada de la aplicación.
+ * 
+ * Instancia un objeto de la clase {@code Comercio}, solicita al usuario el nombre del comercio
+ * y agrega varios empleados a dicho comercio. Luego muestra la nómina de empleados en cada paso.
+ * 
+ * Este ejemplo demuestra cómo utilizar la clase {@code Comercio} y cómo gestionar empleados
+ * mediante la consola.
+ * 
+ * @author Alegre Ariel, Agustín Antoniow.
+ * @version 1.0
  */
 import java.util.*;
 import java.util.Scanner;
