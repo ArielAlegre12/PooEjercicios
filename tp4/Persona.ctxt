@@ -27,6 +27,7 @@ comment17.target=boolean\ esCumplea\u00F1os()
 comment17.text=\r\n\ Verifica\ si\ hoy\ es\ el\ cumplea\u00F1os\ de\ la\ persona.\r\n\ @return\ true\ si\ hoy\ es\ el\ cumplea\u00F1os,\ false\ en\ caso\ contrario\ o\ si\ la\ fecha\ no\ est\u00E1\ definida.\r\n
 comment2.params=p_dni\ p_nombre\ p_apellido\ p_fecha
 comment2.target=Persona(int,\ java.lang.String,\ java.lang.String,\ java.util.Calendar)
+comment2.text=\r\n\ Contructor\ que\ recibe\ la\ fecha\ de\ tipo\ Calendar.\r\n
 comment3.params=p_nroDni
 comment3.target=void\ setDni(int)
 comment3.text=\r\n\ M\u00E9todos\ setters\ y\ getters\ para\ encapsular\ el\ acceso\ a\ los\ atributos\ privados.\r\n

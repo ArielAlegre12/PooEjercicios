@@ -13,7 +13,6 @@ public class Persona{
     //private int anioNacimiento;
     private Calendar fechaNacimiento;
     
-    
     /**
      * Constructor alternativo que permite crear una Persona solo con el año de nacimiento.
      * @param p_dni Número de DNI.
@@ -21,19 +20,23 @@ public class Persona{
      * @param p_apellido Apellido.
      * @param p_anio Año de nacimiento.
      */
-public Persona(int p_dni, String p_nombre, String p_apellido, int p_anio) {
-    this.setDni(p_dni);
-    this.setNombre(p_nombre);
-    this.setApellido(p_apellido);
-    this.fechaNacimiento = Calendar.getInstance();
-    setAnioNacimiento(p_anio);
-}
-public Persona(int p_dni, String p_nombre, String p_apellido, Calendar p_fecha) {
-    this.setDni(p_dni);
-    this.setNombre(p_nombre);
-    this.setApellido(p_apellido);
-    this.setFechaNacimiento(p_fecha);
-}
+    public Persona(int p_dni, String p_nombre, String p_apellido, int p_anio) {
+        this.setDni(p_dni);
+        this.setNombre(p_nombre);
+        this.setApellido(p_apellido);
+        this.fechaNacimiento = Calendar.getInstance();
+        setAnioNacimiento(p_anio);
+        }
+
+    /**
+     * Contructor que recibe la fecha de tipo Calendar.
+     */
+    public Persona(int p_dni, String p_nombre, String p_apellido, Calendar p_fecha) {
+        this.setDni(p_dni);
+        this.setNombre(p_nombre);
+        this.setApellido(p_apellido);
+        this.setFechaNacimiento(p_fecha);
+        }
 
 
     /**

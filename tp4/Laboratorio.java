@@ -23,11 +23,11 @@ public class Laboratorio{
      * @param p_diaEnt dia de la entrega de productos.
      */
     public Laboratorio(String p_nombre, String p_domicilio, String p_telefono, int p_compraMin, int p_diaEnt){
-        setNombre(p_nombre);
-        setDomicilio(p_domicilio);
-        setTelefono(p_telefono);
-        setCompraMinima(p_compraMin);
-        setDiaEntrega(p_diaEnt);
+        this.setNombre(p_nombre);
+        this.setDomicilio(p_domicilio);
+        this.setTelefono(p_telefono);
+        this.setCompraMinima(p_compraMin);
+        this.setDiaEntrega(p_diaEnt);
     }
     /**
      * Constructor parcial de Laboratorio
@@ -36,61 +36,61 @@ public class Laboratorio{
      * @param p_teléfono (del lab).
      */
     public Laboratorio(String p_nombre, String p_domicilio, String p_telefono){
-        setNombre(p_nombre);
-        setDomicilio(p_domicilio);
-        setTelefono(p_telefono);
+        this.setNombre(p_nombre);
+        this.setDomicilio(p_domicilio);
+        this.setTelefono(p_telefono);
     }
     
     private void setNombre(String p_nombre){
-        nombre = p_nombre;
+        this.nombre = p_nombre;
     }
     private void setDomicilio(String p_domicilio){
-        domicilio = p_domicilio;
+        this.domicilio = p_domicilio;
     }
     private void setTelefono(String p_telefono){
-        telefono = p_telefono;
+        this.telefono = p_telefono;
     }
     private void setCompraMinima(int p_compraMin){
-        compraMinima = p_compraMin;
+        this.compraMinima = p_compraMin;
     }
     private void setDiaEntrega(int p_diaEnt){
-        diaEntrega = p_diaEnt;
+        this.diaEntrega = p_diaEnt;
     }
     
     public String getNombre(){
-        return nombre;
+        return this.nombre;
     }
     public String getDomicilio(){
-        return domicilio;
+        return this.domicilio;
     }
     public String getTelefono(){
-        return telefono;
+        return this.telefono;
     }
     public int getCompraMinima(){
-        return compraMinima;
+        return this.compraMinima;
     }
     public int getDiaEntrega(){
-        return diaEntrega;
+        return this.diaEntrega;
     }
     /**
      * En caso de que se necesite actualizar la compra minima
      * @param p_compraMin contiene el nuevo valor
      */
     public void nuevaCompraMinima(int p_compraMin){
-        compraMinima = p_compraMin;
+        this.setCompraMinima(p_compraMin);
     }
     /**
      * En caso de que se necesite actualizar nuevo dia de entrega
      * @param p_diaEnt contiene el nuevo dia
      */
     public void nuevoDiaEntrega(int p_diaEnt){
-        diaEntrega = p_diaEnt;
+        this.setDiaEntrega(p_diaEnt);
     }
     /**
      * si se quiere devolver los datos del laboratorio
      */
     public String mostrar(){
-        return "Laboratorio: " + getNombre() + "\n" + 
-                "Domicilio: " + getDomicilio() + "- " + "Teléfono: " + getTelefono();
+        return "Laboratorio: " + this.getNombre() + "\n" + 
+                "Domicilio: " + this.getDomicilio() + "- " + "Teléfono: " + this.getTelefono();
     }
 }

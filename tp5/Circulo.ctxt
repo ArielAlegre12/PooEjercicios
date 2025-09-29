@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Circulo
+comment0.text=\r\n\ Clase\ circulo,\ el\ cual\ representa\ uno\ estableciendo\ su\ radio\ y\ el\ centro.\r\n\ esta\ clase\ es\ una\ herencia\ de\ la\ clase\ elipse,\ se\ utiliza\ la\ generalizaci\u00F3n\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n\ \r\n
+comment1.params=p_radio\ p_centro
+comment1.target=Circulo(double,\ Punto)
+comment1.text=\r\n\ Constructor\ que\ incializa\ con\ todos\ los\ datos\ de\ un\ circulo\r\n\ manda\ atraves\ de\ la\ seudovariable\ super\ los\ parametros\ para\ inicializarlas.\r\n\ @param\ p_radio\ radio\ del\ circulo.\r\n\ @param\ p_centro\ centro\ del\ radio.\r\n
+comment2.params=
+comment2.target=java.lang.String\ nombreFigura()
+comment2.text=\r\n\ m\u00E9todo\ que\ muestra\ el\ nombre\ de\ la\ figura.\r\n
+numComments=3

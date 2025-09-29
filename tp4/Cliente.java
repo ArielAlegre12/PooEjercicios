@@ -71,6 +71,9 @@ public class Cliente{
         setSaldo(p_importe);
         return getSaldo();
     }
+    /**
+     * Agrega el saldo, luego devuelve la actualización.
+     */
     public double agregaSaldo(double p_importe){
         double nuevoSaldo = p_importe + getSaldo();
         setSaldo(nuevoSaldo);

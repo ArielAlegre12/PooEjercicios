@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Exclusivo
+comment0.text=\r\n\ Clase\ Exclusivo\ que\ permite\ al\ cargo\ variar\ sus\ horas\ de\ docencia\ e\ invesigaci\u00F3n.\r\n
+comment1.params=p_horasDeInvestigacion\ p_horasDeExtension\ p_nombreCargo\ p_sueldoBasico\ p_anioIngreso\ p_horasDeDocencia
+comment1.target=Exclusivo(int,\ int,\ java.lang.String,\ double,\ int,\ int)
+comment1.text=\r\n\ Constructor\ que\ inicializa\ el\ cargo\ y\ los\ horarios\r\n\ @param\ p_horasDeInvestigacion\ horas\ dedicadas\ a\ investigacion\r\n\ @param\ p_horasDeExtencion\ horas\ dedicadas\ a\ la\ extension\r\n
+comment2.params=p_horasDeInvestigaci\u00F3n
+comment2.target=void\ setHorasInvestigacion(int)
+comment2.text=\r\n\ m\u00E9todos\ para\ acceder\ y\ modificar\ los\ horarios(setters\ y\ getters)\r\n
+comment3.params=p_horasDeExtension
+comment3.target=void\ setHorasExtencion(int)
+comment4.params=
+comment4.target=int\ getHorasInvestigacion()
+comment5.params=
+comment5.target=int\ getHorasExtension()
+comment6.params=
+comment6.target=void\ mostrarCargo()
+numComments=7

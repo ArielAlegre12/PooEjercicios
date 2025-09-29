@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=SemiExclusivo
+comment0.text=\r\n\ Clase\ SemiExclusivo\ que\ permite\ al\ cargo\ cumplir\ hasta\ 10hs\ de\ investigaci\u00F3n\ y\ minimamente\ 10hs\ de\ docencia.\r\n
+comment1.params=p_horasDeInvestigacion\ p_nombreCargo\ p_sueldoBasico\ p_anioIngreso\ p_horasDeDocencia
+comment1.target=SemiExclusivo(int,\ java.lang.String,\ double,\ int,\ int)
+comment1.text=\r\n\ Constructor\ que\ inicializa\ la\ clase-\r\n\ @param\ p_horasDeInvestigacion\ Horas\ dedicada\ a\ la\ investigaci\u00F3n.\r\n
+comment2.params=p_horasDeInvestigacion
+comment2.target=void\ setHorasInvestigacion(int)
+comment2.text=\r\n\ M\u00E9todos\ setters\ y\ getters.\r\n
+comment3.params=
+comment3.target=int\ getHorasInvestigacion()
+comment4.params=
+comment4.target=void\ mostrarCargo()
+comment4.text=\r\n\ m\u00E9todo\ para\ mostrar\ el\ cargo\ de\ semiExclusivo.\r\n
+numComments=5

@@ -18,7 +18,8 @@ public class ArrayDePuntos{
         }
         for(int i = 0; i < 5; i++){
             double distancia = arraysPuntos[i].distanciaA(arraysPuntos[i+1]);
-            System.out.println("Distancia de " + arraysPuntos[i].coordenadas() + " y " + arraysPuntos[i+1].coordenadas() + " es: " + distancia);
+            System.out.println("Distancia de " + arraysPuntos[i].coordenadas() + " y " + arraysPuntos[i+1].coordenadas() + 
+                               " es: " + distancia);
             System.out.println("*-----*");
         }
     }

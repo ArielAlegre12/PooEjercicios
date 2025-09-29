@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Cuadrado
+comment0.text=\r\n\ Clase\ Cuadrado\ que\ se\ especializa\ a\ partir\ de\ la\ clase\ Rectangulo.\r\n
+comment1.params=p_origen\ p_lado
+comment1.target=Cuadrado(Punto,\ double)
+comment1.text=\r\n\ Constructo\ Cuadrado\ que\ recibe\ el\ origen\ y\ el\ lado\ del\ cuadrado\r\n\ luego\ utiliza\ la\ superclase\ para\ iniciar\ el\ origen\ y\ los\ lados.\r\n
+comment2.params=
+comment2.target=java.lang.String\ nombreFigura()
+comment2.text=\r\n\ M\u00E9todo\ que\ retorna\ el\ valor\ de\ la\ figura.\r\n
+comment3.params=
+comment3.target=void\ caracteristicas()
+comment3.text=\r\n\ M\u00E9todo\ que\ muestra\ la\ caracteristicas\ de\ la\ figura.\r\n
+numComments=4

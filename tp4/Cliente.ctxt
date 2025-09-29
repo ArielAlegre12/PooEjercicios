@@ -15,6 +15,7 @@ comment13.target=double\ nuevoSaldo(double)
 comment13.text=\r\n\ Remplaza\ el\ saldo\ actual\ por\ el\ importe\ y\ devuelve\ el\ nuevo\ saldo\r\n\ @param\ p_importe\ (el\ importe\ ingresado)\r\n\ @return\ saldo\ actualizado\r\n
 comment14.params=p_importe
 comment14.target=double\ agregaSaldo(double)
+comment14.text=\r\n\ Agrega\ el\ saldo,\ luego\ devuelve\ la\ actualizaci\u00F3n.\r\n
 comment2.params=p_nroDni
 comment2.target=void\ setNroDni(int)
 comment3.params=p_apellido

@@ -60,8 +60,10 @@ public class Alumno{
     public String getApellido(){
         return this.apellido;
     }
-
-    //método que obtiene true o false dependiendo si aprueba o no
+    
+    /**
+     * verifica si el alumno está aprobado o no.
+     */
     private boolean aprueba(){
         if(this.promedio() > 7 && this.getNota1() >= 6 && this.getNota2() >= 6){
             return true;
@@ -70,6 +72,9 @@ public class Alumno{
         }
     }
     
+    /**
+     * devuelve en formato String si el alumno aprobó o no.
+     */
     private String leyendaAprueba(){
         if (this.aprueba()){
             return "APROBADO";
@@ -78,6 +83,9 @@ public class Alumno{
         }
     }
     
+    /**
+     * Retorna el promedio del Alumno.
+     */
     public double promedio(){
         return (this.getNota1() + this.getNota2()) / 2;
     }
@@ -90,6 +98,9 @@ public class Alumno{
         return this.getApellido() + ", " + this.getNombre();
     }
     
+    /**
+     * Visualizar información del alumno, como nombre y apellido, libreta universitaria y notas.
+     */
     public void mostrar(){
         System.out.println("Nombre y Apellido: " + this.nomYApe());
         System.out.println("LU: " + this.getLu() + "\t" + "Notas: " + this.getNota1() + " - " + this.getNota2());
