@@ -71,7 +71,7 @@ public class Profesor extends Persona{
      * Método que permite quitar cargos, pero evitando que el profesor quede sin cargos
      */
     public boolean quitarCargo(Cargo p_cargo){
-        if(this.getCargos().size() >= 1){
+        if(this.getCargos().size() > 1){
             return this.getCargos().remove(p_cargo);
         }else{
             return false;

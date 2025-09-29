@@ -2,6 +2,7 @@
  * Ejecutable de Aplicación de la facultad, para interacturar con los profesores y sus cargos
  */
 import java.util.Scanner;
+import java.util.*;
 public class AplicacionFacultadMenu{
     static Scanner teclado = new Scanner(System.in);
     public static void main(String args[]){
@@ -146,6 +147,10 @@ public class AplicacionFacultadMenu{
                     agregarUnCargo(p_dniCargo, p_facu);
                     break;
                 case 4:
+                    dniProfesores(p_facu);
+                    System.out.println("Ingrese el dni: ");
+                    int p_dniEliminar = teclado.nextInt();
+                    eliminarCargoProfesor(p_dniEliminar, p_facu);
                     break;
                 case 5:
                     p_facu.nomina();
@@ -161,7 +166,7 @@ public class AplicacionFacultadMenu{
                     break;
             }
             
-        }while(opcion != 0);
+        }while(opcion != 7);
     }
     
     /**
@@ -223,8 +228,25 @@ public class AplicacionFacultadMenu{
     public static void eliminarCargoProfesor(int p_dni, Facultad p_facu){
         for(Profesor unProfe: p_facu.getProfesores()){
             if(p_dni == unProfe.getDNI()){
-                unProfe.mostrar();
+                ArrayList<Cargo> cargos = unProfe.getCargos();
+                for(int i = 0; i < cargos.size(); i++){
+                    System.out.println((i+1) + ". " + cargos.get(i).getNombreCargo());
+                }
+                System.out.println("Seleccione el numero de cargo que quiere eliminar: ");
+                int op = teclado.nextInt();
+                if((op - 1) < cargos.size()){
+                    Cargo cargoEliminar = cargos.get(op - 1);
+                     if(unProfe.quitarCargo(cargoEliminar)){
+                         
+                        System.out.println("Cargo eliminado.");
+                        }else{
+                            System.out.println("No se pueden eliminar más cargos!");
+                             }
+                        }else{
+                            System.out.println("Numero invalido!.");
+                            }
                 
+               
                 break;
             }
         }
