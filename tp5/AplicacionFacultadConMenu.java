@@ -3,7 +3,7 @@
  */
 import java.util.Scanner;
 import java.util.*;
-public class AplicacionFacultadMenu{
+public class AplicacionFacultadConMenu{
     static Scanner teclado = new Scanner(System.in);
     public static void main(String args[]){
         Facultad facu = crearFacultad();
@@ -135,22 +135,13 @@ public class AplicacionFacultadMenu{
                     System.out.println("Hecho!");
                     break;
                 case 2:
-                    dniProfesores(p_facu);
-                    System.out.println("Ingrese el dni: ");
-                    int p_dni = teclado.nextInt();
-                    eliminar(p_dni, p_facu);
+                    eliminar(p_facu);
                     break;
                 case 3:
-                    dniProfesores(p_facu);
-                    System.out.println("Ingrese el dni del profe que quiere agregar el cargo: ");
-                    int p_dniCargo = teclado.nextInt();
-                    agregarUnCargo(p_dniCargo, p_facu);
+                    agregarUnCargo(p_facu);
                     break;
                 case 4:
-                    dniProfesores(p_facu);
-                    System.out.println("Ingrese el dni: ");
-                    int p_dniEliminar = teclado.nextInt();
-                    eliminarCargoProfesor(p_dniEliminar, p_facu);
+                    eliminarCargoProfesor(p_facu);
                     break;
                 case 5:
                     p_facu.nomina();
@@ -171,18 +162,26 @@ public class AplicacionFacultadMenu{
     
     /**
      * Muestra una lista de dni con nombre y apellido para que se pueda seleccionar con el que quiere trabajar..
+     * selecciona el indice y luego a traves de ese retorna el dni
      */
-    public static void dniProfesores(Facultad p_facu){
-        for(Profesor unProfe: p_facu.getProfesores()){
-            System.out.println("DNI: " + unProfe.getDNI() + " Nombre y Apellido: " + unProfe.nomYape());
+    public static int dniProfesores(Facultad p_facu){
+        for(int i = 0; i < p_facu.getProfesores().size(); i++){
+            System.out.printf((i + 1) + ". DNI: " + p_facu.getProfesores().get(i).getDNI() + ". Nombre: " + p_facu.getProfesores().get(i).nomYape() + "\n");        }
+        System.out.print("Ingrese el número de profesor que desea trabajar: ");
+        int opcion = teclado.nextInt();
+        if(opcion < 1 || opcion > p_facu.getProfesores().size()){
+            System.out.println("Error. opcion invalida!.");
+            return -1;
         }
+        return p_facu.getProfesores().get(opcion-1).getDNI()    ;
     }
      /**
      * Permite agregar un cargo al profesor mientras no supere el limite
      */
-    public static void agregarUnCargo(int p_dni, Facultad p_facu){
+    public static void agregarUnCargo(Facultad p_facu){
+        int dni = dniProfesores(p_facu);
         for(Profesor unProfe: p_facu.getProfesores()){
-            if(p_dni == unProfe.getDNI()){
+            if(dni == unProfe.getDNI()){
                 System.out.println("\n1. Agregar Cargo simple.");
                 System.out.println("2. Agregar Cargo semiExclusivo.");
                 System.out.println("3. Agregar Cargo exclusivo.");
@@ -225,9 +224,10 @@ public class AplicacionFacultadMenu{
     /**
      * método para quitar un cargo a un profeor.
      */
-    public static void eliminarCargoProfesor(int p_dni, Facultad p_facu){
+    public static void eliminarCargoProfesor(Facultad p_facu){
+        int dni = dniProfesores(p_facu);
         for(Profesor unProfe: p_facu.getProfesores()){
-            if(p_dni == unProfe.getDNI()){
+            if(dni == unProfe.getDNI()){
                 ArrayList<Cargo> cargos = unProfe.getCargos();
                 for(int i = 0; i < cargos.size(); i++){
                     System.out.println((i+1) + ". " + cargos.get(i).getNombreCargo());
@@ -255,9 +255,10 @@ public class AplicacionFacultadMenu{
     /**
      * Elimina el Profesor eligiendo su dni.
      */
-    public static void eliminar(int p_dni, Facultad p_facu){
+    public static void eliminar( Facultad p_facu){
+        int dni = dniProfesores(p_facu);
         for(Profesor unProfe: p_facu.getProfesores()){
-            if(p_dni == unProfe.getDNI()){
+            if(dni == unProfe.getDNI()){
                 p_facu.quitarProfesor(unProfe);
                 System.out.println("Hecho!");
                 break;
