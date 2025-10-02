@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=CajaDeAhorro
+comment0.text=\r\n\ La\ clase\ {@code\ CajaDeAhorro}\ representa\ una\ cuenta\ bancaria\ que\ permite\ realizar\ dep\u00F3sitos\ y\ extracciones\r\n\ con\ un\ l\u00EDmite\ de\ operaciones.\ Est\u00E1\ asociada\ a\ un\ titular\ de\ tipo\ {@code\ Persona},\ y\ mantiene\ control\ sobre\r\n\ el\ saldo\ disponible\ y\ la\ cantidad\ de\ extracciones\ posibles.\r\n\ <p>\r\n\ Se\ puede\ instanciar\ con\ o\ sin\ saldo\ inicial,\ y\ por\ defecto\ se\ permiten\ hasta\ 10\ extracciones.\r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
+comment1.params=p_nroCuenta\ p_titular
+comment1.target=CajaDeAhorro(int,\ Persona)
+comment1.text=\r\n\ Constructor\ que\ inicializa\ la\ cuenta\ con\ n\u00FAmero\ de\ cuenta\ y\ nombre\ de\ titular,\ el\ saldo\ incia\ en\ 0.\r\n\ @param\ p_nroCuenta\ es\ el\ num\ de\ la\ cuenta\ del\ titular\r\n\ @param\ p_titular\ de\ la\ cuenta\r\n
+comment2.params=p_nroCuenta\ p_titular\ p_saldo
+comment2.target=CajaDeAhorro(int,\ Persona,\ double)
+comment2.text=\r\n\ Constructor\ que\ inicializa\ la\ cuenta\ ya\ con\ un\ saldo\ establecido\r\n
+comment3.params=p_extraccionesPosibles
+comment3.target=void\ setExtraccionesPosibles(int)
+comment4.params=
+comment4.target=int\ getExtraccionesPosibles()
+comment4.text=\r\n\ devuelve\ la\ cantidad\ de\ extracciones\ permitidas\r\n\ @return\ cantidad\ de\ extracciones\ que\ se\ pueden\ hacer\r\n
+comment5.params=p_importe
+comment5.target=boolean\ puedeExtraer(double)
+comment5.text=\r\n\ m\u00E9todo\ que\ verifica\ si\ es\ posible\ hacer\ una\ extracci\u00F3n.\r\n\ devuelve\ true\ o\ false.\r\n
+comment6.params=p_importe
+comment6.target=boolean\ extraer(double)
+comment6.text=\r\n\ m\u00E9todo\ que\ analiza\ si\ puede\ extraer\ o\ no\ el\ dinero,\ si\ lo\ hace\ luego\ descuenta\ la\ cantidad\ de\ extracciones\ restantes.\r\n\ si\ no\ es\ posible,\ muestra\ porque\ no\ se\ pudo\ realizar\ la\ extracci\u00F3n.\r\n
+comment7.params=p_importe
+comment7.target=java.lang.String\ xQNoPuedeExtraer(double)
+comment7.text=\r\n\ m\u00E9todo\ para\ saber\ porque\ no\ se\ puede\ realizar\ m\u00E1s\ extracciones.\r\n
+comment8.params=
+comment8.target=void\ mostrar()
+comment8.text=\r\n\ m\u00E9todo\ para\ visualizar\ los\ datos\ de\ la\ caja\ de\ ahorro\ del\ titular.\r\n
+numComments=9
