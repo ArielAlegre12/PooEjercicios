@@ -54,7 +54,7 @@ public class Jardin{
     
     //Quitar una figura
     public boolean quitarFigura(FiguraGeometrica p_figura){
-        return this.getFiguras().add(p_figura);
+        return this.getFiguras().remove(p_figura);
     }
     
     /**
@@ -97,7 +97,7 @@ public class Jardin{
             System.out.print("\n");
         }
         System.out.println("-----------------");
-        System.out.printf("Total a cubrir: %.2f", this.cuantosMetros());
+        System.out.printf("Total a cubrir: %.2f\n", this.cuantosMetros());
         System.out.println("Comprar " + this.cuantasLatas() + " latas.\n");
     }
 }
