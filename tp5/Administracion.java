@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class Administracion{
     static Scanner teclado = new Scanner(System.in);
     public static void main(String args[]){
-        
+        Jardin jardin1 = crearJardin();
+        menu(jardin1);
     }
     
     //método para instanciar un cuadrado
@@ -77,6 +78,24 @@ public class Administracion{
         return new Jardin(nombre);
     }
     
+    //método para eliminar figura seleccionada, a traves de un indice.
+    public static void eliminarFigura(Jardin p_jardin){
+        int indice = 0;
+        for(int i = 0; i < p_jardin.getFiguras().size(); i++){
+            System.out.println((i + 1) + ". " + p_jardin.getFiguras().get(i).nombreFigura() + " Superficie: " + p_jardin.getFiguras().get(i).superficie());
+            System.out.println();
+        }
+        System.out.println("Selecione el indice de la figura que desa eliminar: ");
+        indice = teclado.nextInt();
+        for(int i = 0; i <= p_jardin.getFiguras().size(); i++){
+            if((i + 1) == indice){
+                p_jardin.quitarFigura(p_jardin.getFiguras().get(i));
+                System.out.println("\nEliminado\n");
+                break;
+            }
+        }
+    }
+    
     //método del menú
     public static void menu(Jardin p_jardin){
         int opcion = 0;
@@ -87,10 +106,9 @@ public class Administracion{
             System.out.println("3. Crear figura 3(circulo).");
             System.out.println("4. crear figura 4(rectangulo).");
             System.out.println("5. Eliminar figura.");
-            System.out.println("6. Ver cuantos litros se necesita.");
-            System.out.println("7. Ver cuantos metros ocupa.");
-            System.out.println("8. Ver detalles de figuras.");
-            System.out.println("9. Salir");
+            System.out.println("6. Ver cuantos metros ocupa.");
+            System.out.println("7. Ver detalles de figuras.");
+            System.out.println("8. Salir");
             System.out.print("Opcion: ");
             opcion = teclado.nextInt();
             
@@ -103,8 +121,30 @@ public class Administracion{
                     Triangulo triangulo = crearTriangulo();
                     p_jardin.agregarFigura(triangulo);
                     break;
-                    
+                case 3:
+                    Circulo circulo = crearCirculo();
+                    p_jardin.agregarFigura(circulo);
+                    break;
+                case 4:
+                    Rectangulo rectangulo = crearRectangulo();
+                    p_jardin.agregarFigura(rectangulo);
+                    break;
+                case 5:
+                    eliminarFigura(p_jardin);
+                    break;
+                case 6:
+                    System.out.println("Se necesita " + p_jardin.cuantosMetros() + " metros\n");
+                    break;
+                case 7:
+                    p_jardin.detalleFiguras();
+                    break;
+                case 8:
+                    System.out.println("Saliendo!.");
+                    break;
+                default:
+                    System.out.println("Invalido. Ingrese otra opcion!\n");
+                    break;
             }
-        }while(opcion != 9);
+        }while(opcion != 8);
     }
 }

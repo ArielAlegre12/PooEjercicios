@@ -92,11 +92,12 @@ public class Jardin{
     public void detalleFiguras(){
         System.out.println("Propuesta: " + this.getNombre());
         for(FiguraGeometrica unaFigu: this.getFiguras()){
+            System.out.println("\n***** " + unaFigu.nombreFigura() + " *****");
             unaFigu.mostrarSuperficie();
             System.out.print("\n");
         }
         System.out.println("-----------------");
-        System.out.println("Total a cubrir: " + this.cuantosMetros());
+        System.out.printf("Total a cubrir: %.2f", this.cuantosMetros());
         System.out.println("Comprar " + this.cuantasLatas() + " latas.\n");
     }
 }

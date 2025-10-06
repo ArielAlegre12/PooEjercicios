@@ -43,9 +43,9 @@ public class Elipse extends FiguraGeometrica{
     @Override
     public String nombreFigura(){
         if(this.getEjeMayor() == this.getEjeMenor()){
-            return "****** Circulo ******";
+            return "Circulo";
         }else{
-            return "****** Elipse ******";
+            return "Elipse";
         }
     }
     

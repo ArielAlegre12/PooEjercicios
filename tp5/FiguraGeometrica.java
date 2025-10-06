@@ -21,6 +21,6 @@ public abstract class FiguraGeometrica{
     public abstract double superficie();
     
     public void mostrarSuperficie(){
-        System.out.println("Superficie: " + this.superficie());
+        System.out.printf("Superficie: %.2f", this.superficie());
 }
 }
