@@ -14,13 +14,7 @@ public class Cuadrado extends Rectangulo{
     /**
      * Método que retorna el valor de la figura.
      */
-    public String nombreFigura(){
-        if(super.getAncho() == super.getAlto()){
-            return "****** Cuadrado ******";
-        }else{
-            return "****** Rectangulo ******";
-        }
-    }
+    public String nombreFigura(){return "Cuadrado";}
      /**
       * Método que muestra la caracteristicas de la figura.
       */

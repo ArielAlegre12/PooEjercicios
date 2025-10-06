@@ -3,10 +3,9 @@
  * 
  * @author Alegre Ariel, Antoniow Agustín
  */
-public class Elipse{
+public class Elipse extends FiguraGeometrica{
     private double sEjeMayor;
     private double sEjeMenor;
-    private Punto centro;
     
     /**
      * Constructor que recibe los ejes, y el centro
@@ -15,18 +14,18 @@ public class Elipse{
      * @param p_centro centro de la elipse
      */
     public Elipse(double p_sEjeMayor, double p_sEjeMenor, Punto p_centro){
+        super(p_centro);
         setEjeMayor(p_sEjeMayor);
         setEjeMenor(p_sEjeMenor);
-        setCentro(p_centro);
     }
     
     /**
      * Constructor que no recibe nada.
      */
     public Elipse(){
-        setEjeMayor(0.0);
-        setEjeMenor(0.0);
-        setCentro(new Punto(0.0, 0.0));
+        super(new Punto(0.0, 0.0));
+        this.setEjeMayor(0.0);
+        this.setEjeMenor(0.0);
     }
     
     /**
@@ -34,15 +33,14 @@ public class Elipse{
      */
     private void setEjeMayor(double p_sEjeMayor){this.sEjeMayor = p_sEjeMayor;}
     private void setEjeMenor(double p_sEjeMenor){this. sEjeMenor = p_sEjeMenor;}
-    private void setCentro(Punto p_centro){this.centro = p_centro;}
     
     public double getEjeMayor(){return this.sEjeMayor;}
     public double getEjeMenor(){return this.sEjeMenor;}
-    public Punto getCentro(){return this.centro;}
     
     /**
      * método que retorna el nombre de la figura dependiendo de sus caracteristicas
      */
+    @Override
     public String nombreFigura(){
         if(this.getEjeMayor() == this.getEjeMenor()){
             return "****** Circulo ******";
@@ -57,11 +55,11 @@ public class Elipse{
     public void caracteristicas(){
         System.out.println(this.nombreFigura());
         if(this.getEjeMayor() != this.getEjeMenor()){
-        System.out.println("Centro: " + this.getCentro().coordenadas() + " - Semieje Mayor: " +
+        System.out.println("Centro: " + super.getOrigen().coordenadas() + " - Semieje Mayor: " +
                             this.getEjeMayor() + " - Semieje Menor: " + this.getEjeMenor());
         System.out.println(String.format("Superficie: %.2f ", this.superficie()));;
         }else{
-            System.out.println("Centro: " + this.getCentro().coordenadas() + "  -Radio: " + this.getEjeMayor());
+            System.out.println("Centro: " + super.getOrigen().coordenadas() + "  -Radio: " + this.getEjeMayor());
             System.out.println(String.format("Superficie: %.2f ", this.superficie()));
         }
     }
@@ -69,12 +67,13 @@ public class Elipse{
     /**
      * método para obtener la superficie  de la elipse
      */
+    @Override
     public double superficie(){
         if(this.getEjeMayor() != this.getEjeMenor()){
-        return (Math.PI * this.getEjeMayor() * this.getEjeMenor());
+        return (Math.PI * this.getEjeMayor() * this.getEjeMenor()); //para cualquier elipse
         
         }else{
-        return (Math.PI * this.getEjeMayor() * this.getEjeMayor());
+        return (Math.PI * this.getEjeMayor() * this.getEjeMayor()); //para un circulo
         }
     }
     
@@ -82,14 +81,14 @@ public class Elipse{
      * método para desplazar elipse o circulo.
      */
     public void desplazar(double p_dx, double p_dy){
-        this.getCentro().desplazar(p_dx, p_dy);
+        super.getOrigen().desplazar(p_dx, p_dy);
     }
     
     /**
      * método para saber la distancia de una elipse a otra.
      */
     public double distanciaA(Elipse otraElipse){
-        return this.getCentro().distanciaA(otraElipse.getCentro());
+        return super.getOrigen().distanciaA(otraElipse.getOrigen());
     }
     
     /**
@@ -102,4 +101,6 @@ public class Elipse{
             return otraElipse;
         }
     }
+    
+    
 }

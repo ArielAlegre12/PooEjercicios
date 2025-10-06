@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Triangulo
+comment0.text=\r\n\ clase\ triangulo\ que\ hereda\ algunos\ metodos\ de\ FiguraGeometrica.\r\n
+comment1.params=p_base\ p_altura\ p_origen
+comment1.target=Triangulo(double,\ double,\ Punto)
+comment1.text=\r\n\ Constructor\ que\ inicaliza\ el\ triangulo\ con\ sus\ valores.\r\n
+comment2.params=p_base
+comment2.target=void\ setBase(double)
+comment3.params=p_altura
+comment3.target=void\ setAltura(double)
+comment4.params=
+comment4.target=double\ getBase()
+comment5.params=
+comment5.target=double\ getAltura()
+comment6.params=
+comment6.target=java.lang.String\ nombreFigura()
+comment7.params=
+comment7.target=double\ superficie()
+numComments=8

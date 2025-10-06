@@ -7,8 +7,7 @@
  * desplazar su posición, comparar con otros rectángulos y calcular distancias.
  * @Author Alegre Ariel, Antoniow Agustín.
  */
-public class Rectangulo{
-    private Punto origen;
+public class Rectangulo extends FiguraGeometrica{
     private double ancho;
     private double alto;
     /**
@@ -19,7 +18,7 @@ public class Rectangulo{
      * @param p_alto alto del rectángulo
      */
     public Rectangulo(Punto p_origen, double p_ancho, double p_alto){
-        this.setOrigen(p_origen);
+        super(p_origen);
         this.setAncho(p_ancho);
         this.setAlto(p_alto);
     }
@@ -30,24 +29,18 @@ public class Rectangulo{
      * @param p_alto alto del rectángulo
      */
     public Rectangulo(double p_ancho, double p_alto){
-        this.setOrigen(new Punto(0,0));
+        super(new Punto(0,0));
         this.setAncho(p_ancho);
         this.setAlto(p_alto);
     }
     //setters
-    private void setOrigen(Punto p_origen){
-        this.origen = p_origen;
-    }
     private void setAncho(double p_ancho){
         this.ancho = p_ancho;
     }
     private void setAlto(double p_alto){
         this.alto = p_alto;
     }
-    //getters 
-    public Punto getOrigen(){
-        return this.origen;
-    }
+    //getters
     public double getAncho(){
         return this.ancho;
     }
@@ -61,7 +54,7 @@ public class Rectangulo{
      * @param p_dy desplazamiento en Y
      */
     public void desplazar(double p_dx, double p_dy){
-        this.getOrigen().desplazar(p_dx, p_dy);
+        super.getOrigen().desplazar(p_dx, p_dy);
     }
     /**
      * Muestra por pantalla las características principales del rectángulo:
@@ -69,7 +62,7 @@ public class Rectangulo{
      */
     public void caracateristicas(){
         System.out.println("****** Rectangulo ******");
-        System.out.println("Orgien: " + this.getOrigen().coordenadas() + " - Alto: "+ this.getAlto() + " - Ancho: " + this.getAncho());
+        System.out.println("Orgien: " + super.getOrigen().coordenadas() + " - Alto: "+ this.getAlto() + " - Ancho: " + this.getAncho());
         System.out.println("Superficie: " + this.superficie() + " - Perímetro: " + this.perimetro());
     }
     /**
@@ -96,7 +89,7 @@ public class Rectangulo{
      * @return distancia entre orígenes
      */
     public double distanciaA(Rectangulo otroRectangulo){
-        double distancia = this.getOrigen().distanciaA(otroRectangulo.getOrigen());
+        double distancia = super.getOrigen().distanciaA(otroRectangulo.getOrigen());
         return distancia;
     }
      /**
@@ -114,4 +107,6 @@ public class Rectangulo{
         }
     }
     
+    //método para saber el nombre de la fig
+    public String nombreFigura(){return "Rectangulo";}
 }

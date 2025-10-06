@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Banco
+comment0.text=\r\n\ Representa\ un\ banco,\ en\ el\ cual\ puede\ instanciarse\ un\ usuario\ \r\n\ @Author\ Alegre\ Ariel,\ Antoniow\ Agust\u00EDn.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=Persona\ crearTitular()
+comment2.text=\r\n\ m\u00E9todo\ que\ permite\ crear\ un\ titular,\ devolviendo\ el\ objeto\ listo\ para\ asignarlo.\r\n
+comment3.params=p_titular
+comment3.target=CuentaCorriente\ crearCuentaCorriente(Persona)
+comment3.text=\r\n\ m\u00E9todo\ que\ permite\ crear\ una\ cuenta\ corriente\ para\ una\ persona.\r\n
+comment4.params=p_titular
+comment4.target=CajaDeAhorro\ crearCajaAhorro(Persona)
+comment4.text=\r\n\ m\u00E9todo\ que\ permite\ crear\ una\ cuenta\ corriente\ para\ una\ persona\r\n
+comment5.params=p_unaCuenta\ p_unaCaja
+comment5.target=void\ menuBanco(CuentaCorriente,\ CajaDeAhorro)
+comment5.text=\r\n\ Men\u00FA\ para\ interactuar\ con\ el\ titular\r\n
+numComments=6

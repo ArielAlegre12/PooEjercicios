@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Administracion
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=Cuadrado\ crearCuadrado()
+comment3.params=
+comment3.target=Triangulo\ crearTriangulo()
+comment4.params=
+comment4.target=Rectangulo\ crearRectangulo()
+comment5.params=
+comment5.target=Circulo\ crearCirculo()
+comment6.params=
+comment6.target=Jardin\ crearJardin()
+comment7.params=p_jardin
+comment7.target=void\ menu(Jardin)
+numComments=8
