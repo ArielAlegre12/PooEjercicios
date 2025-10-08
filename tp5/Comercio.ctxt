@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Comercio
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=Lavarropa\ crearLavarropa()
+comment3.params=
+comment3.target=Heladera\ crearHeladera()
+comment4.params=
+comment4.target=Cocina\ crearCocina()
+comment5.params=p_lava\ p_coci\ p_hela
+comment5.target=void\ menu(Lavarropa,\ Cocina,\ Heladera)
+numComments=6

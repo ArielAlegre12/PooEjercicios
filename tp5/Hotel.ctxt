@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Hotel
+comment1.params=p_tipoHabitacion\ p_nombre\ p_precioBase\ p_diasAlquiler\ p_servicios
+comment1.target=Hotel(java.lang.String,\ java.lang.String,\ double,\ int,\ java.util.ArrayList)
+comment1.text=\r\n\ Constructor\ que\ inicializa\ el\ hotel\ con\ un\ array\ de\ servicios.\r\n
+comment2.params=p_tipoHabitacion\ p_nombre\ p_precioBase\ p_diasAlquiler\ p_servicio
+comment2.target=Hotel(java.lang.String,\ java.lang.String,\ double,\ int,\ Servicio)
+comment2.text=\r\n\ Constructor\ que\ inicaliza\ el\ hotel\ con\ un\ s\u00F3lo\ servicio.\r\n
+comment3.params=p_tipoHabitacion\ p_nombre\ p_precioBase\ p_diasAlquiler
+comment3.target=Hotel(java.lang.String,\ java.lang.String,\ double,\ int)
+comment3.text=\r\n\ Constructor\ que\ inicializa\ el\ hotel\ sin\ servicios.\r\n
+comment4.params=p_tipoHabitacion
+comment4.target=void\ setTipoHabitacion(java.lang.String)
+comment5.params=
+comment5.target=java.lang.String\ getTipoHabitacion()
+comment6.params=
+comment6.target=double\ costo()
+comment6.text=\r\n\ m\u00E9todo\ para\ obtener\ el\ costo\ del\ hotel\r\n
+comment7.params=p_alojamiento
+comment7.target=int\ contar(java.lang.String)
+comment7.text=\r\n\ m\u00E9todo\ que\ permitira\ contar\ los\ hoteles.\r\n
+comment8.params=
+comment8.target=void\ liquidar()
+comment8.text=\r\n\ m\u00E9todo\ para\ liquidar\ el\ hotel.\r\n
+numComments=9

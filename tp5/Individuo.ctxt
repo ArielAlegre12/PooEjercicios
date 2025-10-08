@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Individuo
+comment1.params=p_persona\ p_nombre\ p_fecha
+comment1.target=Individuo(Persona,\ java.lang.String,\ java.util.Calendar)
+comment1.text=\r\n\ Constructor\ que\ inicializa\ al\ individuo.\r\n\ @param\ p_persona\ objeto\ del\ tipo\ Persona\ que\ presta\ los\ servicios\ que\ brinda.\r\n
+comment2.params=p_persona
+comment2.target=void\ setPersona(Persona)
+comment3.params=
+comment3.target=Persona\ getPersona()
+comment4.params=
+comment4.target=java.lang.String\ tipoVisitante()
+comment4.text=\r\n\ Retorna\ una\ el\ tipo\ de\ persona,\ en\ este\ caso\ individuo.\r\n
+comment5.params=p_fecha\ p_visitante
+comment5.target=void\ listarPorFecha(java.util.Calendar,\ java.lang.String)
+comment5.text=\r\n\ m\u00E9todo\ para\ listar\ los\ detalles\ del\ individuo\r\n
+comment6.params=
+comment6.target=double\ entrada()
+comment6.text=\r\n\ m\u00E9todo\ para\ obtener\ la\ entrada.\r\n
+comment7.params=
+comment7.target=void\ mostrar()
+comment7.text=\r\n\ m\u00E9todo\ para\ mostrar\ al\ individuo\r\n
+comment8.params=
+comment8.target=java.util.HashSet\ listarPersonas()
+comment8.text=\r\n\ m\u00E9todo\ para\ listar\ persona.\ para\ luego\ ser\ usado\ en\ una\ colecci\u00F3n.\r\n\ debo\ crear\ una\ colecci\u00F3n\ nueva,\ despues\ agregar\ al\ individuo\ y\ retornarlo.\r\n
+numComments=9
