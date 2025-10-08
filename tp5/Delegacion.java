@@ -48,10 +48,11 @@ public class Delegacion extends Visitante{
      * método para listar por fecha.
      */
     public void listarPorFecha(Calendar p_fecha, String p_visitante){
-        if(super.getFecha() == p_fecha && this.getNombre().equalsIgnoreCase(p_visitante)){
+        if(super.getFecha().equals(p_fecha) && this.getNombre().equalsIgnoreCase(p_visitante)){
             for(Individuo unIndi: this.getIntegrantes()){
-                unIndi.listarPorFecha(p_fecha, "individuo");
+                unIndi.listarPorFecha(p_fecha, unIndi.tipoVisitante());
             }
         }
     }
+    
 }
