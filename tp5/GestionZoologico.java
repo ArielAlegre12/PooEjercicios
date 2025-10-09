@@ -37,11 +37,13 @@ public class GestionZoologico{
         //agrego al PAMI a la visita del zoo
         unZoo.nuevoVisitante(pami);
         unZoo.listarVisitantePorFecha(fechaIngreso);
+        System.out.println("\n");
         //recaudacion desde 1 de sep hasta 20 de sep
         Calendar fechaDesde = new GregorianCalendar(2024,9,1);
         Calendar fechaHasta = new GregorianCalendar(2024,9,30);
         double recaudacion = unZoo.recaudacion(fechaDesde, fechaHasta);
         System.out.println("La recaudacion de septiembre fue: " + recaudacion);
+        System.out.println("\n");
         
         //listar por tipo de visitante 
         unZoo.listarTipoVisitantePorfecha(fechaIngreso, "delegacion");
