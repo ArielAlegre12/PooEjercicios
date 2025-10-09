@@ -30,29 +30,74 @@ public class Delegacion extends Visitante{
     
     //Quitar integrante
     public boolean quitarIntegrante(Individuo p_integrante){
+        if(this.cantidadIntegrantes() > 1){
         return this.getIntegrantes().remove(p_integrante);
+        }else{
+            System.out.println("No se puede eliminar más inviduos.\n");
+            return false;
+        }
     }
     
     /**
      * Saber la cantidad de integrantes.
      */
     public int cantidadIntegrantes(){
-        int cantidad = 0;
-        for(Individuo individuo: this.getIntegrantes()){
-            cantidad ++;
-        }
-        return cantidad;
+        return this.listarPersonas().size();
     }
     
     /**
      * método para listar por fecha.
      */
     public void listarPorFecha(Calendar p_fecha, String p_visitante){
-        if(super.getFecha().equals(p_fecha) && this.getNombre().equalsIgnoreCase(p_visitante)){
-            for(Individuo unIndi: this.getIntegrantes()){
-                unIndi.listarPorFecha(p_fecha, unIndi.tipoVisitante());
-            }
+        if(super.getFecha().equals(p_fecha) && this.tipoVisitante().equalsIgnoreCase(p_visitante)){
+            this.mostrar();
         }
     }
     
+    /**
+     * método para listar a las personas.
+     * 
+     */
+    @Override
+    public HashSet<Persona> listarPersonas(){
+        HashSet<Persona> listaPersona = new HashSet<Persona>();
+        for(Individuo unIndi: this.getIntegrantes()){
+            listaPersona.addAll(unIndi.listarPersonas());
+        }
+        return listaPersona;
+    }
+    
+    /**
+     * método para poder calcular el costo de entrada de la delegación.
+     */
+    @Override
+    public double entrada(){
+        double costo = 0.0;
+        for(Individuo unIndi: this.getIntegrantes()){
+            costo =+ unIndi.entrada();
+        }
+        return costo - (costo * 10 / 100);
+    }
+    
+    /**
+     * método para retornar el tipo de visitante.
+     */
+    @Override
+    public String tipoVisitante(){
+        return "delegacion";
+    }
+    
+    /**
+     * método para mostrar los detalles de la delegación.
+     * utilizo la lista de personas de HashSet que evita las duplicaciones y saco la cantidad
+     * de integrantes de allí.
+     */
+    public void mostrar(){
+        System.out.println("Delegación: " + this.getNombre());
+            System.out.println("Integrantes");
+            for(Persona unIntegrante: this.listarPersonas()){
+                unIntegrante.mostrar();
+            }
+            System.out.println("Cantidad de integrantes: " + this.cantidadIntegrantes());
+    }
 }

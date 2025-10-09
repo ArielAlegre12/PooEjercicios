@@ -12,6 +12,7 @@ public class Individuo extends Visitante{
      */
     public Individuo(Persona p_persona, String p_nombre, Calendar p_fecha){
         super(p_nombre, p_fecha);
+        this.setPersona(p_persona);
     }
     
     //setters
@@ -31,8 +32,8 @@ public class Individuo extends Visitante{
      */
     @Override
     public void listarPorFecha(Calendar p_fecha, String p_visitante){
-        if(super.getFecha() == p_fecha && this.tipoVisitante().equalsIgnoreCase(p_visitante)){
-            this.getPersona().mostrar();
+        if(super.getFecha().equals(p_fecha) && this.tipoVisitante().equalsIgnoreCase(p_visitante)){
+            this.mostrar();
         }
     }
     
@@ -48,7 +49,7 @@ public class Individuo extends Visitante{
      */
     public void mostrar(){
         System.out.println("Tipo de visitante: " + this.tipoVisitante());
-        this.listarPorFecha(super.getFecha(), this.tipoVisitante());
+        this.getPersona().mostrar();
         System.out.println("Entrada: " + this.entrada());
     }
     
