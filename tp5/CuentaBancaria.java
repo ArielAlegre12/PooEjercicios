@@ -30,19 +30,12 @@ public abstract class CuentaBancaria{
      * setters y getters.
      */
     private void setNrocuenta(int p_nroCuenta){this.nroCuenta = p_nroCuenta;}
-    private void setSaldo(double p_importe){this.saldo = p_importe;}
+    protected void setSaldo(double p_importe){this.saldo = p_importe;}
     private void setTitular(Persona p_titular){this.titular = p_titular;}
     
     public int getNroCuenta(){return this.nroCuenta;}
     public double getSaldo(){return this.saldo;}
     public Persona getTitular(){return this.titular;}
-    
-    /**
-     * métdo para actualizar saldo.
-     */
-    public void actualizarSaldo(double p_importe){
-        this.setSaldo(this.getSaldo() - p_importe);
-    }
     
     /**
      * Defino los métodos abstractos, en este caso seran lo de extraer, puedeExtraer y xQNoPuedeextraer

@@ -55,7 +55,7 @@ public class CajaDeAhorro extends CuentaBancaria{
      */
     public boolean extraer(double p_importe){
         if(puedeExtraer(p_importe)){
-            super.actualizarSaldo(p_importe);
+            super.setSaldo(super.getSaldo() - p_importe);
             this.setExtraccionesPosibles(this.getExtraccionesPosibles() - 1);
             return true;
         }else{

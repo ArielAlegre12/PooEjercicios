@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Renglon
+comment0.text=\r\n\ clase\ renglon\ que\ permite\ mostrar\ los\ renglones\ con\ detalles\ de\ las\ etiquetas\r\n
+comment1.params=p_cantidad\ p_importe\ p_item
+comment1.target=Renglon(int,\ double,\ Etiqueta)
+comment1.text=\r\n\ constructor\ que\ incializa\ el\ renglon\ con\ el\ item.\r\n\ @param\ p_cantidad\ cantidad\ de\ etiquetas.\r\n\ @param\ p_importe\ importe\ de\ la\ prenda.\r\n\ @param\ p_item\ item\ de\ la\ etiqueta,\ puede\ ser\ com\u00FAn\ o\ premium.\r\n
+comment2.params=p_cantidad
+comment2.target=void\ setCantidad(int)
+comment3.params=p_importe
+comment3.target=void\ setImporte(double)
+comment4.params=p_item
+comment4.target=void\ setItem(Etiqueta)
+comment5.params=
+comment5.target=int\ getCantidad()
+comment6.params=
+comment6.target=double\ getImporte()
+comment7.params=
+comment7.target=Etiqueta\ getItem()
+comment8.params=
+comment8.target=void\ mostrar()
+comment8.text=\r\n\ m\u00E9todo\ para\ mostrar\ los\ renglones.\r\n
+numComments=9

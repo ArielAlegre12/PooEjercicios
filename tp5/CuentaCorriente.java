@@ -58,10 +58,10 @@ public class CuentaCorriente extends CuentaBancaria{
         double descubiertoActual = this.getLimiteDescubierto();
         
         if(p_importe <= saldoActual){
-            super.actualizarSaldo(saldoActual - p_importe);
+            super.setSaldo(super.getSaldo() - p_importe);
         }else{
             double excedente = p_importe - saldoActual;
-            super.actualizarSaldo(0);
+            super.setSaldo(0);
             this.setLimiteDescubierto(descubiertoActual - excedente);
         }
     }
