@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=PiedaPapelTijera
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=eleccion
+comment2.target=void\ jugarPiedraPapelTijera(int)
+numComments=3

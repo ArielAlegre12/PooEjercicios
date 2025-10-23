@@ -94,12 +94,14 @@ public class Zoologico{
     
     /**
      * método para listar a las personas que visitaron el zoo sin repetir.
-     * utilizo instanceof para validar que sea un individuo y no una delagacion
+     * y sin vincular delegaciones.
+     * unVisitante.getClass() == Individuo.class permite obtener la info
+     * del tipo(similar al instanceof pero más precisa).
      */
     public HashSet<Persona> listarPersonasQueVisitaronElZoo(){
         HashSet<Persona> lista = new HashSet<Persona>();
         for(Visitante unVisitante: this.getVisitantes()){
-            if(unVisitante instanceof Individuo){
+            if(unVisitante.getClass() == Individuo.class){
                 Individuo unIndividuo = (Individuo)unVisitante;
                 lista.add(unIndividuo.getPersona());
             }

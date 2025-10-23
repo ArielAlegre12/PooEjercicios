@@ -14,7 +14,7 @@ comment12.target=double\ recaudacion(java.util.Calendar,\ java.util.Calendar)
 comment12.text=\r\n\ m\u00E9todo\ para\ obtener\ lo\ que\ se\ recaudo\ en\ cierto\ periodo\r\n\ utilizo\ compareTo\ que\ devuele\ un\ num\ negativo\ si\ el\ objeto\ es\ anterior\r\n\ 0\ si\ son\ iguales\ y\ un\ num\ positivo\ si\ es\ posterior.\r\n
 comment13.params=
 comment13.target=java.util.HashSet\ listarPersonasQueVisitaronElZoo()
-comment13.text=\r\n\ m\u00E9todo\ para\ listar\ a\ las\ personas\ que\ visitaron\ el\ zoo\ sin\ repetir.\r\n\ utilizo\ instanceof\ para\ validar\ que\ sea\ un\ individuo\ y\ no\ una\ delagacion\r\n
+comment13.text=\r\n\ m\u00E9todo\ para\ listar\ a\ las\ personas\ que\ visitaron\ el\ zoo\ sin\ repetir.\r\n\ y\ sin\ vincular\ delegaciones.\r\n\ unVisitante.getClass()\ \=\=\ Individuo.class\ permite\ obtener\ la\ info\r\n\ del\ tipo(similar\ al\ instanceof\ pero\ m\u00E1s\ precisa).\r\n
 comment2.params=p_nombre\ p_visitante
 comment2.target=Zoologico(java.lang.String,\ Visitante)
 comment2.text=\r\n\ Cosntructor\ que\ incializa\ el\ zoologico\ con\ un\ visitante.\r\n\ @param\ p_nombre\ nombre\ del\ Zoologico.\r\n\ @param\ p_visitante\ visitante\ del\ zoologico.\r\n
