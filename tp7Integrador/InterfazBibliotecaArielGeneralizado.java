@@ -59,6 +59,7 @@ public class InterfazBibliotecaArielGeneralizado{
         contenedor.add(agregarLibro(), "AgregarLibro");
         contenedor.add(crearPantallaListarLibros(), "ListarLibros");
         contenedor.add(crearPantallaGestionLibros(), "GestionLibros");
+        contenedor.add(crearPantallaGesitonSocios(), "GestionSocios");
     }
     
     /**
@@ -141,7 +142,7 @@ public class InterfazBibliotecaArielGeneralizado{
         //instanciar la img para ponerla al aldo del boton
         botonLibros.setIcon(new ImageIcon(new ImageIcon("D:/Descarga de IDM/Comprimidos/TrabajoIntegradorEjemplos/img/books-illustration-cartoon-books-books-vector.jpg").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
         //boton gestionar socios
-        JButton botonSocios = crearBoton("Gestionar Socios",250,e->layout.show(contenedor, ""));
+        JButton botonSocios = crearBoton("Gestionar Socios",250,e->layout.show(contenedor, "GestionSocios"));
         botonSocios.setIcon(new ImageIcon(new ImageIcon("D:/Descarga de IDM/Comprimidos/TrabajoIntegradorEjemplos/img/iconAlumProfe.png").getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH)));
     
         //panel central con botones.
@@ -349,14 +350,14 @@ public class InterfazBibliotecaArielGeneralizado{
                                 + "<b>Año:</b> " + seleccionado.getAnio() + "<br>"
                                 + "<b>Estado:</b> " + estado + "<br>"
                                 + "</body></html>";
-                            mostrarMensajetemporal(mensajeLabel,detalles,5000);
+                            mostrarMensajetemporal(mensajeLabel,detalles,10000);
             }else{
                 mostrarMensajetemporal(mensajeLabel,"Seleccione un libro para ver sus caracteristicas",3000);
             }
         });
         
         //Ajusto el tamaño de algunos botones que no se ven del todo
-        botonVerSocio.setText("<html><center>Ver<br>¿Quién tiene el libro?</center></html>");
+        botonVerSocio.setText("<html><center>¿Quién <br>tiene el libro?</center></html>");
         botonVerDetalles.setText("<html><center>Ver<br>características</center></html>");
         
         //para que los botones puedan verse acomodados, hay que ponerlos en dos filas 
@@ -586,6 +587,17 @@ public class InterfazBibliotecaArielGeneralizado{
         boton.setAlignmentX(Component.CENTER_ALIGNMENT);
         boton.addActionListener(evento);
         return boton;
+    }
+    
+    /**
+     * Gestion socios
+     */
+    private JPanel crearPantallaGesitonSocios(){
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.setBackground(colorFondo);
+        
+        panel.add(crearBotonera("Menu",true),BorderLayout.SOUTH);
+        return panel;
     }
     
     /**
