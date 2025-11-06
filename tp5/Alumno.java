@@ -66,14 +66,6 @@ public class Alumno extends Persona{
         return (this.getNota1() + this.getNota2()) / 2;
     }
     
-    public String nomYApe(){
-        return super.getNombre() + " " + super.getApellido();
-    }
-    
-    public String apeYnom(){
-        return super.getApellido() + ", " + super.getNombre();
-    }
-    
     public void mostrar(){
         super.mostrar();
         System.out.println("LU: " + this.getLu() + "\t" + "Notas: " + this.getNota1() + " - " + getNota2());

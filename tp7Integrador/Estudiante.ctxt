@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Estudiante
+comment1.params=p_carrera\ p_dniSocio\ p_nombre\ p_diasPrestamo\ p_prestamos
+comment1.target=Estudiante(java.lang.String,\ int,\ java.lang.String,\ int,\ java.util.ArrayList)
+comment2.params=p_carrera\ p_dniSocio\ p_nombre\ p_diasPrestamo\ p_prestamo
+comment2.target=Estudiante(java.lang.String,\ int,\ java.lang.String,\ int,\ Prestamo)
+comment3.params=p_carrera\ p_dniSocio\ p_nombre\ p_diasPrestamo
+comment3.target=Estudiante(java.lang.String,\ int,\ java.lang.String,\ int)
+comment4.params=p_carrera
+comment4.target=void\ setCarrera(java.lang.String)
+comment5.params=
+comment5.target=java.lang.String\ getCarrera()
+comment6.params=
+comment6.target=boolean\ puedePedir()
+comment7.params=
+comment7.target=java.lang.String\ soyDeLaClase()
+numComments=8

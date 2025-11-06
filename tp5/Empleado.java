@@ -106,14 +106,6 @@ public class Empleado extends Persona{
     public double sueldoNeto(){
         return (this.getSueldo() - descuento());
     }
-    //obtener nombre y apellido
-    public String nomYape(){
-        return super.getNombre() + " " + super.getApellido();
-    }
-    //obtener apellido y nombre
-    public String apeYnom(){
-        return super.getApellido() + ", " + super.getNombre();
-    }
     //visualizar datos
     public void mostrar(){
         super.mostrar();
@@ -121,7 +113,7 @@ public class Empleado extends Persona{
         System.out.println("Sueldo neto: $" + this.sueldoNeto());
     }
 public String mostrarLinea(){
-        return this.getCuil() + "\t" + super.apeYnom() + "\t........$" + this.sueldoNeto();  
+        return this.getCuil() + "\t" + this.apeYnom() + "\t........$" + this.sueldoNeto();  
     }
     
     /**
