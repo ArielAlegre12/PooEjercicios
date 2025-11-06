@@ -16,14 +16,15 @@ public class InterfazBibliotecaArielGeneralizado{
     private final Color colorFondo;
     private final Color colorBoton;
     private JTextArea areaLibros;
-    private DefaultListModel<Libro> modeloLibros = new DefaultListModel<>();
+    private DefaultListModel<Libro> modeloLibros;
+    private DefaultListModel<Socio> modeloSocios;
     private JScrollPane scrollLibros;
-
-
     
     public InterfazBibliotecaArielGeneralizado(){
         biblioteca = new Biblioteca("Biblioteca Arielo");
         colorFondo = new Color(227,100,100);
+        modeloLibros = new DefaultListModel<>();
+        modeloSocios = new DefaultListModel<>();
         colorBoton = Color.BLACK;
         inicializarVentana();
         incializarContenedor();
