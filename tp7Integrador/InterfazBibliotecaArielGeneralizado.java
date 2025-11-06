@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.GridBagConstraints;
 import javax.swing.JScrollPane;
+import javax.swing.border.TitledBorder;
 
 public class InterfazBibliotecaArielGeneralizado{
     private JFrame ventana;
@@ -16,6 +17,8 @@ public class InterfazBibliotecaArielGeneralizado{
     private final Color colorBoton;
     private JTextArea areaLibros;
     private DefaultListModel<Libro> modeloLibros = new DefaultListModel<>();
+    private JScrollPane scrollLibros;
+
 
     
     public InterfazBibliotecaArielGeneralizado(){
@@ -52,11 +55,10 @@ public class InterfazBibliotecaArielGeneralizado{
      */
     private void agregarPantallas(){
         contenedor.add(crearPantallaInicio(), "Inicio");
-        contenedor.add(crearPantallaMenu(), "Menu"); 
-        contenedor.add(gestionarLibros(), "GestionLibros");
+        contenedor.add(crearPantallaMenu(), "Menu");
         contenedor.add(agregarLibro(), "AgregarLibro");
         contenedor.add(crearPantallaListarLibros(), "ListarLibros");
-        contenedor.add(crearPantallaQuitarLibro(), "QuitarLibros");
+        contenedor.add(crearPantallaGestionLibros(), "GestionLibros");
     }
     
     /**
@@ -132,7 +134,10 @@ public class InterfazBibliotecaArielGeneralizado{
         subtitulo.setAlignmentX(Component.CENTER_ALIGNMENT);
         subtitulo.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
         //botón gestionar libros
-        JButton botonLibros = crearBoton("Gestionar Libros",250,e->layout.show(contenedor, "GestionLibros"));
+        JButton botonLibros = crearBoton("Gestionar Libros",250,e->{
+            refrescarListaLibros();
+            layout.show(contenedor, "GestionLibros");
+        });
         //instanciar la img para ponerla al aldo del boton
         botonLibros.setIcon(new ImageIcon(new ImageIcon("D:/Descarga de IDM/Comprimidos/TrabajoIntegradorEjemplos/img/books-illustration-cartoon-books-books-vector.jpg").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
         //boton gestionar socios
@@ -156,9 +161,12 @@ public class InterfazBibliotecaArielGeneralizado{
         
         //boton Volver
         JButton botonVolver = crearBoton("Volver Atrás",130,e->layout.show(contenedor, "Inicio"));
+        //botonSalir
+        JButton botonSalir = crearBoton("Salir",130,e->System.exit(0));
         JPanel volverPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         volverPanel.setBackground(panel.getBackground());
         volverPanel.add(botonVolver);
+        volverPanel.add(botonSalir);
         
         //el armao final jei
         JPanel centro = new JPanel();
@@ -239,8 +247,6 @@ public class InterfazBibliotecaArielGeneralizado{
         JButton botonIniciar = crearBoton("Iniciar",130,e->layout.show(contenedor, "Menu"));
         JButton botonSalir = crearBoton("Salir",130,e->System.exit(0));
         
-        
-        
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER,20,0));
         panel.setBackground(fondo);
         panel.add(botonIniciar);
@@ -249,61 +255,10 @@ public class InterfazBibliotecaArielGeneralizado{
     }
     
     /**
-     * método que representa el menu de gestion del socio.
-     * este permite, agregar, quitar o listar libros. y tambien ver que socio tiene "x"libros.
+     * Método para crear la pantalla que lista los libros y permite quitar, agregar(lleva al panel de agregar)
+     * y ver que socio tiene el libro
      */
-    private JPanel gestionarLibros(){
-        JPanel panel = new JPanel(new BorderLayout());
-        panel.setBackground(colorFondo);
-        JLabel titulo = new JLabel("Libros", JLabel.CENTER);
-        titulo.setFont(new Font("Arial",Font.BOLD,32));
-        titulo.setForeground(Color.WHITE);
-        titulo.setBorder(BorderFactory.createEmptyBorder(20,0,10,0));
-        titulo.setAlignmentX(Component.CENTER_ALIGNMENT);
-        
-        //creo los botones necesarios
-        JButton botonAgregar = crearBoton("Agregar Libro",200,e->layout.show(contenedor,"AgregarLibro"));
-        JButton botonQuitar = crearBoton("Quitar Libro", 200,e->{
-            refrescarListaLibros(); //  actualiza el modelo
-            layout.show(contenedor, "QuitarLibros"); 
-        });
-        JButton botonSocioTieneLibro = crearBoton("¿Qué socio tiene el libro?", 200,e->layout.show(contenedor, ""));
-        JButton botonListarLibros = crearBoton("Listar Libros",200,e->{
-            areaLibros.setText(biblioteca.listaDeLibros());
-            layout.show(contenedor,"ListarLibros");
-        });
-        //panel central con botones
-        JPanel opcionesPanel = new JPanel();
-        opcionesPanel.setBackground(colorFondo);
-        opcionesPanel.setLayout(new BoxLayout(opcionesPanel, BoxLayout.Y_AXIS));
-        opcionesPanel.add(Box.createVerticalStrut(20));
-        opcionesPanel.add(botonAgregar);
-        opcionesPanel.add(Box.createVerticalStrut(10));
-        opcionesPanel.add(botonQuitar);
-        opcionesPanel.add(Box.createVerticalStrut(10));
-        opcionesPanel.add(botonSocioTieneLibro);
-        opcionesPanel.add(Box.createVerticalStrut(10));
-        opcionesPanel.add(botonListarLibros);
-        opcionesPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        
-        // Panel central
-        JPanel centro = new JPanel();
-        centro.setLayout(new BoxLayout(centro, BoxLayout.Y_AXIS));
-        centro.setBackground(panel.getBackground());
-        centro.add(titulo);
-        centro.add(Box.createVerticalStrut(10));
-        centro.add(opcionesPanel);
-        
-        panel.add(centro, BorderLayout.CENTER);
-        panel.add(crearBotonera("Menu",true), BorderLayout.SOUTH);
-        return panel;
-    }
-    
-    /**
-     * Método para crear la pantalla que lista los libros y permite quitarlos.
-     * deberian listarse en botones?
-     */
-    private JPanel crearPantallaQuitarLibro(){
+    private JPanel crearPantallaGestionLibros(){
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(colorFondo);
         
@@ -315,13 +270,13 @@ public class InterfazBibliotecaArielGeneralizado{
         mensajeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         
         //titulo
-        JLabel titulo = new JLabel("Quitar Libros", JLabel.CENTER);
+        JLabel titulo = new JLabel("Gestión  de los Libros", JLabel.CENTER);
         titulo.setFont(new Font("Arial", Font.BOLD,24));
         titulo.setForeground(Color.WHITE);
         titulo.setBorder(BorderFactory.createEmptyBorder(20,0,10,0));
         titulo.setAlignmentX(Component.CENTER_ALIGNMENT);
         
-        //panel para titulo y mensaje
+        //panel para titulo y mensaje(encabezado)
         JPanel encabezado = new JPanel();
         encabezado.setLayout(new BoxLayout(encabezado, BoxLayout.Y_AXIS));
         encabezado.setBackground(colorFondo);
@@ -339,10 +294,9 @@ public class InterfazBibliotecaArielGeneralizado{
         JList<Libro> listaLibros = new JList<>(modeloLibros);
         listaLibros.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listaLibros.setFont(new Font("Arial", Font.BOLD,14));
-        JScrollPane scroll = new JScrollPane(listaLibros);
-        scroll.setBorder(BorderFactory.createTitledBorder("Libros Disponibles: " + biblioteca.getLibros().size()));
-        //añado la lista de libros ya añadidas al scroll
-        panel.add(scroll, BorderLayout.CENTER);
+        scrollLibros = new JScrollPane(listaLibros);
+        scrollLibros.setBorder(BorderFactory.createTitledBorder("Libros Disponibles: " + biblioteca.getLibros().size()));
+        panel.add(scrollLibros, BorderLayout.CENTER);
         //boton quitar
         JButton botonQuitar = crearBoton("Quitar Libro",150,e->{
            Libro seleccionado = listaLibros.getSelectedValue();
@@ -363,30 +317,92 @@ public class InterfazBibliotecaArielGeneralizado{
             }
         });
         
+        //botón para ver quien tiene el libro
+        JButton botonVerSocio = crearBoton("¿Quién tiene el Libro?",150,e->{
+            Libro seleccionado = listaLibros.getSelectedValue();
+            if(seleccionado!=null){
+                String resultado = biblioteca.quienTieneElLibro(seleccionado);
+                mostrarMensajetemporal(mensajeLabel,resultado, 3000);
+            }else{
+                mostrarMensajetemporal(mensajeLabel,"Seleccione un libro para preguntar",3000);
+            }
+        });
+        
+        //botón para agregar un libro
+        JButton botonAgregar = crearBoton("Agregar Libro",150,e->{
+            layout.show(contenedor, "AgregarLibro");
+        });
+        
+        //boton para mostrar caracteristicas del libro, se usa hmtl para un texto más centrado
+        JButton botonVerDetalles = crearBoton("Ver Caracteristicas",150,e->{
+            Libro seleccionado = listaLibros.getSelectedValue();
+            if(seleccionado!=null){
+                String estado;
+                if(seleccionado.prestado()){
+                    estado = "Prestado";
+                }else{
+                    estado = "Disponible";
+                }
+                String detalles = "<html><body style='text-aling:center;'>"
+                                + "<b>Titulo:</b> " + seleccionado.getTitulo() + "<br"
+                                + "<b>Edicción:</b> " + seleccionado.getEdicion() + "<br>"
+                                + "<b>Año:</b> " + seleccionado.getAnio() + "<br>"
+                                + "<b>Estado:</b> " + estado + "<br>"
+                                + "</body></html>";
+                            mostrarMensajetemporal(mensajeLabel,detalles,5000);
+            }else{
+                mostrarMensajetemporal(mensajeLabel,"Seleccione un libro para ver sus caracteristicas",3000);
+            }
+        });
+        
+        //Ajusto el tamaño de algunos botones que no se ven del todo
+        botonVerSocio.setText("<html><center>Ver<br>¿Quién tiene el libro?</center></html>");
+        botonVerDetalles.setText("<html><center>Ver<br>características</center></html>");
+        
+        //para que los botones puedan verse acomodados, hay que ponerlos en dos filas 
+        JPanel botonesFila1 = new JPanel(new FlowLayout(FlowLayout.CENTER,20,10));
+        botonesFila1.setBackground(colorFondo);
+        botonesFila1.add(botonQuitar);
+        botonesFila1.add(botonAgregar);
+        
+        JPanel botonesFila2 = new JPanel(new FlowLayout(FlowLayout.CENTER,20,10));
+        botonesFila2.setBackground(colorFondo);
+        botonesFila2.add(botonVerDetalles);
+        botonesFila2.add(botonVerSocio);
+        
         //centro
-        JPanel centro = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JPanel centro = new JPanel();
+        centro.setLayout(new BoxLayout(centro, BoxLayout.Y_AXIS));
         centro.setBackground(colorFondo);
-        centro.add(botonQuitar);
+        centro.add(botonesFila2);
+        centro.add(botonesFila1);
         //panel sur
         JPanel pie = new JPanel(new BorderLayout());
         pie.setBackground(colorFondo);
         pie.add(centro, BorderLayout.CENTER);
-        pie.add(crearBotonera("GestionLibros",true), BorderLayout.SOUTH);
+        pie.add(crearBotonera("Menu",true), BorderLayout.SOUTH);
                
         panel.add(pie, BorderLayout.SOUTH);
         return panel;
     }
     
     /**
+     * Refresca la cantidad de elementos en el array de libros.
+     */
+    private void actualizarTituloListaLibros(){
+        ((TitledBorder) scrollLibros.getBorder()).setTitle("Libros Disponibles: " + biblioteca.getLibros().size());
+        scrollLibros.repaint();
+    }
+    /**
      * metodo para refrescar la lista de libros
      */
     public void refrescarListaLibros() {
     modeloLibros.clear();
+    actualizarTituloListaLibros();
     for (Libro libro : biblioteca.getLibros()) {
         modeloLibros.addElement(libro);
         }
     }
-
     
     /**
      * método para listar los libros (generar la pantalla)
@@ -433,7 +449,7 @@ public class InterfazBibliotecaArielGeneralizado{
         panel.setBackground(colorFondo);
         
         JLabel titulo = new JLabel("Agregar Libro", JLabel.CENTER);
-        titulo.setFont(new Font("Arial", Font.BOLD,32));
+        titulo.setFont(new Font("Arial", Font.BOLD,24));
         titulo.setForeground(Color.WHITE);
         titulo.setBorder(BorderFactory.createEmptyBorder(20,0,10,0));
         titulo.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -485,8 +501,10 @@ public class InterfazBibliotecaArielGeneralizado{
         formulario.add(campoAnio, gbc);
         //mensaje de estado
         JLabel mensajeEstado = new JLabel("", JLabel.CENTER);
-        mensajeEstado.setForeground(Color.YELLOW);
-        mensajeEstado.setFont(new Font("Arial", Font.PLAIN,14));
+        mensajeEstado.setForeground(Color.WHITE);
+        mensajeEstado.setFont(new Font("Arial", Font.BOLD,14));
+        mensajeEstado.setAlignmentX(Component.CENTER_ALIGNMENT);
+        mensajeEstado.setBorder(BorderFactory.createEmptyBorder(10,0,10,0));
         
         //contenedor de formulario
         JPanel contenedorFormulario = new JPanel();
@@ -504,24 +522,29 @@ public class InterfazBibliotecaArielGeneralizado{
         JButton  botonAgregar = crearBoton("Agregar",150, e->{
             String tituloLibro = campoTitulo.getText().trim();
             String editorialLibro = campoEditorial.getText().trim();
-            //uso de excepcion para comprobar el correcto ingreso de los datos que son int ;-;.
+            String  edicionTexto = campoEdicion.getText().trim();
+            String anioTexto = campoAnio.getText().trim();
+            
             try{
-                int edicionLibro = Integer.parseInt(campoEdicion.getText().trim());//trim() lo que hace es eliminar los espacios en blanco al principio y final de la cadena
-                int anioLibro = Integer.parseInt(campoAnio.getText().trim());
+                //la validacion externa
+                ValidarLibro.validar(tituloLibro,editorialLibro,edicionTexto,anioTexto);
+                //hace la conversión segura, si pasaron la validación
+                int edicionLibro = Integer.parseInt(edicionTexto);
+                int anioLibro  = Integer.parseInt(anioTexto);
                 
-                if(!tituloLibro.isEmpty() && !editorialLibro.isEmpty()){
-                    Libro nuevoLibro = new Libro(tituloLibro, edicionLibro, editorialLibro, anioLibro);
-                    biblioteca.agregarLibro(nuevoLibro);
-                    mostrarMensajetemporal(mensajeEstado, "Libro agregado correctamente.", 3000);
-                    campoTitulo.setText("");
-                    campoEdicion.setText("");
-                    campoEditorial.setText("");
-                    campoAnio.setText("");
-                }else{
-                    mostrarMensajetemporal(mensajeEstado, "Completa los campos CRACK!", 3000);
-                }
-            } catch(NumberFormatException ex){
-                mostrarMensajetemporal(mensajeEstado, "Los campos de Edición y año deben tener números!.", 3000);
+                //Instancia un libro y lo agrega a la biblioteca
+                Libro nuevoLibro = new Libro(tituloLibro, edicionLibro, editorialLibro, anioLibro);
+                biblioteca.agregarLibro(nuevoLibro);
+                refrescarListaLibros();
+                mostrarMensajetemporal(mensajeEstado,"Libro Agregado sastifactoriamente jeje",3000);
+                
+                //limpiar los campos
+                campoTitulo.setText("");
+                campoEdicion.setText("");
+                campoEditorial.setText("");
+                campoAnio.setText("");
+            } catch(ValidarIngresoLibrosException ex){
+                mostrarMensajetemporal(mensajeEstado, ex.getMessage(),4000);
             }
         });
         

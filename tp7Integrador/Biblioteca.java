@@ -229,7 +229,7 @@ public class Biblioteca
         }
         
         // Si no se encuentra el libro prestado, lanzamos la excepción
-        throw new LibroNoPrestadoException("El libro se encuentra en la biblioteca");
+        throw new LibroNoPrestadoException("El libro no está prestado");
         
     } catch (LibroNoPrestadoException e) {
         // Captura la excepción y retorna el mensaje

@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=ValidarLibro
+comment0.text=\r\n\ Clase\ exception\ para\ validar\ los\ errores\ comunes\ que\ puede\ tener\ al\ ingresar\ datos\ del\ libro\r\n
+comment1.params=titulo\ editorial\ edicion\ anio
+comment1.target=void\ validar(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.params=titulo\ editorial
+comment2.target=void\ validarCamposObligatorios(java.lang.String,\ java.lang.String)
+comment3.params=edicion\ anio
+comment3.target=void\ validarNumericos(java.lang.String,\ java.lang.String)
+comment4.params=edicion\ anio
+comment4.target=void\ validarLogicaFechas(java.lang.String,\ java.lang.String)
+comment5.params=anio
+comment5.target=void\ validarAnioLogico(java.lang.String)
+comment6.params=edicion
+comment6.target=void\ ValidarEdicionSuperior(java.lang.String)
+numComments=7
