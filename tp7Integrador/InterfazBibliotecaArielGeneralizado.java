@@ -557,7 +557,7 @@ public class InterfazBibliotecaArielGeneralizado {
         contenedorFormulario.setLayout(new BoxLayout(contenedorFormulario, BoxLayout.Y_AXIS));
         contenedorFormulario.setAlignmentX(Component.CENTER_ALIGNMENT);
         contenedorFormulario.add(formulario);
-        //contenedorFormulario.setMaximumSize(new Dimension(400, formulario.getPreferredSize().height));
+        contenedorFormulario.setMaximumSize(new Dimension(400, formulario.getPreferredSize().height));
 
         // Boton agregar
         JButton botonAgregar = crearBoton("Agregar", 150, e -> {
