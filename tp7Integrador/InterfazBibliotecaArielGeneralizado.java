@@ -482,11 +482,7 @@ public class InterfazBibliotecaArielGeneralizado {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(colorFondo);
 
-        JLabel titulo = new JLabel("Agregar Libro", JLabel.CENTER);
-        titulo.setFont(new Font("Arial", Font.BOLD, 24));
-        titulo.setForeground(Color.WHITE);
-        titulo.setBorder(BorderFactory.createEmptyBorder(20, 0, 10, 0));
-        titulo.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JPanel titulo = crearTituloConIcono("Agregar Libro ",24,Color.WHITE,colorFondo,"img/bibliotecaIcon.png");
         
         // el msj de estado
         JLabel mensajeLabel = new JLabel("");
@@ -763,11 +759,15 @@ public class InterfazBibliotecaArielGeneralizado {
         panel.setBackground(colorFondo);
 
         // Creo el título
-        JLabel titulo = crearTitulo("Seleccionar tipo de Socio");
+        JPanel titulo = crearTituloConIcono("Seleccionar tipo de Socio",24,Color.WHITE,colorFondo,"img/sociosIcon.png");
 
         // Botones de selección
         JButton botonDocente = crearBoton("Docente", 150, e -> mostrarFormularioSocio("Docente"));
+        botonDocente.setIcon(new ImageIcon(
+                                        new ImageIcon("img/docenteIcon.png").getImage().getScaledInstance(30,40,Image.SCALE_SMOOTH)));
         JButton botonEstudiante = crearBoton("Estudiante", 150, e -> mostrarFormularioSocio("Estudiante"));
+        botonEstudiante.setIcon(new ImageIcon(
+                                        new ImageIcon("img/alumnoIcon.png").getImage().getScaledInstance(30,40,Image.SCALE_SMOOTH)));
 
         // Panel central
         JPanel centro = new JPanel();
