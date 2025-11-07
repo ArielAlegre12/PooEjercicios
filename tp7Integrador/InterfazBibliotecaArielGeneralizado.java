@@ -107,7 +107,7 @@ public class InterfazBibliotecaArielGeneralizado {
         // agrego los paneles.
         centro.add(Box.createVerticalStrut(30));
         centro.add(Box.createVerticalGlue());
-        centro.add(crearTituloConIcono("Ménu", 32, Color.WHITE, colorFondo, "img/bibliotecaIcon.png"));
+        centro.add(crearTituloConIcono(biblioteca.getNombre(), 32, Color.WHITE, colorFondo, "img/bibliotecaIcono.png"));
         centro.add(Box.createVerticalStrut(10));
         centro.add(crearPanelImagenes(panel.getBackground()));
         centro.add(Box.createVerticalStrut(20));
@@ -305,11 +305,7 @@ public class InterfazBibliotecaArielGeneralizado {
         mensajeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // titulo
-        JLabel titulo = new JLabel("Gestión  de los Libros", JLabel.CENTER);
-        titulo.setFont(new Font("Arial", Font.BOLD, 24));
-        titulo.setForeground(Color.WHITE);
-        titulo.setBorder(BorderFactory.createEmptyBorder(20, 0, 10, 0));
-        titulo.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JPanel titulo = crearTituloConIcono("Gestión  de los Libros",24,Color.WHITE,colorFondo,"bibliotecaIcon.png");
 
         // panel para titulo y mensaje(encabezado)
         JPanel encabezado = new JPanel();
@@ -729,12 +725,12 @@ public class InterfazBibliotecaArielGeneralizado {
         botonSeleccionar.setText("<html><center>Seleccionar<br>Socio</center></html>");
 
         // organizar en dos filas los botones
-        JPanel botonesFila1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
+        JPanel botonesFila1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 5));
         botonesFila1.setBackground(colorFondo);
         botonesFila1.add(botonQuitar);
         botonesFila1.add(botonAgregar);
 
-        JPanel botonesFila2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
+        JPanel botonesFila2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 5));
         botonesFila2.setBackground(colorFondo);
         botonesFila2.add(botonVerDetalles);
         botonesFila2.add(botonSeleccionar);
