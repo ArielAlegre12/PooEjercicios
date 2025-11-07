@@ -149,7 +149,7 @@ public class InterfazBibliotecaArielGeneralizado {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(colorFondo);
         // titulo
-        JPanel titulo = crearTituloConIcono("Menú Principal",24,Color.WHITE,colorFondo,"img/bibliotecaIcon.png");
+        JPanel titulo = crearTituloConIcono("Menú Principal", 24, Color.WHITE, colorFondo, "img/bibliotecaIcon.png");
 
         // subtitulo(especificación)
         JLabel subtitulo = new JLabel("Haga Click en una opción", JLabel.CENTER);
@@ -728,13 +728,17 @@ public class InterfazBibliotecaArielGeneralizado {
         JPanel centro = new JPanel();
         centro.setLayout(new BoxLayout(centro, BoxLayout.Y_AXIS));
         centro.setBackground(colorFondo);
-        centro.add(botonesFila2);
-        centro.add(botonesFila1);
+        centro.add(Box.createVerticalStrut(10));
+        centro.add(envolverCentrado(botonesFila2));
+        centro.add(Box.createVerticalStrut(10));
+        centro.add(envolverCentrado(botonesFila1));
+        centro.add(Box.createVerticalStrut(10));
 
+        // pie
         JPanel pie = new JPanel(new BorderLayout());
         pie.setBackground(colorFondo);
         pie.add(centro, BorderLayout.CENTER);
-        pie.add(crearBotonera("GestionSocios", true));
+        pie.add(crearBotonera("Menu", true), BorderLayout.SOUTH); // ✅ corregido
 
         panel.add(pie, BorderLayout.SOUTH);
         return panel;
@@ -924,8 +928,6 @@ public class InterfazBibliotecaArielGeneralizado {
         layout.show(contenedor, nombrePanel);
         System.out.println("Formulario generado para: " + tipoSocio);
     }
-
-    
 
     /**
      * metodo main para ejecutar el programa
