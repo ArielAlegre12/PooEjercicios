@@ -63,6 +63,7 @@ public class InterfazBibliotecaArielGeneralizado {
         contenedor.add(crearPantallaListarLibros(), "ListarLibros");
         contenedor.add(crearPantallaGestionLibros(), "GestionLibros");
         contenedor.add(crearPantallaGestionSociosListar(), "GestionSocios");
+        contenedor.add(crearPantallaAgregarQuitarSocios(), "AgregarQuitarSocios");
     }
 
     /**
@@ -148,10 +149,7 @@ public class InterfazBibliotecaArielGeneralizado {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(colorFondo);
         // titulo
-        JLabel titulo = new JLabel("Menú Principal", JLabel.CENTER);
-        titulo.setFont(new Font("Arial", Font.BOLD, 32));
-        titulo.setForeground(Color.WHITE);
-        titulo.setBorder(BorderFactory.createEmptyBorder(20, 0, 10, 0));
+        JPanel titulo = crearTituloConIcono("Menú Principal",24,Color.WHITE,colorFondo,"img/bibliotecaIcon.png");
 
         // subtitulo(especificación)
         JLabel subtitulo = new JLabel("Haga Click en una opción", JLabel.CENTER);
@@ -165,7 +163,7 @@ public class InterfazBibliotecaArielGeneralizado {
         });
         // instanciar la img para ponerla al aldo del boton
         botonLibros.setIcon(new ImageIcon(
-                new ImageIcon("img/iconoLibros.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
+                new ImageIcon("img/iconoLibros.jpg").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
         // boton gestionar socios
         JButton botonSocios = crearBoton("Gestionar Socios", 250, e -> layout.show(contenedor, "GestionSocios"));
         botonSocios.setIcon(new ImageIcon(
@@ -199,6 +197,7 @@ public class InterfazBibliotecaArielGeneralizado {
         JPanel centro = new JPanel();
         centro.setLayout(new BoxLayout(centro, BoxLayout.Y_AXIS));
         centro.setBackground(panel.getBackground());
+        centro.add(Box.createVerticalStrut(30));
         centro.add(titulo);
         centro.add(subtitulo);
         centro.add(envoltorio);
@@ -773,6 +772,27 @@ public class InterfazBibliotecaArielGeneralizado {
         return panel;
     }
 
+    /**
+     * refrescar la lista de socios
+     */
+    public void refrescarListaSocios() {
+        modeloSocios.clear();
+        actualizarTituloListaSocios();
+        for (Socio socio : biblioteca.getSocios()) {
+            modeloSocios.addElement(socio);
+        }
+    }
+
+    /**
+     * actualizar scroll de socios
+     */
+    public void actualizarTituloListaSocios() {
+        if (scrollSocios != null) {
+            scrollSocios.setBorder(
+                    BorderFactory.createTitledBorder("Socios Registrados: " + biblioteca.getSocios().size()));
+        }
+    }
+
     private void mostrarFormularioSocio(String tipoSocio) {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(colorFondo);
@@ -905,26 +925,7 @@ public class InterfazBibliotecaArielGeneralizado {
         System.out.println("Formulario generado para: " + tipoSocio);
     }
 
-    /**
-     * refrescar la lista de socios
-     */
-    public void refrescarListaSocios() {
-        modeloSocios.clear();
-        actualizarTituloListaSocios();
-        for (Socio socio : biblioteca.getSocios()) {
-            modeloSocios.addElement(socio);
-        }
-    }
-
-    /**
-     * actualizar scroll de socios
-     */
-    public void actualizarTituloListaSocios() {
-        if (scrollSocios != null) {
-            scrollSocios.setBorder(
-                    BorderFactory.createTitledBorder("Socios Registrados: " + biblioteca.getSocios().size()));
-        }
-    }
+    
 
     /**
      * metodo main para ejecutar el programa
