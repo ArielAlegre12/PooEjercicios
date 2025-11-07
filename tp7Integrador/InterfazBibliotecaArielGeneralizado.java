@@ -911,6 +911,7 @@ public class InterfazBibliotecaArielGeneralizado {
                 campoNombre.setText("");
                 campoDni.setText("");
                 campoExtra.setText("");
+                refrescarListaSocios();
             } catch (ValidarIngresoSocioException ex) {
                 mostrarMensajetemporal(mensajeLabel, ex.getMessage(), 3000);
             }
