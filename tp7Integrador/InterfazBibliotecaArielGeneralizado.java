@@ -488,6 +488,20 @@ public class InterfazBibliotecaArielGeneralizado {
         titulo.setForeground(Color.WHITE);
         titulo.setBorder(BorderFactory.createEmptyBorder(20, 0, 10, 0));
         titulo.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        // el msj de estado
+        JLabel mensajeLabel = new JLabel("");
+        mensajeLabel.setForeground(Color.WHITE);
+        mensajeLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+        mensajeLabel.setBorder(BorderFactory.createEmptyBorder(5, 0, 10, 0));
+        mensajeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        JPanel encabezado = new JPanel();
+        encabezado.setLayout(new BoxLayout(encabezado, BoxLayout.Y_AXIS));
+        encabezado.setBackground(colorFondo);
+        encabezado.add(titulo);
+        encabezado.add(mensajeLabel);
+        panel.add(encabezado, BorderLayout.NORTH);
 
         // campos para rellenar jei
         JTextField campoTitulo = new JTextField(20);
@@ -536,22 +550,14 @@ public class InterfazBibliotecaArielGeneralizado {
         formulario.add(new JLabel("Año:"), gbc);
         gbc.gridx = 1;
         formulario.add(campoAnio, gbc);
-        // mensaje de estado
-        JLabel mensajeEstado = new JLabel("", JLabel.CENTER);
-        mensajeEstado.setForeground(Color.WHITE);
-        mensajeEstado.setFont(new Font("Arial", Font.BOLD, 14));
-        mensajeEstado.setAlignmentX(Component.CENTER_ALIGNMENT);
-        mensajeEstado.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
+        
 
         // contenedor de formulario
         JPanel contenedorFormulario = new JPanel();
         contenedorFormulario.setLayout(new BoxLayout(contenedorFormulario, BoxLayout.Y_AXIS));
-        contenedorFormulario.setBackground(panel.getBackground());
         contenedorFormulario.setAlignmentX(Component.CENTER_ALIGNMENT);
         contenedorFormulario.add(formulario);
-        contenedorFormulario.add(Box.createVerticalStrut(10));
-        contenedorFormulario.add(mensajeEstado);
-        contenedorFormulario.setMaximumSize(new Dimension(400, formulario.getPreferredSize().height));
+        //contenedorFormulario.setMaximumSize(new Dimension(400, formulario.getPreferredSize().height));
 
         // Boton agregar
         JButton botonAgregar = crearBoton("Agregar", 150, e -> {
@@ -571,7 +577,7 @@ public class InterfazBibliotecaArielGeneralizado {
                 Libro nuevoLibro = new Libro(tituloLibro, edicionLibro, editorialLibro, anioLibro);
                 biblioteca.agregarLibro(nuevoLibro);
                 refrescarListaLibros();
-                mostrarMensajetemporal(mensajeEstado, "Libro Agregado sastifactoriamente jeje", 3000);
+                mostrarMensajetemporal(mensajeLabel, "Libro Agregado sastifactoriamente jeje", 3000);
 
                 // limpiar los campos
                 campoTitulo.setText("");
@@ -579,7 +585,7 @@ public class InterfazBibliotecaArielGeneralizado {
                 campoEditorial.setText("");
                 campoAnio.setText("");
             } catch (ValidarIngresoLibrosException ex) {
-                mostrarMensajetemporal(mensajeEstado, ex.getMessage(), 4000);
+                mostrarMensajetemporal(mensajeLabel, ex.getMessage(), 4000);
             }
         });
 
@@ -587,7 +593,7 @@ public class InterfazBibliotecaArielGeneralizado {
         JPanel centro = new JPanel();
         centro.setLayout(new BoxLayout(centro, BoxLayout.Y_AXIS));
         centro.setBackground(colorFondo);
-        centro.add(titulo);
+        centro.add(encabezado);
         centro.add(Box.createVerticalStrut(10));
         centro.add(contenedorFormulario);
         centro.add(Box.createVerticalStrut(10));
@@ -738,7 +744,7 @@ public class InterfazBibliotecaArielGeneralizado {
         JPanel pie = new JPanel(new BorderLayout());
         pie.setBackground(colorFondo);
         pie.add(centro, BorderLayout.CENTER);
-        pie.add(crearBotonera("Menu", true), BorderLayout.SOUTH); // ✅ corregido
+        pie.add(crearBotonera("Menu", true), BorderLayout.SOUTH);
 
         panel.add(pie, BorderLayout.SOUTH);
         return panel;
@@ -802,6 +808,20 @@ public class InterfazBibliotecaArielGeneralizado {
         panel.setBackground(colorFondo);
 
         JLabel titulo = crearTitulo("Formulario");
+        
+        // el msj de estado
+        JLabel mensajeLabel = new JLabel("");
+        mensajeLabel.setForeground(Color.WHITE);
+        mensajeLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+        mensajeLabel.setBorder(BorderFactory.createEmptyBorder(5, 0, 10, 0));
+        mensajeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        JPanel encabezado = new JPanel();
+        encabezado.setLayout(new BoxLayout(encabezado, BoxLayout.Y_AXIS));
+        encabezado.setBackground(colorFondo);
+        encabezado.add(titulo);
+        encabezado.add(mensajeLabel);
+        panel.add(encabezado, BorderLayout.NORTH);
 
         // Campos
         JTextField campoNombre = new JTextField(20);
@@ -818,7 +838,6 @@ public class InterfazBibliotecaArielGeneralizado {
 
         // Formulario con GridBagLayout
         JPanel formulario = new JPanel(new GridBagLayout());
-        formulario.setBackground(colorFondo);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.anchor = GridBagConstraints.WEST;
@@ -859,21 +878,11 @@ public class InterfazBibliotecaArielGeneralizado {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         formulario.add(campoExtra, gbc);
 
-        // Mensaje de estado
-        JLabel mensajeEstado = new JLabel("", JLabel.CENTER);
-        mensajeEstado.setForeground(Color.WHITE);
-        mensajeEstado.setFont(new Font("Arial", Font.BOLD, 14));
-        mensajeEstado.setAlignmentX(Component.CENTER_ALIGNMENT);
-        mensajeEstado.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
-
         // Contenedor vertical
         JPanel contenedorFormulario = new JPanel();
         contenedorFormulario.setLayout(new BoxLayout(contenedorFormulario, BoxLayout.Y_AXIS));
-        contenedorFormulario.setBackground(colorFondo);
         contenedorFormulario.setAlignmentX(Component.CENTER_ALIGNMENT);
         contenedorFormulario.add(formulario);
-        contenedorFormulario.add(Box.createVerticalStrut(10));
-        contenedorFormulario.add(mensajeEstado);
         contenedorFormulario.setMaximumSize(new Dimension(400, formulario.getPreferredSize().height));
 
         // Botón agregar
@@ -886,7 +895,7 @@ public class InterfazBibliotecaArielGeneralizado {
                 int dni = Integer.parseInt(dniTexto);
 
                 if (biblioteca.buscarSocio(dni) != null) {
-                    mostrarMensajetemporal(mensajeEstado, "Ya existe un socio con ese DNI", 3000);
+                    mostrarMensajetemporal(mensajeLabel, "Ya existe un socio con ese DNI", 3000);
                     return;
                 }
 
@@ -898,12 +907,12 @@ public class InterfazBibliotecaArielGeneralizado {
                     biblioteca.agregarSocio(nuevoEstudiante);
                 }
 
-                mostrarMensajetemporal(mensajeEstado, tipoSocio + " agregado correctamente", 3000);
+                mostrarMensajetemporal(mensajeLabel, tipoSocio + " agregado correctamente", 3000);
                 campoNombre.setText("");
                 campoDni.setText("");
                 campoExtra.setText("");
             } catch (ValidarIngresoSocioException ex) {
-                mostrarMensajetemporal(mensajeEstado, ex.getMessage(), 3000);
+                mostrarMensajetemporal(mensajeLabel, ex.getMessage(), 3000);
             }
         });
 
@@ -911,7 +920,7 @@ public class InterfazBibliotecaArielGeneralizado {
         JPanel centro = new JPanel();
         centro.setLayout(new BoxLayout(centro, BoxLayout.Y_AXIS));
         centro.setBackground(colorFondo);
-        centro.add(titulo);
+        centro.add(encabezado);
         centro.add(Box.createVerticalStrut(10));
         centro.add(contenedorFormulario);
         centro.add(Box.createVerticalStrut(10));
@@ -926,7 +935,6 @@ public class InterfazBibliotecaArielGeneralizado {
         contenedor.revalidate();
         contenedor.repaint();
         layout.show(contenedor, nombrePanel);
-        System.out.println("Formulario generado para: " + tipoSocio);
     }
 
     /**
