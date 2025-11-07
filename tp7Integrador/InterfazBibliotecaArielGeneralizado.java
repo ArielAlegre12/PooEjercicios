@@ -165,7 +165,10 @@ public class InterfazBibliotecaArielGeneralizado {
         botonLibros.setIcon(new ImageIcon(
                 new ImageIcon("img/iconoLibros.jpg").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
         // boton gestionar socios
-        JButton botonSocios = crearBoton("Gestionar Socios", 250, e -> layout.show(contenedor, "GestionSocios"));
+        JButton botonSocios = crearBoton("Gestionar Socios", 250, e ->{
+            refrescarListaSocios();
+            layout.show(contenedor, "GestionSocios");
+        });
         botonSocios.setIcon(new ImageIcon(
                 new ImageIcon("img/iconAlumProfe.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 
@@ -688,11 +691,17 @@ public class InterfazBibliotecaArielGeneralizado {
         JButton botonVerDetalles = crearBoton("Ver características", 150, e -> {
             Socio seleccionado = listaSocios.getSelectedValue();
             if (seleccionado != null) {
+                String campoExtra = "";
+                if(seleccionado instanceof Docente){
+                    campoExtra = ((Docente)seleccionado).getArea();
+                }else if(seleccionado instanceof Estudiante){
+                    campoExtra = ((Estudiante)seleccionado).getCarrera();
+                }
                 String detalles = "<html><body style='text-align:center;'>"
                         + "<b>Nombre:</b> " + seleccionado.getNombre() + "<br>"
                         + "<b>DNI:</b> " + seleccionado.getDniSocio() + "<br>"
                         + "<b>Tipo:</b> " + (seleccionado instanceof Docente ? "Docente" : "Estudiante") + "<br>"
-                        + "<b>" + (seleccionado instanceof Docente ? "Área" : "Carrera") + ":</b> "
+                        + "<b>" + (seleccionado instanceof Docente ? "Área" : "Carrera") + ":</b> " + campoExtra
                         + "</body></html>";
                 mostrarMensajetemporal(mensajeLabel, detalles, 10000);
             } else {
