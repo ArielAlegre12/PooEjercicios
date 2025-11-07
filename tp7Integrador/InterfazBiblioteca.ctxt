@@ -1,7 +1,9 @@
 #BlueJ class context
-comment0.target=InterfazBibliotecaArielGeneralizado
+comment0.target=InterfazBiblioteca
+comment0.text=\r\n\ Manejo\ de\ interfaz\ para\ usuario,\ biblioteca.\r\n\ falta\ pulir\ muchas\ cosas,\ como\ la\ reutilizaci\u00F3n\ de\ c\u00F3digo.\ efe\r\n\ \r\n\ @author\ Alegre\ Ariel\ \r\n
 comment1.params=
-comment1.target=InterfazBibliotecaArielGeneralizado()
+comment1.target=InterfazBiblioteca()
+comment1.text=\r\n\ constructor\ \r\n
 comment10.params=
 comment10.target=javax.swing.JPanel\ crearPantallaMenu()
 comment10.text=\r\n\ m\u00E9todo\ para\ crear\ la\ pantalla\ del\ men\u00FA\r\n
@@ -55,6 +57,7 @@ comment25.target=void\ actualizarTituloListaSocios()
 comment25.text=\r\n\ actualizar\ scroll\ de\ socios\r\n
 comment26.params=tipoSocio
 comment26.target=void\ mostrarFormularioSocio(java.lang.String)
+comment26.text=\r\n\ generar\ y\ trabajar\ en\ el\ panel\ del\ formu\ de\ socios,\ recibe\ el\ tipo\ de\ socio\r\n\ y\ varia\ el\ ingreso\ de\ \u00E1rea/carrera.\ tambi\u00E9n\ la\ cantidad\ de\ dias\ asginados\ de\ prestamos.\r\n
 comment27.params=args
 comment27.target=void\ main(java.lang.String[])
 comment27.text=\r\n\ metodo\ main\ para\ ejecutar\ el\ programa\r\n

@@ -1,14 +1,15 @@
-
-/**
- * Manejo de interfaz para usuario, biblioteca.
- */
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-
 import javax.swing.border.TitledBorder;
+/**
+ * Manejo de interfaz para usuario, biblioteca.
+ * falta pulir muchas cosas, como la reutilización de código. efe
+ * 
+ * @author Alegre Ariel 
+ */
 
-public class InterfazBibliotecaArielGeneralizado {
+public class InterfazBiblioteca{
     private JFrame ventana;
     private CardLayout layout;
     private JPanel contenedor;
@@ -20,8 +21,11 @@ public class InterfazBibliotecaArielGeneralizado {
     private DefaultListModel<Socio> modeloSocios;
     private JScrollPane scrollLibros;
     private JScrollPane scrollSocios;
-
-    public InterfazBibliotecaArielGeneralizado() {
+    
+    /**
+     * constructor 
+     */
+    public InterfazBiblioteca() {
         biblioteca = new Biblioteca("Biblioteca Arielo");
         colorFondo = new Color(227, 100, 100);
         modeloLibros = new DefaultListModel<>();
@@ -748,7 +752,7 @@ public class InterfazBibliotecaArielGeneralizado {
         centro.add(envolverCentrado(botonesFila1));
         centro.add(Box.createVerticalStrut(10));
 
-        // pie
+        // pie(olor a pata el que lee)
         JPanel pie = new JPanel(new BorderLayout());
         pie.setBackground(colorFondo);
         pie.add(centro, BorderLayout.CENTER);
@@ -815,6 +819,10 @@ public class InterfazBibliotecaArielGeneralizado {
                     BorderFactory.createTitledBorder("Socios Registrados: " + biblioteca.getSocios().size()));
         }
     }
+    /**
+     * generar y trabajar en el panel del formu de socios, recibe el tipo de socio
+     * y varia el ingreso de área/carrera. también la cantidad de dias asginados de prestamos.
+     */
 
     private void mostrarFormularioSocio(String tipoSocio) {
         JPanel panel = new JPanel(new BorderLayout());
@@ -955,6 +963,6 @@ public class InterfazBibliotecaArielGeneralizado {
      * metodo main para ejecutar el programa
      */
     public static void main(String args[]) {
-        SwingUtilities.invokeLater(() -> new InterfazBibliotecaArielGeneralizado());
+        SwingUtilities.invokeLater(() -> new InterfazBiblioteca());
     }
 }
