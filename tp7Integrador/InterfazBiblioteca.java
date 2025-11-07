@@ -1054,10 +1054,33 @@ public class InterfazBiblioteca{
     public void crearPantallaDevolverLibro(Socio socio){
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(colorFondo);
-        
+        //msj de estd
         JLabel mensajeLabel = new JLabel();
         mensajeLabel.setForeground(Color.WHITE);
-        mensajeLabel.setFont();
+        mensajeLabel.setFont(new Font("Arial", Font.PLAIN,14));
+        mensajeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        //encabezado con msj
+        JPanel encabezado =     new JPanel();
+        encabezado.setLayout(new BoxLayout(encabezado, BoxLayout.Y_AXIS));
+        encabezado.setBackground(colorFondo);
+        encabezado.add(crearTituloConIcono("Devolver Libro - " + socio.getNombre(),24,Color.WHITE,colorFondo,""));
+        //msj de dias de prestamos
+        JLabel diasLabel = new JLabel("Días de prestamo actuales: " + socio.getPrestamos());
+        diasLabel.setForeground(Color.WHITE);
+        diasLabel.setFont(new Font("Arial", Font.PLAIN,14));
+        diasLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        encabezado.add(diasLabel);
+        encabezado.add(mensajeLabel);
+        panel.add(encabezado, BorderLayout.NORTH);
+        
+        //modelar y listar los libros en poseción
+        DefaultListModel<Libro> modeloLibros = new DefaultListModel<>();
+        for(Prestamo prestamo : socio.getPrestamos()){
+            modeloLibros.addElement(prestamo.getLibro());
+        }
+        
+        JListzLibro>
     }
     /**
      * metodo main para ejecutar el programa
