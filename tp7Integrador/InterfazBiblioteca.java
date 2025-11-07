@@ -2,6 +2,8 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.border.TitledBorder;
+import java.util.Calendar;
+
 /**
  * Manejo de interfaz para usuario, biblioteca.
  * falta pulir muchas cosas, como la reutilización de código. efe
@@ -344,6 +346,7 @@ public class InterfazBiblioteca{
                     if (!seleccionado.prestado()) {
                         biblioteca.quitarLibro(seleccionado);
                         modeloLibros.removeElement(seleccionado);
+                        refrescarListaLibros();
                         mostrarMensajetemporal(mensajeLabel, "Libro eliminado correctamente", 3000);
                     } else {
                         mostrarMensajetemporal(mensajeLabel, "No se puede eliminar un libro que está prestad, je",
@@ -661,8 +664,7 @@ public class InterfazBiblioteca{
         listaSocios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listaSocios.setFont(new Font("Arial", Font.BOLD, 14));
         scrollSocios = new JScrollPane(listaSocios);
-        scrollSocios
-                .setBorder(BorderFactory.createTitledBorder("Socios Registrados: " + biblioteca.getSocios().size()));
+        scrollSocios.setBorder(BorderFactory.createTitledBorder("Socios Registrados: " + biblioteca.getSocios().size()));
         panel.add(scrollSocios, BorderLayout.CENTER);
 
         // quitarSocio
@@ -716,7 +718,7 @@ public class InterfazBiblioteca{
         JButton botonSeleccionar = crearBoton("Seleccionar Socio", 150, e -> {
             Socio seleccionado = listaSocios.getSelectedValue();
             if (seleccionado != null) {
-                mostrarPantallaSocioOpExtras(seleccionado.soyDeLaClase());
+                mostrarPantallaSocioOpExtras(seleccionado);
             } else {
                 mostrarMensajetemporal(mensajeLabel, "Seleccione un socio para continuar", 3000);
             }
@@ -964,17 +966,86 @@ public class InterfazBiblioteca{
      * podra seleccionarlo si el libro esta disponible.
      * aquí la seleccion dependera si es docente o estudiante al socio que hizo click
      */
-    public void mostrarPantallaSocioOpExtras(String tipoSocio){
+    public void mostrarPantallaSocioOpExtras(Socio socio){
+        String tipoSocio = socio.soyDeLaClase();
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(colorFondo);
         
+        //msj de estado
+        JLabel mensajeLabel = new JLabel("");
+        mensajeLabel.setForeground(Color.WHITE);
+        mensajeLabel.setFont(new Font("Arial",Font.PLAIN,14));
+        mensajeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        // encabezado
+        JPanel encabezado = new JPanel();
+        encabezado.setLayout(new BoxLayout(encabezado, BoxLayout.Y_AXIS));
+        encabezado.setBackground(colorFondo);
+        encabezado.add(crearTituloConIcono("Prestar Libro a " + socio.getNombre() , 24, Color.WHITE, colorFondo, "img/sociosIcon.png"));
+        encabezado.add(mensajeLabel);
+        panel.add(encabezado, BorderLayout.NORTH);
+        
+        //modelo y creo la lista de libros sin poner los prestados.
+        DefaultListModel<Libro> modeloLibros = new DefaultListModel<>();
+        for(Libro libro : biblioteca.getLibros()){
+            if(!libro.prestado()){
+                modeloLibros.addElement(libro);
+            }
+        }
+        //creo una lista visual con JList
+        JList<Libro> listaLibros = new JList<>(modeloLibros);
+        //permite que solo se pueda seleccionar un libro
+        listaLibros.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        listaLibros.setFont(new Font("Arial", Font.BOLD,14));
+        scrollLibros = new JScrollPane(listaLibros);
+        scrollLibros.setBorder(BorderFactory.createTitledBorder("Libros Disponibles"));
+        
+        //boton
+        JButton botonPedir = crearBoton("Pedir Libro",150,e->{
+            Libro seleccionado  = listaLibros.getSelectedValue();
+            if(seleccionado!=null){
+                if(socio.puedePedir()){
+                    Calendar hoy = Calendar.getInstance();
+                    boolean exito = biblioteca.prestarLibro(hoy,socio,seleccionado);
+                    if(exito){
+                        mostrarMensajetemporal(mensajeLabel,"Libro prestado correctamente",3000);
+                        modeloLibros.removeElement(seleccionado);
+                    }else{
+                        mostrarMensajetemporal(mensajeLabel,"No se puede realizar el prestamo",3000);
+                    }
+                }else{
+                    mostrarMensajetemporal(mensajeLabel,"El socio no puede pedir libros actualmente",3000);
+                }
+            }else{
+                mostrarMensajetemporal(mensajeLabel,"Seleccione un libro!",3000);
+            }
+        });
+        
+        //boton que permitira ir a otro panel donde tendra los libros listados y tendra un boton para devolver libro.
+        String textAcomodado = "<html><center>Devolver<br>Libro</center></html>";
+        JButton botonDevolver = crearBoton(textAcomodado,150,e->{
+            
+        });
+        
+        JPanel centro  = new JPanel();
+        centro.setLayout(new BoxLayout(centro, BoxLayout.Y_AXIS));
+        centro.setBackground(colorFondo);
+        centro.add(encabezado);
+        centro.add(Box.createVerticalStrut(10));
+        centro.add(scrollLibros);
+        centro.add(Box.createVerticalStrut(10));
+        centro.add(envolverCentrado(botonPedir));
+        centro.add(envolverCentrado(botonDevolver));
+        
+        panel.add(centro, BorderLayout.CENTER);
         panel.add(crearBotonera("GestionSocios",true), BorderLayout.SOUTH);
-        String nombrePanel = "Opciones_Extras_De_" + tipoSocio;
-        panel.setName(nombrePanel);
-        contenedor.add(panel);
+        
+        String nomPanel = "Opciones_Extras_De_" + tipoSocio + "_" + socio.getDniSocio();
+        panel.setName(nomPanel);
+        contenedor.add(panel, nomPanel);
         contenedor.revalidate();
         contenedor.repaint();
-        layout.show(contenedor,nombrePanel);
+        layout.show(contenedor,nomPanel);
     }
 
     /**
