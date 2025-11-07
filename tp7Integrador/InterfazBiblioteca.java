@@ -1080,7 +1080,28 @@ public class InterfazBiblioteca{
             modeloLibros.addElement(prestamo.getLibro());
         }
         
-        JListzLibro>
+        JList<Libro> listaLibros = new JList<>(modeloLibros);
+        listaLibros.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        listaLibros.setFont(new Font("Arial", Font.BOLD,14));
+        JScrollPane scroll = new JScrollPane(listaLibros);
+        
+        //el botón devolver
+        JButton botonDevolver = crearBoton("<html><center>Devolver<br>Libro</center></html>",150,e->{
+            Libro seleccionado = listaLibros.getSelectedValue();
+            if(seleccionado!=null){
+                biblioteca.devolverLibro(seleccionado);
+                mostrarMensajetemporal(mensajeLabel,"Libro devuelto correctamente",3000);
+                modeloLibros.removeElement(seleccionado);
+            }else{
+                mostrarMensajetemporal(mensajeLabel,"Seleccione un libro para devolver",3000);
+            }
+        });
+        
+        //btn para verificar el vencimiento
+        JButton botonVerificarVencimiento = crearBoton("<html><center>¿Está<br>Vencido?</center></html>",150,e->{
+            Libro seleccionado = listaLibros.getSelectedValue();
+            
+        });
     }
     /**
      * metodo main para ejecutar el programa
