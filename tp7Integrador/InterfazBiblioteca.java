@@ -1001,7 +1001,7 @@ public class InterfazBiblioteca{
         scrollLibros.setBorder(BorderFactory.createTitledBorder("Libros Disponibles"));
         
         //boton
-        JButton botonPedir = crearBoton("Pedir Libro",150,e->{
+        JButton botonPedir = crearBoton("<html><center>Pedir<br>Libro</center></html>",150,e->{
             Libro seleccionado  = listaLibros.getSelectedValue();
             if(seleccionado!=null){
                 if(socio.puedePedir()){
@@ -1022,9 +1022,8 @@ public class InterfazBiblioteca{
         });
         
         //boton que permitira ir a otro panel donde tendra los libros listados y tendra un boton para devolver libro.
-        String textAcomodado = "<html><center>Devolver<br>Libro</center></html>";
-        JButton botonDevolver = crearBoton(textAcomodado,150,e->{
-            
+        JButton botonDevolver = crearBoton("<html><center>Ir a devolver<br>Libro</center></html>",150,e->{
+            crearPantallaDevolverLibro(socio);
         });
         
         JPanel centro  = new JPanel();
@@ -1047,7 +1046,19 @@ public class InterfazBiblioteca{
         contenedor.repaint();
         layout.show(contenedor,nomPanel);
     }
-
+    
+    /**
+     * método para devolver libro.
+     * recibe el socio y permite listar los libros en su pertencia dando la posibilidad de devolverlo, verificar si ya esta vencido.
+     */
+    public void crearPantallaDevolverLibro(Socio socio){
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.setBackground(colorFondo);
+        
+        JLabel mensajeLabel = new JLabel();
+        mensajeLabel.setForeground(Color.WHITE);
+        mensajeLabel.setFont();
+    }
     /**
      * metodo main para ejecutar el programa
      */
