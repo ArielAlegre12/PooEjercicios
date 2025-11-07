@@ -96,7 +96,7 @@ public abstract class Socio{
      */
     public boolean puedePedir(){
         if(this.getPrestamos().size() < 1){
-            System.out.println("Lista de prestamos vacía");
+            //System.out.println("Lista de prestamos vacía");
             return true;
         }else{
             Calendar fechaHoy = Calendar.getInstance();

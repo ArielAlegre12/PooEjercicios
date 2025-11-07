@@ -11,17 +11,17 @@ public class Estudiante extends Socio
     private String carrera;
     
     public Estudiante(String p_carrera, int p_dniSocio, String p_nombre, int p_diasPrestamo, ArrayList<Prestamo> p_prestamos){
-        super(p_dniSocio, p_nombre, p_diasPrestamo, p_prestamos);
+        super(p_dniSocio, p_nombre, 20, p_prestamos);
         this.setCarrera(p_carrera);
     }
     
     public Estudiante(String p_carrera, int p_dniSocio, String p_nombre, int p_diasPrestamo, Prestamo p_prestamo){
-        super(p_dniSocio, p_nombre, p_diasPrestamo, p_prestamo);
+        super(p_dniSocio, p_nombre, 20, p_prestamo);
         this.setCarrera(p_carrera);
     }
     
     public Estudiante(String p_carrera, int p_dniSocio, String p_nombre, int p_diasPrestamo){
-        super(p_dniSocio, p_nombre, p_diasPrestamo);
+        super(p_dniSocio, p_nombre, 20);
         this.setCarrera(p_carrera);
     }
     

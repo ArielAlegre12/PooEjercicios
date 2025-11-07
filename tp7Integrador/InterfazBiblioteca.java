@@ -446,6 +446,16 @@ public class InterfazBiblioteca{
             modeloLibros.addElement(libro);
         }
     }
+    
+    /**
+     * método para refrescar la listad de libro de socios
+     */
+    public void refrescarListaDeLibrosSocios(Socio socio, DefaultListModel<Libro> modeloLibrosSocio){
+        modeloLibrosSocio.clear();
+        for(Prestamo prestamo : socio.getPrestamos()){
+            modeloLibrosSocio.addElement(prestamo.getLibro());
+        }
+    }
 
     /**
      * método para listar los libros (generar la pantalla)
@@ -1008,6 +1018,7 @@ public class InterfazBiblioteca{
                     Calendar hoy = Calendar.getInstance();
                     boolean exito = biblioteca.prestarLibro(hoy,socio,seleccionado);
                     if(exito){
+                        refrescarListaDeLibrosSocios(socio, modeloLibros);
                         mostrarMensajetemporal(mensajeLabel,"Libro prestado correctamente",3000);
                         modeloLibros.removeElement(seleccionado);
                     }else{
@@ -1039,7 +1050,7 @@ public class InterfazBiblioteca{
         panel.add(centro, BorderLayout.CENTER);
         panel.add(crearBotonera("GestionSocios",true), BorderLayout.SOUTH);
         
-        String nomPanel = "Opciones_Extras_De_" + tipoSocio + "_" + socio.getDniSocio();
+        String nomPanel = "OpcionesExtrasDe_" + tipoSocio + "_" + socio.getDniSocio();
         panel.setName(nomPanel);
         contenedor.add(panel, nomPanel);
         contenedor.revalidate();
@@ -1065,7 +1076,7 @@ public class InterfazBiblioteca{
         encabezado.setBackground(colorFondo);
         encabezado.add(crearTituloConIcono("Devolver Libro - " + socio.getNombre(),24,Color.WHITE,colorFondo,""));
         //msj de dias de prestamos
-        JLabel diasLabel = new JLabel("Días de prestamo actuales: " + socio.getPrestamos());
+        JLabel diasLabel = new JLabel("Días de prestamo actuales: " + socio.getDiasPrestamos());
         diasLabel.setForeground(Color.WHITE);
         diasLabel.setFont(new Font("Arial", Font.PLAIN,14));
         diasLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -1090,6 +1101,7 @@ public class InterfazBiblioteca{
             Libro seleccionado = listaLibros.getSelectedValue();
             if(seleccionado!=null){
                 biblioteca.devolverLibro(seleccionado);
+                refrescarListaDeLibrosSocios(socio, modeloLibros);
                 mostrarMensajetemporal(mensajeLabel,"Libro devuelto correctamente",3000);
                 modeloLibros.removeElement(seleccionado);
             }else{
@@ -1100,8 +1112,61 @@ public class InterfazBiblioteca{
         //btn para verificar el vencimiento
         JButton botonVerificarVencimiento = crearBoton("<html><center>¿Está<br>Vencido?</center></html>",150,e->{
             Libro seleccionado = listaLibros.getSelectedValue();
-            
+            if(seleccionado!= null){
+                Prestamo prestamo = seleccionado.ultimoPrestamo();
+                if(prestamo!=null){
+                    boolean vencido = prestamo.vencido(Calendar.getInstance());
+                    if(vencido){
+                        mostrarMensajetemporal(mensajeLabel,"El préstamo está vencido!!!",3000);
+                    }else{
+                        mostrarMensajetemporal(mensajeLabel,"El préstamo está dentro del plazo",3000);
+                    }
+                }else{
+                    mostrarMensajetemporal(mensajeLabel,"No se encontró préstamo activo :)",3000);
+                }
+            }else{
+                mostrarMensajetemporal(mensajeLabel,"Seleccione un libro para comprobar",3000);
+            }
         });
+        
+        //btn para que el docente pueda pedir más dias. hay que inciarlo en un null
+        JButton botonPedirMasDias = null;
+        if(socio instanceof Docente){
+            botonPedirMasDias = crearBoton("<html><center>Pedir +<br>días</center></html>",150,e->{
+                Docente     docente  = (Docente)socio;
+                if(docente.esResponsable()){
+                    docente.cambiarDiasDePrestamo(5);//por ahora le dejamos que le den 5 días al gente
+                    diasLabel.setText("Días de prestamo actuales: " + docente.getDiasPrestamos());
+                    mostrarMensajetemporal(mensajeLabel,"Se agregaron 5 días de préstamo", 3000);
+                }else{
+                    mostrarMensajetemporal(mensajeLabel,"No se pueden agregar más días porque el Docente no es Responsable!!!",3000);
+                }
+            });
+        }
+        
+        JPanel centro = new JPanel();
+        centro.setLayout(new BoxLayout(centro, BoxLayout.Y_AXIS));
+        centro.setBackground(colorFondo);
+        centro.add(encabezado);
+        centro.add(Box.createVerticalStrut(10));
+        centro.add(scroll);
+        centro.add(Box.createVerticalStrut(10));
+        centro.add(envolverCentrado(botonDevolver));
+        centro.add(envolverCentrado(botonVerificarVencimiento));
+        if(botonPedirMasDias!=null){
+            centro.add(envolverCentrado(botonPedirMasDias));
+        }
+        
+        //agregog el centro
+        panel.add(centro, BorderLayout.CENTER);
+        panel.add(crearBotonera("OpcionesExtrasDe_" + socio.soyDeLaClase()+ "_" + socio.getDniSocio(), true), BorderLayout.SOUTH);
+        
+        String nombrePanel = "DevolverLibro_" + socio.getNombre();
+        panel.setName(nombrePanel);
+        contenedor.add(panel, nombrePanel);
+        contenedor.revalidate();
+        contenedor.repaint();
+        layout.show(contenedor,nombrePanel);
     }
     /**
      * metodo main para ejecutar el programa

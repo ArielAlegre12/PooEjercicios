@@ -14,17 +14,17 @@ public class Docente extends Socio
     
     
     public Docente(String p_area, int p_dniSocio, String p_nombre, int p_diasPrestamo, ArrayList<Prestamo> p_prestamos){
-        super(p_dniSocio, p_nombre, p_diasPrestamo, p_prestamos);
+        super(p_dniSocio, p_nombre, 5, p_prestamos);
         this.setArea(p_area);
     }
     
     public Docente(String p_area, int p_dniSocio, String p_nombre, int p_diasPrestamo, Prestamo p_prestamo){
-        super(p_dniSocio, p_nombre, p_diasPrestamo, p_prestamo);
+        super(p_dniSocio, p_nombre, 5, p_prestamo);
         this.setArea(p_area);
     }
     
     public Docente(String p_area, int p_dniSocio, String p_nombre, int p_diasPrestamo){
-        super(p_dniSocio, p_nombre, p_diasPrestamo);
+        super(p_dniSocio, p_nombre, 5);
         this.setArea(p_area);
     }
     
@@ -52,7 +52,7 @@ public class Docente extends Socio
         if(esResponsable() == true){
            this.setDiasPrestamo(this.getDiasPrestamos() + p_dias); 
     }else{
-        System.out.println("No puede añadir dias porque no es responsable");
+        //System.out.println("No puede añadir dias porque no es responsable"); //lo comento para que no salga la impresión en la interfaz
     }
     }
     
