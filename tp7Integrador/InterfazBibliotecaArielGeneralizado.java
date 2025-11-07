@@ -305,7 +305,7 @@ public class InterfazBibliotecaArielGeneralizado {
         mensajeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // titulo
-        JPanel titulo = crearTituloConIcono("Gestión  de los Libros",24,Color.WHITE,colorFondo,"bibliotecaIcon.png");
+        JPanel titulo = crearTituloConIcono("Gestión  de los Libros",24,Color.WHITE,colorFondo,"img/bibliotecaIcon.png");
 
         // panel para titulo y mensaje(encabezado)
         JPanel encabezado = new JPanel();
