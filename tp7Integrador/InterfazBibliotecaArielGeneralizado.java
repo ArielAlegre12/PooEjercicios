@@ -165,7 +165,7 @@ public class InterfazBibliotecaArielGeneralizado {
         botonLibros.setIcon(new ImageIcon(
                 new ImageIcon("img/iconoLibros.jpg").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
         // boton gestionar socios
-        JButton botonSocios = crearBoton("Gestionar Socios", 250, e ->{
+        JButton botonSocios = crearBoton("Gestionar Socios", 250, e -> {
             refrescarListaSocios();
             layout.show(contenedor, "GestionSocios");
         });
@@ -305,7 +305,8 @@ public class InterfazBibliotecaArielGeneralizado {
         mensajeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // titulo
-        JPanel titulo = crearTituloConIcono("Gestión  de los Libros",24,Color.WHITE,colorFondo,"img/bibliotecaIcon.png");
+        JPanel titulo = crearTituloConIcono("Gestión  de los Libros", 24, Color.WHITE, colorFondo,
+                "img/bibliotecaIcon.png");
 
         // panel para titulo y mensaje(encabezado)
         JPanel encabezado = new JPanel();
@@ -482,15 +483,15 @@ public class InterfazBibliotecaArielGeneralizado {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(colorFondo);
 
-        JPanel titulo = crearTituloConIcono("Agregar Libro ",24,Color.WHITE,colorFondo,"img/bibliotecaIcon.png");
-        
+        JPanel titulo = crearTituloConIcono("Agregar Libro ", 24, Color.WHITE, colorFondo, "img/bibliotecaIcon.png");
+
         // el msj de estado
         JLabel mensajeLabel = new JLabel("");
         mensajeLabel.setForeground(Color.WHITE);
         mensajeLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         mensajeLabel.setBorder(BorderFactory.createEmptyBorder(5, 0, 10, 0));
         mensajeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        
+
         JPanel encabezado = new JPanel();
         encabezado.setLayout(new BoxLayout(encabezado, BoxLayout.Y_AXIS));
         encabezado.setBackground(colorFondo);
@@ -545,7 +546,6 @@ public class InterfazBibliotecaArielGeneralizado {
         formulario.add(new JLabel("Año:"), gbc);
         gbc.gridx = 1;
         formulario.add(campoAnio, gbc);
-        
 
         // contenedor de formulario
         JPanel contenedorFormulario = new JPanel();
@@ -684,17 +684,24 @@ public class InterfazBibliotecaArielGeneralizado {
             Socio seleccionado = listaSocios.getSelectedValue();
             if (seleccionado != null) {
                 String campoExtra = "";
-                if(seleccionado instanceof Docente){
-                    campoExtra = ((Docente)seleccionado).getArea();
-                }else if(seleccionado instanceof Estudiante){
-                    campoExtra = ((Estudiante)seleccionado).getCarrera();
+                if (seleccionado instanceof Docente) {
+                    campoExtra = ((Docente) seleccionado).getArea();
+                } else if (seleccionado instanceof Estudiante) {
+                    campoExtra = ((Estudiante) seleccionado).getCarrera();
                 }
                 String detalles = "<html><body style='text-align:center;'>"
                         + "<b>Nombre:</b> " + seleccionado.getNombre() + "<br>"
                         + "<b>DNI:</b> " + seleccionado.getDniSocio() + "<br>"
-                        + "<b>Tipo:</b> " + (seleccionado instanceof Docente ? "Docente" : "Estudiante") + "<br>"
-                        + "<b>" + (seleccionado instanceof Docente ? "Área" : "Carrera") + ":</b> " + campoExtra
-                        + "</body></html>";
+                        + "<b>Tipo:</b> " + (seleccionado instanceof Docente ? "Docente" : "Estudiante") + "<br>";
+
+                if (seleccionado instanceof Docente) {
+                    detalles += "<b>Área:</b> " + ((Docente) seleccionado).getArea() + "<br>";
+                } else if (seleccionado instanceof Estudiante) {
+                    detalles += "<b>Carrera:</b> " + ((Estudiante) seleccionado).getCarrera() + "<br>";
+                }
+
+                detalles += "</body></html>";
+
                 mostrarMensajetemporal(mensajeLabel, detalles, 10000);
             } else {
                 mostrarMensajetemporal(mensajeLabel, "Seleccione un socio para ver sus características", 3000);
@@ -759,15 +766,16 @@ public class InterfazBibliotecaArielGeneralizado {
         panel.setBackground(colorFondo);
 
         // Creo el título
-        JPanel titulo = crearTituloConIcono("Seleccionar tipo de Socio",24,Color.WHITE,colorFondo,"img/sociosIcon.png");
+        JPanel titulo = crearTituloConIcono("Seleccionar tipo de Socio", 24, Color.WHITE, colorFondo,
+                "img/sociosIcon.png");
 
         // Botones de selección
         JButton botonDocente = crearBoton("Docente", 150, e -> mostrarFormularioSocio("Docente"));
         botonDocente.setIcon(new ImageIcon(
-                                        new ImageIcon("img/docenteIcon.png").getImage().getScaledInstance(30,40,Image.SCALE_SMOOTH)));
+                new ImageIcon("img/docenteIcon.png").getImage().getScaledInstance(30, 40, Image.SCALE_SMOOTH)));
         JButton botonEstudiante = crearBoton("Estudiante", 150, e -> mostrarFormularioSocio("Estudiante"));
         botonEstudiante.setIcon(new ImageIcon(
-                                        new ImageIcon("img/alumnoIcon.png").getImage().getScaledInstance(30,40,Image.SCALE_SMOOTH)));
+                new ImageIcon("img/alumnoIcon.png").getImage().getScaledInstance(30, 40, Image.SCALE_SMOOTH)));
 
         // Panel central
         JPanel centro = new JPanel();
@@ -813,14 +821,14 @@ public class InterfazBibliotecaArielGeneralizado {
         panel.setBackground(colorFondo);
 
         JLabel titulo = crearTitulo("Formulario");
-        
+
         // el msj de estado
         JLabel mensajeLabel = new JLabel("");
         mensajeLabel.setForeground(Color.WHITE);
         mensajeLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         mensajeLabel.setBorder(BorderFactory.createEmptyBorder(5, 0, 10, 0));
         mensajeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        
+
         JPanel encabezado = new JPanel();
         encabezado.setLayout(new BoxLayout(encabezado, BoxLayout.Y_AXIS));
         encabezado.setBackground(colorFondo);
