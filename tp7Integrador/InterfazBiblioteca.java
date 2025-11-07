@@ -716,7 +716,7 @@ public class InterfazBiblioteca{
         JButton botonSeleccionar = crearBoton("Seleccionar Socio", 150, e -> {
             Socio seleccionado = listaSocios.getSelectedValue();
             if (seleccionado != null) {
-                //
+                mostrarPantallaSocioOpExtras(seleccionado.soyDeLaClase());
             } else {
                 mostrarMensajetemporal(mensajeLabel, "Seleccione un socio para continuar", 3000);
             }
@@ -957,6 +957,24 @@ public class InterfazBiblioteca{
         contenedor.revalidate();
         contenedor.repaint();
         layout.show(contenedor, nombrePanel);
+    }
+    
+    /**
+     * crear la pantalla para tener más opciones del socio, pedir libro por ahora lo cual listara los libros 
+     * podra seleccionarlo si el libro esta disponible.
+     * aquí la seleccion dependera si es docente o estudiante al socio que hizo click
+     */
+    public void mostrarPantallaSocioOpExtras(String tipoSocio){
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.setBackground(colorFondo);
+        
+        panel.add(crearBotonera("GestionSocios",true), BorderLayout.SOUTH);
+        String nombrePanel = "Opciones_Extras_De_" + tipoSocio;
+        panel.setName(nombrePanel);
+        contenedor.add(panel);
+        contenedor.revalidate();
+        contenedor.repaint();
+        layout.show(contenedor,nombrePanel);
     }
 
     /**
