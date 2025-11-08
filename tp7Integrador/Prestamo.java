@@ -4,7 +4,8 @@ import java.text.*;
 /**
  * Clase Prestamo que representa uno, y colabora con las clases de Socio y Libro.
  */
-public class Prestamo{
+public class Prestamo implements java.io.Serializable{
+    private static final long serialVersionUID = 1L;
     private Calendar fechaRetiro;
     private Calendar fechaDevolucion;
     private Libro libro;

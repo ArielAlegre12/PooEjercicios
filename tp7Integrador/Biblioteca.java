@@ -4,8 +4,9 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 
-public class Biblioteca
+public class Biblioteca implements java.io.Serializable
 {
+    private static final long serialVersionUID = 1L;
     /**
      * Atributos de la clase
      */

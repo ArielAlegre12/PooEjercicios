@@ -5,7 +5,8 @@ import java.util.*;
  * Cada socio tiene un DNI, nombre, cantidad de días de préstamo permitidos
  * y una lista de préstamos activos.
  */
-public abstract class Socio{
+public abstract class Socio implements java.io.Serializable{
+    private static final long serialVersionUID = 1L;
     private int dniSocio;
     private String nombre;
     private int diasPrestamo;
@@ -78,7 +79,15 @@ public abstract class Socio{
      * esto se logra calculando cuantos prestamos tiene el socio, ya que cada prestamo representa un libro prestado
      */
     public int catLibrosPrestados(){
-        return this.getPrestamos().size();
+        int contador = 0;
+        if (this.getPrestamos() != null) {
+            for (Prestamo p : this.getPrestamos()) {
+                if (p != null && p.getFechaDevolucion() == null) {
+                    contador++;
+                }
+            }
+        }
+        return contador;
     }
     
     /**

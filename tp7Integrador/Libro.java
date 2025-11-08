@@ -1,6 +1,7 @@
 import java.util.ArrayList;
-public class Libro
+public class Libro implements java.io.Serializable
 {
+    private static final long serialVersionUID = 1L;
    private String titulo;
    private int edicion;
    private String editorial;
@@ -74,7 +75,7 @@ public class Libro
    }
 
    public String toString(){
-       return "Titulo: " + this.getTitulo();
+       return "titulo:" + this.getTitulo();
    }
    
    public Prestamo ultimoPrestamo(){
