@@ -60,10 +60,13 @@ public class Prestamo {
     public String toString(){
         String cadena = "";
         SimpleDateFormat fechaFormateada = new SimpleDateFormat("yyyy, MM, dd");
-        cadena = "Retiro: " + fechaFormateada.format(this.getFechaRetiro().getTime()) + " - Devolución: "
-                  + fechaFormateada.format(this.getFechaDevolucion().getTime()) + "\n" +
-                    "Libro: " + this.getLibro().getTitulo() + "\n" +
-                    "Socio: " + this.getSocio().getNombre();
+        String retiroStr = (this.getFechaRetiro() != null) ? fechaFormateada.format(this.getFechaRetiro().getTime()) : "N/A";
+        String devolucionStr = (this.getFechaDevolucion() != null) ? fechaFormateada.format(this.getFechaDevolucion().getTime()) : "Sin devolver";
+        String tituloLibro = (this.getLibro() != null) ? this.getLibro().getTitulo() : "N/A";
+        String nombreSocio = (this.getSocio() != null) ? this.getSocio().getNombre() : "N/A";
+        cadena = "Retiro: " + retiroStr + " - Devolución: " + devolucionStr + "\n" +
+                 "Libro: " + tituloLibro + "\n" +
+                 "Socio: " + nombreSocio;
         return cadena;
     }
 }
