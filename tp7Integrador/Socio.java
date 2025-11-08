@@ -4,6 +4,7 @@ import java.util.*;
  * Puede ser un Docente o un Estudiante.
  * Cada socio tiene un DNI, nombre, cantidad de días de préstamo permitidos
  * y una lista de préstamos activos.
+ * @author Alegre Ariel Santiago
  */
 public abstract class Socio{
     private int dniSocio;

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Socio
-comment0.text=\r\n\ Clase\ abstracta\ que\ representa\ un\ socio\ de\ la\ biblioteca.\r\n\ Puede\ ser\ un\ Docente\ o\ un\ Estudiante.\r\n\ Cada\ socio\ tiene\ un\ DNI,\ nombre,\ cantidad\ de\ d\u00EDas\ de\ pr\u00E9stamo\ permitidos\r\n\ y\ una\ lista\ de\ pr\u00E9stamos\ activos.\r\n
+comment0.text=\r\n\ Clase\ abstracta\ que\ representa\ un\ socio\ de\ la\ biblioteca.\r\n\ Puede\ ser\ un\ Docente\ o\ un\ Estudiante.\r\n\ Cada\ socio\ tiene\ un\ DNI,\ nombre,\ cantidad\ de\ d\u00EDas\ de\ pr\u00E9stamo\ permitidos\r\n\ y\ una\ lista\ de\ pr\u00E9stamos\ activos.\r\n\ @author\ Alegre\ Ariel\ Santiago\r\n
 comment1.params=p_dniSocio\ p_nombre\ p_diasPrestamo\ p_prestamos
 comment1.target=Socio(int,\ java.lang.String,\ int,\ java.util.ArrayList)
 comment1.text=\r\n\ Constructor\ que\ incializa\ al\ socio\ con\ un\ array\ de\ prestamos.\r\n\ @param\ p_dniSocio\ dni\ del\ socio.\r\n\ @param\ p_nombre\ nombre\ del\ socio.\r\n\ @param\ p_diasPrestamo\ cantidad\ de\ dias\ del\ prestamo.\r\n\ @param\ p_prestamos\ array\ que\ contiene\ los\ prestamos.\r\n

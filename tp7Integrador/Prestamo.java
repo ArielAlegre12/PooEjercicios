@@ -1,9 +1,9 @@
 import java.util.*;
 import java.text.*;
-
 /**
  * Clase Prestamo que representa uno, y colabora con las clases de Socio y
  * Libro.
+ * @author Alegre Ariel Santiago
  */
 public class Prestamo {
     private Calendar fechaRetiro;

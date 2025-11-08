@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Prestamo
-comment0.text=\r\n\ Clase\ Prestamo\ que\ representa\ uno,\ y\ colabora\ con\ las\ clases\ de\ Socio\ y\r\n\ Libro.\r\n
+comment0.text=\r\n\ Clase\ Prestamo\ que\ representa\ uno,\ y\ colabora\ con\ las\ clases\ de\ Socio\ y\r\n\ Libro.\r\n\ @author\ Alegre\ Ariel\ Santiago\r\n
 comment1.params=p_fechaRetiro\ p_libro\ p_socio
 comment1.target=Prestamo(java.util.Calendar,\ Libro,\ Socio)
 comment1.text=\r\n\ Constructor\ que\ incializa\ un\ prestamo\r\n\ \r\n\ @param\ p_fechaRetiro\ \ \ \ \ fecha\ en\ la\ que\ se\ retiro\ un\ libro.\r\n\ @param\ p_fechaDevolucion\ fecha\ en\ la\ que\ se\ debe\ devolver\ el\ libro.\r\n\ @param\ p_libro\ \ \ \ \ \ \ \ \ \ \ libro\ el\ cual\ se\ presta.\r\n\ @param\ p_socio\ \ \ \ \ \ \ \ \ \ \ socio\ al\ cual\ se\ le\ presta\ el\ libro.\r\n
