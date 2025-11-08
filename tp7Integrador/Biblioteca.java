@@ -221,7 +221,7 @@ public class Biblioteca
             for (Prestamo prestamoAux : socioAux.getPrestamos()) {
                 // Solo considerar préstamos activos (sin fecha de devolución)
                 if (prestamoAux.getFechaDevolucion() == null && p_libro.equals(prestamoAux.getLibro())) {
-                    return socioAux.getNombre() + " tiene el libro";
+                    return socioAux.getNombre() +"(" + socioAux.soyDeLaClase() + ") " +" tiene el libro";
                 }
             }
         }
