@@ -10,7 +10,6 @@ comment11.params=
 comment11.target=java.util.ArrayList\ getPrestamos()
 comment12.params=
 comment12.target=java.util.ArrayList\ getPrestamosActivos()
-comment12.text=\r\n\ Retorna\ una\ lista\ de\ pr\u00E9stamos\ activos\ (sin\ fecha\ de\ devoluci\u00F3n)\r\n
 comment13.params=
 comment13.target=java.lang.String\ soyDeLaClase()
 comment13.text=\r\n\ Clase\ abstracta\r\n

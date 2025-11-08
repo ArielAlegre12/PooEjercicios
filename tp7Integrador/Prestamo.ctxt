@@ -1,15 +1,15 @@
 #BlueJ class context
 comment0.target=Prestamo
-comment0.text=\r\n\ Clase\ Prestamo\ que\ representa\ uno,\ y\ colabora\ con\ las\ clases\ de\ Socio\ y\ Libro.\r\n
+comment0.text=\r\n\ Clase\ Prestamo\ que\ representa\ uno,\ y\ colabora\ con\ las\ clases\ de\ Socio\ y\r\n\ Libro.\r\n
 comment1.params=p_fechaRetiro\ p_libro\ p_socio
 comment1.target=Prestamo(java.util.Calendar,\ Libro,\ Socio)
-comment1.text=\r\n\ Constructor\ que\ incializa\ un\ prestamo\r\n\ @param\ p_fechaRetiro\ fecha\ en\ la\ que\ se\ retiro\ un\ libro.\r\n\ @param\ p_fechaDevolucion\ fecha\ en\ la\ que\ se\ debe\ devolver\ el\ libro.\r\n\ @param\ p_libro\ libro\ el\ cual\ se\ presta.\r\n\ @param\ p_socio\ socio\ al\ cual\ se\ le\ presta\ el\ libro.\r\n
+comment1.text=\r\n\ Constructor\ que\ incializa\ un\ prestamo\r\n\ \r\n\ @param\ p_fechaRetiro\ \ \ \ \ fecha\ en\ la\ que\ se\ retiro\ un\ libro.\r\n\ @param\ p_fechaDevolucion\ fecha\ en\ la\ que\ se\ debe\ devolver\ el\ libro.\r\n\ @param\ p_libro\ \ \ \ \ \ \ \ \ \ \ libro\ el\ cual\ se\ presta.\r\n\ @param\ p_socio\ \ \ \ \ \ \ \ \ \ \ socio\ al\ cual\ se\ le\ presta\ el\ libro.\r\n
 comment10.params=p_fecha
 comment10.target=void\ registrarFechaDevolucion(java.util.Calendar)
 comment10.text=\r\n\ m\u00E9todo\ el\ cual\ registra\ la\ fecha\ en\ la\ que\ se\ devuelve\ un\ libro.\r\n
 comment11.params=p_fecha
 comment11.target=boolean\ vencido(java.util.Calendar)
-comment11.text=\r\n\ m\u00E9todo\ que\ permite\ calcular\ si\ el\ prestamo\ est\u00E1\ vencido.\r\n\ primero\ clona\ la\ fecha\ en\ la\ que\ se\ retiro\ y\ le\ suma\ los\ dias\ de\ prestamos\ que\ asignaron\ al\ socio.\r\n\ finalmente\ calcula\ si\ ya\ paso\ a\ la\ fecha\ de\ vencimiento.\r\n\ utilizo\ el\ casteo\ porque\ el\ m\u00E9todo\ clone()\ devuelve\ un\ Object.\r\n
+comment11.text=\r\n\ m\u00E9todo\ que\ permite\ calcular\ si\ el\ prestamo\ est\u00E1\ vencido.\r\n\ primero\ clona\ la\ fecha\ en\ la\ que\ se\ retiro\ y\ le\ suma\ los\ dias\ de\ prestamos\r\n\ que\ asignaron\ al\ socio.\r\n\ finalmente\ calcula\ si\ ya\ paso\ a\ la\ fecha\ de\ vencimiento.\r\n\ utilizo\ el\ casteo\ porque\ el\ m\u00E9todo\ clone()\ devuelve\ un\ Object.\r\n
 comment12.params=
 comment12.target=java.lang.String\ toString()
 comment12.text=\r\n\ m\u00E9todo\ que\ devuelve\ un\ string\ con\ una\ descripci\u00F3n\ del\ prestamo.\r\n

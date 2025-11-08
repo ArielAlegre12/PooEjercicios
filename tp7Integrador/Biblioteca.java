@@ -148,11 +148,9 @@ public class Biblioteca
        }
        return contador;
    }
-   
-    
+
     /**
      * Metodo publico, permite obtener los prestamos vencidos
-     * @return devuelve un ArrayList
     */
   public ArrayList<Prestamo> prestamosVencidos() {
         ArrayList<Prestamo> prestamosVencidos = new ArrayList<>();
@@ -165,9 +163,6 @@ public class Biblioteca
          }
         return prestamosVencidos;
     }
-   
-
-   
     
     /**
      * Metodo publico, devuelve una lista con socios
@@ -269,6 +264,7 @@ public class Biblioteca
         }
         return titulos; 
     }
+    
    public boolean prestarLibro(Calendar p_fechaRetiro, Socio p_socio, Libro p_libro) {
            if (p_socio == null || p_libro == null) {
         return false;
@@ -284,7 +280,7 @@ public class Biblioteca
         }
     }
 
-        public void devolverLibro(Libro p_libro) {
+    public void devolverLibro(Libro p_libro) {
         Calendar fechaHoy = new GregorianCalendar();     
       for (Libro libro : this.getLibros()) {
             if (libro.equals(p_libro)) {
@@ -293,7 +289,7 @@ public class Biblioteca
                 }
             }
         }
-}
+    }
     
     public ArrayList<Docente> docentesResponsables() {
         ArrayList<Docente> docenteResponsables = new ArrayList<Docente>();

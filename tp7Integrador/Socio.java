@@ -58,9 +58,7 @@ public abstract class Socio{
     public int getDiasPrestamos(){return this.diasPrestamo;}
     public ArrayList<Prestamo> getPrestamos(){return this.prestamos;}
     
-    /**
-     * Retorna una lista de préstamos activos (sin fecha de devolución)
-     */
+    //Retorna una lista de préstamos activos (sin fecha de devolución)
     public ArrayList<Prestamo> getPrestamosActivos() {
         ArrayList<Prestamo> activos = new ArrayList<>();
         for(Prestamo prestamo : this.getPrestamos()) {
@@ -91,13 +89,13 @@ public abstract class Socio{
      * Solo cuenta los préstamos que no tienen fecha de devolución.
      */
     public int catLibrosPrestados(){
-        int count = 0;
+        int conta = 0;
         for(Prestamo prestamo : this.getPrestamos()) {
             if(prestamo.getFechaDevolucion() == null) {
-                count++;
+                conta++;
             }
         }
-        return count;
+        return conta;
     }
     
     /**
