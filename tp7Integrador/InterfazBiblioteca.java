@@ -351,7 +351,7 @@ public class InterfazBiblioteca {
                         refrescarListaLibros();
                         mostrarMensajetemporal(mensajeLabel, "Libro eliminado correctamente", 3000);
                     } else {
-                        mostrarMensajetemporal(mensajeLabel, "No se puede eliminar un libro que está prestad, je",
+                        mostrarMensajetemporal(mensajeLabel, "No se puede eliminar un libro que está prestado, je",
                                 3000);
                     }
                 } else {
