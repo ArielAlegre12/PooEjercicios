@@ -23,7 +23,7 @@ public class InterfazBiblioteca {
     private DefaultListModel<Socio> modeloSocios;
     private JScrollPane scrollLibros;
     private JScrollPane scrollSocios;
-    // Referencias a los scroll panes principales (gestión) para evitar reasignaciones
+    // Referencias a los scroll panes principales (gestion) asi evita las reasignaciones
     private JScrollPane scrollLibrosGestion;
     private JScrollPane scrollSociosGestion;
 
@@ -335,10 +335,9 @@ public class InterfazBiblioteca {
         JList<Libro> listaLibros = new JList<>(modeloLibros);
         listaLibros.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listaLibros.setFont(new Font("Arial", Font.BOLD, 14));
-    scrollLibrosGestion = new JScrollPane(listaLibros);
-    scrollLibrosGestion
-        .setBorder(BorderFactory.createTitledBorder("Libros Disponibles: " + biblioteca.getLibros().size()));
-    panel.add(scrollLibrosGestion, BorderLayout.CENTER);
+        scrollLibrosGestion = new JScrollPane(listaLibros);
+        scrollLibrosGestion.setBorder(BorderFactory.createTitledBorder("Libros Disponibles: " + biblioteca.getLibros().size()));
+        panel.add(scrollLibrosGestion, BorderLayout.CENTER);
         // boton quitar
         JButton botonQuitar = crearBoton("Quitar Libro", 150, e -> {
             Libro seleccionado = listaLibros.getSelectedValue();
@@ -432,7 +431,9 @@ public class InterfazBiblioteca {
     }
 
     /**
-     * Refresca la cantidad de elementos en el array de libros.
+     * actualiza el titulo del borde de un jscrollpane que contiene
+     * la lista de libros y fuerza el refresco visual para que se vea el cambio en la pantalla
+     * puede funcionar en pantallas de socios o libros
      */
     private void actualizarTituloListaLibros() {
         JScrollPane target = scrollLibrosGestion != null ? scrollLibrosGestion : scrollLibros;
