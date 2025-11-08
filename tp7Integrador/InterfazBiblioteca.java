@@ -1181,10 +1181,10 @@ public class InterfazBiblioteca {
             if (seleccionado != null) {
                 if (seleccionado.prestado()) {
                     biblioteca.devolverLibro(seleccionado);
-                    //Reconstruir la pantalla de devolución para reflejar los cambios locales
-                    crearPantallaDevolverLibro(socioActual);
-                    //Actualizar todas las vistas dependientes de la biblioteca
+                    // Primero actualizar TODAS las vistas dependientes
                     refrescarTodo();
+                    // Luego reconstruir esta pantalla específica
+                    crearPantallaDevolverLibro(socioActual);
                     mostrarMensajetemporal(mensajeLabel, "Libro devuelto correctamente", 3000);
 
                 } else {

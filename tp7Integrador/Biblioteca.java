@@ -198,15 +198,12 @@ public class Biblioteca implements java.io.Serializable
           
     if(listaLibros != null){
         for(Libro unLibro : listaLibros){
-            if(unLibro.prestado() == true){
-                listaCompleta += "\n"+"" + (num++) + ")" + unLibro.toString() + "\t"+"Prestado : si";
-            }
-            else{ listaCompleta += "\n"+"" + (num++) + ")" + unLibro.toString() + "\t"+"Prestado : no";
-            }
+            String estado = unLibro.prestado() ? "si" : "no";
+            listaCompleta += "\n" + num++ + ") " + unLibro.toString() + "\tPrestado: " + estado;
         }
     } else {
-              listaCompleta += "\nLa lista de libros es nula. ";
-        }
+        listaCompleta += "\nLa lista de libros es nula. ";
+    }
     return listaCompleta;
   }
   
@@ -220,20 +217,20 @@ public class Biblioteca implements java.io.Serializable
     }
  public String quienTieneElLibro(Libro p_libro) {
     try {
-        // Buscar si el libro está prestado
-        for (Socio socioAux : this.getSocios()) { // Itera sobre todos los socios
-            for (Prestamo prestamoAux : socioAux.getPrestamos()) { // Itera sobre los préstamos del socio
-                if (p_libro.equals(prestamoAux.getLibro())) { // Compara el libro
-                    return socioAux.getNombre() + " tiene el libro"; // Retorna el nombre del socio que tiene el libro
+        // Buscar si el libro está prestado (solo préstamos activos)
+        for (Socio socioAux : this.getSocios()) {
+            for (Prestamo prestamoAux : socioAux.getPrestamos()) {
+                // Solo considerar préstamos activos (sin fecha de devolución)
+                if (prestamoAux.getFechaDevolucion() == null && p_libro.equals(prestamoAux.getLibro())) {
+                    return socioAux.getNombre() + " tiene el libro";
                 }
             }
         }
         
-        // Si no se encuentra el libro prestado, lanzamos la excepción
+        // Si no se encuentra el libro prestado o todos los préstamos están devueltos
         throw new LibroNoPrestadoException("El libro no está prestado");
         
     } catch (LibroNoPrestadoException e) {
-        // Captura la excepción y retorna el mensaje
         return e.getMessage();
     }
   }
