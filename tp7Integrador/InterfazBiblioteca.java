@@ -3,7 +3,6 @@ import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.border.TitledBorder;
 import java.util.Calendar;
-import java.io.*;
 /**
  * Manejo de interfaz para usuario, biblioteca.
  * falta pulir muchas cosas, como la reutilización de código. efe
@@ -31,12 +30,7 @@ public class InterfazBiblioteca {
      * constructor
      */
     public InterfazBiblioteca() {
-        Biblioteca cargada = cargarBiblioteca();
-        if (cargada != null) {
-            biblioteca = cargada;
-        } else {
-            biblioteca = new Biblioteca("Object 404");
-        }
+        biblioteca = new Biblioteca("Object 404");
         colorFondo = new Color(227, 100, 100);
         modeloLibros = new DefaultListModel<>();
         modeloSocios = new DefaultListModel<>();
@@ -54,15 +48,7 @@ public class InterfazBiblioteca {
     private void inicializarVentana() {
         ventana = new JFrame(biblioteca.getNombre());
         ventana.setSize(500, 400);
-        // Guardamos manualmente al cerrar para asegurar persistencia
-        ventana.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        ventana.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                guardarBiblioteca();
-                System.exit(0);
-            }
-        });
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setLocationRelativeTo(null);
     }
 
@@ -1273,37 +1259,6 @@ public class InterfazBiblioteca {
     /**
      * metodo main para ejecutar el programa
      */
-    /**
-     * Guarda el objeto Biblioteca en disco (serialización)
-     */
-    private void guardarBiblioteca() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("biblioteca.dat"))) {
-            oos.writeObject(this.biblioteca);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            // No interrumpimos el cierre; en una mejora se podría notificar al usuario
-        }
-    }
-
-    /**
-     * Intenta cargar la Biblioteca desde disco. Devuelve null si no existe o en caso de error.
-     */
-    private Biblioteca cargarBiblioteca() {
-        File f = new File("biblioteca.dat");
-        if (!f.exists()) {
-            return null;
-        }
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f))) {
-            Object obj = ois.readObject();
-            if (obj instanceof Biblioteca) {
-                return (Biblioteca) obj;
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return null;
-    }
-
     public static void main(String args[]) {
         SwingUtilities.invokeLater(() -> new InterfazBiblioteca());
     }

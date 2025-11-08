@@ -5,8 +5,7 @@ import java.util.*;
  * Cada socio tiene un DNI, nombre, cantidad de días de préstamo permitidos
  * y una lista de préstamos activos.
  */
-public abstract class Socio implements java.io.Serializable{
-    private static final long serialVersionUID = 1L;
+public abstract class Socio{
     private int dniSocio;
     private String nombre;
     private int diasPrestamo;
@@ -60,6 +59,19 @@ public abstract class Socio implements java.io.Serializable{
     public ArrayList<Prestamo> getPrestamos(){return this.prestamos;}
     
     /**
+     * Retorna una lista de préstamos activos (sin fecha de devolución)
+     */
+    public ArrayList<Prestamo> getPrestamosActivos() {
+        ArrayList<Prestamo> activos = new ArrayList<>();
+        for(Prestamo prestamo : this.getPrestamos()) {
+            if(prestamo.getFechaDevolucion() == null) {
+                activos.add(prestamo);
+            }
+        }
+        return activos;
+    }
+    
+    /**
      * Clase abstracta
      */
     public abstract String soyDeLaClase();
@@ -75,19 +87,17 @@ public abstract class Socio implements java.io.Serializable{
     }
     
     /**
-     * método que permite saber la cantidad de libros y la retorna.
-     * esto se logra calculando cuantos prestamos tiene el socio, ya que cada prestamo representa un libro prestado
+     * método que permite saber la cantidad de libros prestados actualmente.
+     * Solo cuenta los préstamos que no tienen fecha de devolución.
      */
     public int catLibrosPrestados(){
-        int contador = 0;
-        if (this.getPrestamos() != null) {
-            for (Prestamo p : this.getPrestamos()) {
-                if (p != null && p.getFechaDevolucion() == null) {
-                    contador++;
-                }
+        int count = 0;
+        for(Prestamo prestamo : this.getPrestamos()) {
+            if(prestamo.getFechaDevolucion() == null) {
+                count++;
             }
         }
-        return contador;
+        return count;
     }
     
     /**
