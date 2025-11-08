@@ -74,7 +74,7 @@ public class Libro
    }
 
    public String toString(){
-       return "titulo:" + this.getTitulo();
+       return "Titulo: " + this.getTitulo();
    }
    
    public Prestamo ultimoPrestamo(){

@@ -4,11 +4,11 @@ import java.util.*;
  */
 public class ValidarLibro{
     public static void validar(String titulo, String editorial, String edicion, String anio) throws ValidarIngresoLibrosException {
-        validarCamposObligatorios(titulo, editorial);
-        validarNumericos(edicion, anio);
-        validarLogicaFechas(edicion, anio);
+        //validarCamposObligatorios(titulo, editorial);
+        //validarNumericos(edicion, anio);
+        //validarLogicaFechas(edicion, anio);
         validarAnioLogico(anio);
-        ValidarEdicionSuperior(edicion);
+        //ValidarEdicionSuperior(edicion);
     }
     
     private static void validarCamposObligatorios(String titulo, String editorial) throws ValidarIngresoLibrosException {
@@ -35,7 +35,7 @@ public class ValidarLibro{
         int intAnio = Integer.parseInt(anio.trim());
         
         if(intEdicion < intAnio){
-            throw new ValidarIngresoLibrosException("La edición no puede ser posterior al año de publicación!");
+            throw new ValidarIngresoLibrosException("La edición no puede ser anterior al año de publicación!");
         }
     }
     

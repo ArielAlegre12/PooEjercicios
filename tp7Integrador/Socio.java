@@ -78,15 +78,7 @@ public abstract class Socio{
      * esto se logra calculando cuantos prestamos tiene el socio, ya que cada prestamo representa un libro prestado
      */
     public int catLibrosPrestados(){
-        int contador = 0;
-        if (this.getPrestamos() != null) {
-            for (Prestamo p : this.getPrestamos()) {
-                if (p != null && p.getFechaDevolucion() == null) {
-                    contador++;
-                }
-            }
-        }
-        return contador;
+        return this.getPrestamos().size();
     }
     
     /**

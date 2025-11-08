@@ -222,8 +222,7 @@ public class Biblioteca
         // Buscar si el libro está prestado
         for (Socio socioAux : this.getSocios()) { // Itera sobre todos los socios
             for (Prestamo prestamoAux : socioAux.getPrestamos()) { // Itera sobre los préstamos del socio
-                // Solo consideramos préstamos activos (sin fecha de devolución)
-                if (prestamoAux.getFechaDevolucion() == null && p_libro.equals(prestamoAux.getLibro())) { // Compara el libro
+                if (p_libro.equals(prestamoAux.getLibro())) { // Compara el libro
                     return socioAux.getNombre() + " tiene el libro"; // Retorna el nombre del socio que tiene el libro
                 }
             }
