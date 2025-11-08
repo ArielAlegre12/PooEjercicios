@@ -66,7 +66,7 @@ public class Libro
    }
    
    public boolean prestado(){
-       if(this.getPrestamos().size() > 0){
+       if(this.getPrestamos().size() > 0 && this.getPrestamos().get(this.getPrestamos().size()-1).getFechaDevolucion()==null){
            return true;
        }else{
            return false;

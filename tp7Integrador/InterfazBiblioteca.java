@@ -333,8 +333,7 @@ public class InterfazBiblioteca{
         listaLibros.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listaLibros.setFont(new Font("Arial", Font.BOLD, 14));
         scrollLibros = new JScrollPane(listaLibros);
-        scrollLibros
-                .setBorder(BorderFactory.createTitledBorder("Libros Disponibles: " + biblioteca.getLibros().size()));
+        scrollLibros.setBorder(BorderFactory.createTitledBorder("Libros Disponibles: " + biblioteca.getLibros().size()));
         panel.add(scrollLibros, BorderLayout.CENTER);
         // boton quitar
         JButton botonQuitar = crearBoton("Quitar Libro", 150, e -> {
@@ -919,7 +918,8 @@ public class InterfazBiblioteca{
         contenedorFormulario.setMaximumSize(new Dimension(400, formulario.getPreferredSize().height));
 
         // Botón agregar
-        JButton botonAgregar = crearBoton("Agregar", 150, e -> {
+        JButton botonAgregar = crearBoton("Agregar", 150, e
+            -> {
             String nombre = campoNombre.getText().trim();
             String dniTexto = campoDni.getText().trim();
             String campo = campoExtra.getText().trim();
@@ -965,6 +965,10 @@ public class InterfazBiblioteca{
 
         String nombrePanel = "FormularioSocio_" + tipoSocio;
         panel.setName(nombrePanel);
+        Component existente = buscarPanelPorNombre(nombrePanel);
+        if(existente!=null){
+            contenedor.remove(existente);
+        }
         contenedor.add(panel, nombrePanel);
         contenedor.revalidate();
         contenedor.repaint();
@@ -1019,6 +1023,8 @@ public class InterfazBiblioteca{
                     boolean exito = biblioteca.prestarLibro(hoy,socio,seleccionado);
                     if(exito){
                         refrescarListaDeLibrosSocios(socio, modeloLibros);
+                        listaLibros.revalidate();
+                        listaLibros.repaint();
                         mostrarMensajetemporal(mensajeLabel,"Libro prestado correctamente",3000);
                         modeloLibros.removeElement(seleccionado);
                     }else{
@@ -1052,10 +1058,26 @@ public class InterfazBiblioteca{
         
         String nomPanel = "OpcionesExtrasDe_" + tipoSocio + "_" + socio.getDniSocio();
         panel.setName(nomPanel);
+        Component existente = buscarPanelPorNombre(nomPanel);
+        if(existente!=null){
+            contenedor.remove(existente);
+        }
         contenedor.add(panel, nomPanel);
         contenedor.revalidate();
         contenedor.repaint();
         layout.show(contenedor,nomPanel);
+    }
+    
+    /**
+     * método que busca el panel existente
+     */
+    public Component buscarPanelPorNombre(String nombre){
+        for(Component comp : contenedor.getComponents()){
+            if(nombre.equals(comp.getName())){
+                return comp;
+            }
+        }
+        return null;
     }
     
     /**
@@ -1100,10 +1122,16 @@ public class InterfazBiblioteca{
         JButton botonDevolver = crearBoton("<html><center>Devolver<br>Libro</center></html>",150,e->{
             Libro seleccionado = listaLibros.getSelectedValue();
             if(seleccionado!=null){
-                biblioteca.devolverLibro(seleccionado);
-                refrescarListaDeLibrosSocios(socio, modeloLibros);
+                if(seleccionado.prestado()){
+                    refrescarListaDeLibrosSocios(socio, modeloLibros);
+                    modeloLibros.removeElement(seleccionado);
+                    listaLibros.revalidate();
+                    listaLibros.repaint();
+                    biblioteca.devolverLibro(seleccionado);
                 mostrarMensajetemporal(mensajeLabel,"Libro devuelto correctamente",3000);
-                modeloLibros.removeElement(seleccionado);
+                }else{
+                    mostrarMensajetemporal(mensajeLabel,"Ese libro ya fue devuelto",3000);
+                }
             }else{
                 mostrarMensajetemporal(mensajeLabel,"Seleccione un libro para devolver",3000);
             }
@@ -1163,11 +1191,17 @@ public class InterfazBiblioteca{
         
         String nombrePanel = "DevolverLibro_" + socio.getNombre();
         panel.setName(nombrePanel);
+        Component existente = buscarPanelPorNombre(nombrePanel);
+        if(existente!=null){
+            contenedor.remove(existente);
+        }
         contenedor.add(panel, nombrePanel);
         contenedor.revalidate();
         contenedor.repaint();
         layout.show(contenedor,nombrePanel);
     }
+    
+    
     /**
      * metodo main para ejecutar el programa
      */
