@@ -30,7 +30,7 @@ public class InterfazBiblioteca {
      * constructor
      */
     public InterfazBiblioteca() {
-        biblioteca = new Biblioteca("Biblioteca Arielo");
+        biblioteca = new Biblioteca("Object 404");
         colorFondo = new Color(227, 100, 100);
         modeloLibros = new DefaultListModel<>();
         modeloSocios = new DefaultListModel<>();
