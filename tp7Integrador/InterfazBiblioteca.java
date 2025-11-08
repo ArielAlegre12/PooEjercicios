@@ -379,7 +379,7 @@ public class InterfazBiblioteca {
                 }
                 String detalles = "<html><body style='text-aling:center;'>"
                         + "<b>Titulo:</b> " + seleccionado.getTitulo() + "<br"
-                        + "<b>Edicción:</b> " + seleccionado.getEdicion() + "<br>"
+                        + "<b>Edición:</b> " + seleccionado.getEdicion() + "<br>"
                         + "<b>Año:</b> " + seleccionado.getAnio() + "<br>"
                         + "<b>Estado:</b> " + estado + "<br>"
                         + "</body></html>";
