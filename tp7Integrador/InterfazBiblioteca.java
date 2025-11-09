@@ -222,15 +222,6 @@ public class InterfazBiblioteca {
         envoltorio.setBackground(panel.getBackground());
         envoltorio.add(opcionesPanel);
 
-        //boton Volver
-        JButton botonVolver = crearBoton("Volver Atrás", 130, e -> layout.show(contenedor, "Inicio"));
-        //botonSalir
-        JButton botonSalir = crearBoton("Salir", 130, e -> salirYGuardar());
-        JPanel volverPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        volverPanel.setBackground(panel.getBackground());
-        volverPanel.add(botonVolver);
-        volverPanel.add(botonSalir);
-
         //el armao final jei
         JPanel centro = new JPanel();
         centro.setLayout(new BoxLayout(centro, BoxLayout.Y_AXIS));
@@ -238,10 +229,11 @@ public class InterfazBiblioteca {
         centro.add(Box.createVerticalStrut(30));
         centro.add(titulo);
         centro.add(subtitulo);
+        centro.add(Box.createVerticalStrut(10));
         centro.add(envoltorio);
 
         panel.add(centro, BorderLayout.CENTER);
-        panel.add(volverPanel, BorderLayout.SOUTH);
+        panel.add(crearBotonera("Inicio",true), BorderLayout.SOUTH);
 
         return panel;
     }
@@ -685,7 +677,7 @@ public class InterfazBiblioteca {
         boton.setBackground(colorBoton);
         boton.setForeground(Color.white);
         boton.setFocusPainted(false);
-        boton.setPreferredSize(new Dimension(ancho, 40));
+        boton.setPreferredSize(new Dimension(ancho, 36));
         boton.setAlignmentX(Component.CENTER_ALIGNMENT);
         boton.addActionListener(evento);
         return boton;
@@ -790,12 +782,12 @@ public class InterfazBiblioteca {
         botonVerDetalles.setText("<html><center>Ver<br>características</center></html>");
         botonSeleccionar.setText("<html><center>Seleccionar<br>Socio</center></html>");
         //organizar en dos filas los botones
-        JPanel botonesFila1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 5));
+        JPanel botonesFila1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 5));
         botonesFila1.setBackground(colorFondo);
         botonesFila1.add(botonQuitar);
         botonesFila1.add(botonAgregar);
         //los añade
-        JPanel botonesFila2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 5));
+        JPanel botonesFila2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 5));
         botonesFila2.setBackground(colorFondo);
         botonesFila2.add(botonVerDetalles);
         botonesFila2.add(botonSeleccionar);
