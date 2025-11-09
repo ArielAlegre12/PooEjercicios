@@ -379,6 +379,7 @@ public class InterfazBiblioteca {
                 }
                 String detalles = "<html><body style='text-aling:center;'>"
                         + "<b>Titulo:</b> " + seleccionado.getTitulo() + "<br"
+                        + "<b>Editorial:</b> " + seleccionado.getEditorial() + "<br"
                         + "<b>Edición:</b> " + seleccionado.getEdicion() + "<br>"
                         + "<b>Año:</b> " + seleccionado.getAnio() + "<br>"
                         + "<b>Estado:</b> " + estado + "<br>"
@@ -1030,7 +1031,11 @@ public class InterfazBiblioteca {
         JPanel encabezado = new JPanel();
         encabezado.setLayout(new BoxLayout(encabezado, BoxLayout.Y_AXIS));
         encabezado.setBackground(colorFondo);
-        encabezado.add(crearTituloConIcono("Prestar Libro a " + socio.getNombre(), 24, Color.WHITE, colorFondo,"img/sociosIcon.png"));
+        if(socio.soyDeLaClase().equalsIgnoreCase("docente")){
+            encabezado.add(crearTituloConIcono("Prestar Libro - " + socio.getNombre(), 24, Color.WHITE, colorFondo,"img/docenteIcon.png"));
+        }else{
+            encabezado.add(crearTituloConIcono("Prestar Libro - " + socio.getNombre(), 24, Color.WHITE, colorFondo,"img/alumnoIcon.png"));
+        }
         encabezado.add(mensajeLabel);
         panel.add(encabezado, BorderLayout.NORTH);
 
@@ -1141,7 +1146,11 @@ public class InterfazBiblioteca {
         JPanel encabezado = new JPanel();
         encabezado.setLayout(new BoxLayout(encabezado, BoxLayout.Y_AXIS));
         encabezado.setBackground(colorFondo);
-        encabezado.add(crearTituloConIcono("Devolver Libro - " + socioActual.getNombre(), 24, Color.WHITE, colorFondo, ""));
+        if(socioActual.soyDeLaClase().equalsIgnoreCase("docente")){
+            encabezado.add(crearTituloConIcono("Devolver Libro - " + socioActual.getNombre(), 24, Color.WHITE, colorFondo,"img/docenteIcon.png"));
+        }else{
+            encabezado.add(crearTituloConIcono("Devolver Libro - " + socioActual.getNombre(), 24, Color.WHITE, colorFondo,"img/alumnoIcon.png"));
+        }
         //msj de dias de prestamos
         JLabel diasLabel = new JLabel("Días de prestamo actuales: " + socioActual.getDiasPrestamos());
         diasLabel.setForeground(Color.WHITE);
