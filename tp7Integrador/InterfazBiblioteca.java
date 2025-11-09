@@ -866,8 +866,13 @@ public class InterfazBiblioteca {
     private void mostrarFormularioSocio(String tipoSocio) {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(colorFondo);
-
-        JLabel titulo = crearTitulo("Formulario");
+        
+        JPanel titulo;
+        if(tipoSocio.equalsIgnoreCase("Estudiante")){
+            titulo = crearTituloConIcono("Agregar " + tipoSocio,24,Color.WHITE,colorFondo,"img/alumnoIcon.png");
+        }else{
+            titulo = crearTituloConIcono("Agregar " + tipoSocio,24,Color.WHITE,colorFondo,"img/docenteIcon.png");
+        }
 
         //el msj de estado
         JLabel mensajeLabel = new JLabel("");

@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashSet;
 
 
 public class Biblioteca
@@ -257,14 +258,18 @@ public class Biblioteca
     }  
     
   
-  public String listaDeTitulos(){
-        String titulos = "";
-        for (Libro libro : libros){
-            titulos += libro.getTitulo() + "\n";
-        }
-        return titulos; 
+  public String listaDeTitulos() {
+    String titulos = "Títulos disponibles en la biblioteca:\n";
+    HashSet<String> titulosUnicos = new HashSet<>();
+    for (Libro libro : libros) {
+        titulosUnicos.add(libro.getTitulo());
     }
-    
+    for (String titulo : titulosUnicos) {
+        titulos += "- " + titulo + "\n";
+    }
+    return titulos;
+}
+
    public boolean prestarLibro(Calendar p_fechaRetiro, Socio p_socio, Libro p_libro) {
            if (p_socio == null || p_libro == null) {
         return false;

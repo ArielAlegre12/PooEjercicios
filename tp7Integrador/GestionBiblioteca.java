@@ -70,6 +70,8 @@ public class GestionBiblioteca {
                 System.out.println("(11) LISTA DE SOCIOS");
                 System.out.println("(12) LISTA DE SOCIOS POR TIPO");
                 System.out.println("(13) LISTA DE LIBROS");
+                System.out.println("(14) LISTAR TÍTULOS SIN REPETIR");
+
                 System.out.println("(0)  SALIR");
                 System.out.println("************************************************************");
                 System.out.print("INGRESAR UNA OPCION: ");
@@ -272,6 +274,10 @@ public class GestionBiblioteca {
                         System.out.println("=============================================================");
                         System.out.println(biblioteca.listaDeLibros());
                         break;
+                    case 14:
+                       System.out.println(biblioteca.listaDeTitulos());
+                       break;
+
                     case 0:
                         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                         System.out.println("****************************************");
