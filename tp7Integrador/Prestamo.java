@@ -1,11 +1,13 @@
 import java.util.*;
 import java.text.*;
+import java.io.Serializable;
 /**
  * Clase Prestamo que representa uno, y colabora con las clases de Socio y
  * Libro.
  * @author Alegre Ariel Santiago
  */
-public class Prestamo {
+public class Prestamo implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Calendar fechaRetiro;
     private Calendar fechaDevolucion;
     private Libro libro;

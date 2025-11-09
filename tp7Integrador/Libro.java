@@ -1,6 +1,8 @@
 import java.util.ArrayList;
-public class Libro
+import java.io.Serializable;
+public class Libro implements Serializable
 {
+    private static final long serialVersionUID = 1L;
    private String titulo;
    private int edicion;
    private String editorial;

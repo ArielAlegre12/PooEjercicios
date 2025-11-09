@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.Serializable;
 /**
  * Clase abstracta que representa un socio de la biblioteca.
  * Puede ser un Docente o un Estudiante.
@@ -6,7 +7,8 @@ import java.util.*;
  * y una lista de préstamos activos.
  * @author Alegre Ariel Santiago
  */
-public abstract class Socio{
+public abstract class Socio implements Serializable{
+    private static final long serialVersionUID = 1L;
     private int dniSocio;
     private String nombre;
     private int diasPrestamo;

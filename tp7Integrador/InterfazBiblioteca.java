@@ -1,3 +1,4 @@
+//holasdsdfsdf
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -15,6 +16,7 @@ public class InterfazBiblioteca {
     private CardLayout layout;
     private JPanel contenedor;
     private Biblioteca biblioteca;
+    private static final String RUTA_ARCHIVO = "biblioteca.dat";
     private final Color colorFondo;
     private final Color colorBoton;
     private JTextArea areaLibros;
@@ -30,12 +32,25 @@ public class InterfazBiblioteca {
      * constructor
      */
     public InterfazBiblioteca() {
-        biblioteca = new Biblioteca("Object 404");
+        //intentar cargar la biblioteca desde disco, si existe
+        Biblioteca cargada = Biblioteca.cargarDesdeArchivo(RUTA_ARCHIVO);
+        if (cargada != null) {
+            biblioteca = cargada;
+        } else {
+            biblioteca = new Biblioteca("Object 404");
+        }
         colorFondo = new Color(227, 100, 100);
         modeloLibros = new DefaultListModel<>();
         modeloSocios = new DefaultListModel<>();
         colorBoton = Color.BLACK;
         inicializarVentana();
+        //guardar automáticamente al cerrar la ventana
+        ventana.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                biblioteca.guardarEnArchivo(RUTA_ARCHIVO);
+            }
+        });
         incializarContenedor();
         agregarPantallas();
         mostrarVentana();
@@ -81,6 +96,21 @@ public class InterfazBiblioteca {
         ventana.setVisible(true);
     }
 
+    //método auxiliar que guarda la biblioteca en disco
+    private void guardarBiblioteca() {
+        biblioteca.guardarEnArchivo(RUTA_ARCHIVO);
+    }
+
+    //guarda y sale de la aplicación(lo ponemos en la botonera)
+    private void salirYGuardar() {
+        try {
+            guardarBiblioteca();
+        } catch (Exception e) {
+            //ignorar errores de guardado para no bloquear el cierre(esto puede hacer perder los datos pero bue)
+        }
+        System.exit(0);
+    }
+
     /**
      * Creo una botonera en general para navegar por los paneles.
      * 
@@ -88,7 +118,7 @@ public class InterfazBiblioteca {
     public JPanel crearBotonera(String panelAnterior, boolean mostrarVolver) {
         JPanel botonera = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         botonera.setBackground(colorFondo);
-        JButton botonSalir = crearBoton("Salir", 130, e -> System.exit(0));
+        JButton botonSalir = crearBoton("Salir", 130, e -> salirYGuardar());
 
         //en caso de que sea la pantalla de incio jei
         if (mostrarVolver) {
@@ -168,7 +198,7 @@ public class InterfazBiblioteca {
             refrescarListaLibros();
             layout.show(contenedor, "GestionLibros");
         });
-        //instanciar la img para ponerla al aldo del boton
+        //instanciar la img para ponerla al lado del boton
         botonLibros.setIcon(new ImageIcon(
                 new ImageIcon("img/iconoLibros.jpg").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
         //boton gestionar socios
@@ -195,13 +225,13 @@ public class InterfazBiblioteca {
         //boton Volver
         JButton botonVolver = crearBoton("Volver Atrás", 130, e -> layout.show(contenedor, "Inicio"));
         //botonSalir
-        JButton botonSalir = crearBoton("Salir", 130, e -> System.exit(0));
+        JButton botonSalir = crearBoton("Salir", 130, e -> salirYGuardar());
         JPanel volverPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         volverPanel.setBackground(panel.getBackground());
         volverPanel.add(botonVolver);
         volverPanel.add(botonSalir);
 
-        // el armao final jei
+        //el armao final jei
         JPanel centro = new JPanel();
         centro.setLayout(new BoxLayout(centro, BoxLayout.Y_AXIS));
         centro.setBackground(panel.getBackground());
@@ -236,7 +266,6 @@ public class InterfazBiblioteca {
         panel.add(titulo);
         panel.add(icono);
         panel.setAlignmentX(Component.CENTER_ALIGNMENT);
-
         return panel;
     }
 
@@ -279,7 +308,7 @@ public class InterfazBiblioteca {
      */
     private JPanel crearPanelBotonesPaginaPrincipal(Color fondo) {
         JButton botonIniciar = crearBoton("Iniciar", 130, e -> layout.show(contenedor, "Menu"));
-        JButton botonSalir = crearBoton("Salir", 130, e -> System.exit(0));
+        JButton botonSalir = crearBoton("Salir", 130, e -> salirYGuardar());
 
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
         panel.setBackground(fondo);
@@ -340,6 +369,7 @@ public class InterfazBiblioteca {
                         modeloLibros.removeElement(seleccionado);
                         refrescarListaLibros();
                         mostrarMensajetemporal(mensajeLabel, "Libro eliminado correctamente", 3000);
+                        guardarBiblioteca();
                     } else {
                         mostrarMensajetemporal(mensajeLabel, "No se puede eliminar un libro que está prestado, je",
                                 3000);
@@ -379,7 +409,6 @@ public class InterfazBiblioteca {
                 }
                 String detalles = "<html><body style='text-aling:center;'>"
                         + "<b>Titulo:</b> " + seleccionado.getTitulo() + "<br"
-                        + "<b>Editorial:</b> " + seleccionado.getEditorial() + "<br"
                         + "<b>Edición:</b> " + seleccionado.getEdicion() + "<br>"
                         + "<b>Año:</b> " + seleccionado.getAnio() + "<br>"
                         + "<b>Estado:</b> " + estado + "<br>"
@@ -444,12 +473,12 @@ public class InterfazBiblioteca {
      * metodo para refrescar la lista de libros
      */
     public void refrescarListaLibros() {
-        modeloLibros.clear();
+        modeloLibros.clear();//refresca la vista para luego rellenarla de nuevo
         actualizarTituloListaLibros();
         for (Libro libro : biblioteca.getLibros()) {
             modeloLibros.addElement(libro);
         }
-    }
+     }
 
     /**
      * método para refrescar la listad de libro de socios
@@ -535,7 +564,7 @@ public class InterfazBiblioteca {
         encabezado.add(mensajeLabel);
         panel.add(encabezado, BorderLayout.NORTH);
 
-        // ampos para rellenar jei
+        //ampos para rellenar jei
         JTextField campoTitulo = new JTextField(20);
         JTextField campoEdicion = new JTextField(20);
         JTextField campoEditorial = new JTextField(20);
@@ -608,7 +637,8 @@ public class InterfazBiblioteca {
                 Libro nuevoLibro = new Libro(tituloLibro, edicionLibro, editorialLibro, anioLibro);
                 biblioteca.agregarLibro(nuevoLibro);
                 refrescarListaLibros();
-                mostrarMensajetemporal(mensajeLabel, "Libro Agregado sastifactoriamente jeje", 3000);
+                mostrarMensajetemporal(mensajeLabel, "Libro Agregado sastifactoriamente, jeje", 3000);
+                guardarBiblioteca();
 
                 //limpiar los campos
                 campoTitulo.setText("");
@@ -624,6 +654,7 @@ public class InterfazBiblioteca {
         JPanel centro = new JPanel();
         centro.setLayout(new BoxLayout(centro, BoxLayout.Y_AXIS));
         centro.setBackground(colorFondo);
+        centro.add(Box.createVerticalStrut(20));
         centro.add(encabezado);
         centro.add(Box.createVerticalStrut(10));
         centro.add(contenedorFormulario);
@@ -692,10 +723,9 @@ public class InterfazBiblioteca {
         JList<Socio> listaSocios = new JList<>(modeloSocios);
         listaSocios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listaSocios.setFont(new Font("Arial", Font.BOLD, 14));
-    scrollSociosGestion = new JScrollPane(listaSocios);
-    scrollSociosGestion
-        .setBorder(BorderFactory.createTitledBorder("Socios Registrados: " + biblioteca.getSocios().size()));
-    panel.add(scrollSociosGestion, BorderLayout.CENTER);
+        scrollSociosGestion = new JScrollPane(listaSocios);
+        scrollSociosGestion.setBorder(BorderFactory.createTitledBorder("Socios Registrados: " + biblioteca.getSocios().size()));
+        panel.add(scrollSociosGestion, BorderLayout.CENTER);
 
         //quitarSocio
         JButton botonQuitar = crearBoton("Quitar Socio", 150, e -> {
@@ -710,9 +740,10 @@ public class InterfazBiblioteca {
                     modeloSocios.removeElement(seleccionado);
                     listaSocios.revalidate();
                     listaSocios.repaint();
-                    mostrarMensajetemporal(mensajeLabel, seleccionado.soyDeLaClase() + " eliminado correctamente",
-                            3000);
+                    mostrarMensajetemporal(mensajeLabel, seleccionado.soyDeLaClase() + " eliminado correctamente",3000);
                     refrescarListaSocios();
+                    //guardar cambios inmediatamente para mantener persistencia de datos
+                    guardarBiblioteca();
                 }
             }
         });
@@ -731,21 +762,17 @@ public class InterfazBiblioteca {
                         + "<b>Nombre:</b> " + seleccionado.getNombre() + "<br>"
                         + "<b>DNI:</b> " + seleccionado.getDniSocio() + "<br>"
                         + "<b>Tipo:</b> " + (seleccionado instanceof Docente ? "Docente" : "Estudiante") + "<br>";
-
                 if (seleccionado instanceof Docente) {
                     detalles += "<b>Área:</b> " + campoExtra + "<br>";
                 } else if (seleccionado instanceof Estudiante) {
                     detalles += "<b>Carrera:</b> " + campoExtra + "<br>";
                 }
-
                 detalles += "</body></html>";
-
                 mostrarMensajetemporal(mensajeLabel, detalles, 10000);
             } else {
                 mostrarMensajetemporal(mensajeLabel, "Seleccione un socio para ver sus características", 3000);
             }
         });
-
         //ir a x socio
         JButton botonSeleccionar = crearBoton("Seleccionar Socio", 150, e -> {
             Socio seleccionado = listaSocios.getSelectedValue();
@@ -755,27 +782,23 @@ public class InterfazBiblioteca {
                 mostrarMensajetemporal(mensajeLabel, "Seleccione un socio para continuar", 3000);
             }
         });
-
         //boton que lleva para agregar socio
         JButton botonAgregar = crearBoton("Agregar Socio", 150, e -> {
             layout.show(contenedor, "AgregarQuitarSocios");
         });
-
         //para que se vea mejor visualmente
         botonVerDetalles.setText("<html><center>Ver<br>características</center></html>");
         botonSeleccionar.setText("<html><center>Seleccionar<br>Socio</center></html>");
-
         //organizar en dos filas los botones
         JPanel botonesFila1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 5));
         botonesFila1.setBackground(colorFondo);
         botonesFila1.add(botonQuitar);
         botonesFila1.add(botonAgregar);
-
+        //los añade
         JPanel botonesFila2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 5));
         botonesFila2.setBackground(colorFondo);
         botonesFila2.add(botonVerDetalles);
         botonesFila2.add(botonSeleccionar);
-
         //centro
         JPanel centro = new JPanel();
         centro.setLayout(new BoxLayout(centro, BoxLayout.Y_AXIS));
@@ -791,7 +814,6 @@ public class InterfazBiblioteca {
         pie.setBackground(colorFondo);
         pie.add(centro, BorderLayout.CENTER);
         pie.add(crearBotonera("Menu", true), BorderLayout.SOUTH);
-
         panel.add(pie, BorderLayout.SOUTH);
         return panel;
     }
@@ -802,10 +824,8 @@ public class InterfazBiblioteca {
     private JPanel crearPantallaAgregarQuitarSocios() {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(colorFondo);
-
         //creo el título
         JPanel titulo = crearTituloConIcono("Seleccionar tipo de Socio", 24, Color.WHITE, colorFondo,"img/sociosIcon.png");
-
         //botones de selección
         JButton botonDocente = crearBoton("Docente", 150, e -> mostrarFormularioSocio("Docente"));
         botonDocente.setIcon(new ImageIcon(new ImageIcon("img/docenteIcon.png").getImage().getScaledInstance(30, 40, Image.SCALE_SMOOTH)));
@@ -823,10 +843,9 @@ public class InterfazBiblioteca {
         centro.add(envolverCentrado(botonDocente));
         centro.add(Box.createVerticalStrut(10));
         centro.add(envolverCentrado(botonEstudiante));
-
+        //añado la estructura al panel
         panel.add(centro, BorderLayout.CENTER);
         panel.add(crearBotonera("GestionSocios", true), BorderLayout.SOUTH);
-
         return panel;
     }
 
@@ -863,11 +882,10 @@ public class InterfazBiblioteca {
      * y varia el ingreso de área/carrera. también la cantidad de dias asginados de
      * prestamos.
      */
-
     private void mostrarFormularioSocio(String tipoSocio) {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(colorFondo);
-        
+        //el título varía dependiendo de si es doc/estu
         JPanel titulo;
         if(tipoSocio.equalsIgnoreCase("Estudiante")){
             titulo = crearTituloConIcono("Agregar " + tipoSocio,24,Color.WHITE,colorFondo,"img/alumnoIcon.png");
@@ -978,6 +996,8 @@ public class InterfazBiblioteca {
                 campoDni.setText("");
                 campoExtra.setText("");
                 refrescarListaSocios();
+                //guardar cambios inmediatamente para evitar pérdida si se cierra desde botón Salir
+                guardarBiblioteca();
             } catch (ValidarIngresoSocioException ex) {
                 mostrarMensajetemporal(mensajeLabel, ex.getMessage(), 3000);
             }
@@ -987,6 +1007,7 @@ public class InterfazBiblioteca {
         JPanel centro = new JPanel();
         centro.setLayout(new BoxLayout(centro, BoxLayout.Y_AXIS));
         centro.setBackground(colorFondo);
+        centro.add(Box.createVerticalStrut(20));
         centro.add(encabezado);
         centro.add(Box.createVerticalStrut(10));
         centro.add(contenedorFormulario);
@@ -1063,6 +1084,8 @@ public class InterfazBiblioteca {
                     Calendar hoy = Calendar.getInstance();
                     boolean exito = biblioteca.prestarLibro(hoy, socioFinal, seleccionado);
                     if (exito) {
+                        //guardar el nuevo prestamo
+                        guardarBiblioteca();
                         //actualizar modelo local de esta lista
                         modeloLibros.removeElement(seleccionado);
                         listaLibros.revalidate();
@@ -1115,7 +1138,7 @@ public class InterfazBiblioteca {
     }
 
     /**
-     * método que busca el panel existente
+     * método que busca el panel existente, esto evita las duplicaciones de paneles en el contenedor.
      */
     public Component buscarPanelPorNombre(String nombre) {
         for (Component comp : contenedor.getComponents()) {
@@ -1147,9 +1170,9 @@ public class InterfazBiblioteca {
         encabezado.setLayout(new BoxLayout(encabezado, BoxLayout.Y_AXIS));
         encabezado.setBackground(colorFondo);
         if(socioActual.soyDeLaClase().equalsIgnoreCase("docente")){
-            encabezado.add(crearTituloConIcono("Devolver Libro - " + socioActual.getNombre(), 24, Color.WHITE, colorFondo,"img/docenteIcon.png"));
+            encabezado.add(crearTituloConIcono("Devolver Libro - " + socioActual.getNombre(), 24, Color.WHITE, colorFondo, "img/docenteIcon.png"));
         }else{
-            encabezado.add(crearTituloConIcono("Devolver Libro - " + socioActual.getNombre(), 24, Color.WHITE, colorFondo,"img/alumnoIcon.png"));
+            encabezado.add(crearTituloConIcono("Devolver Libro - " + socioActual.getNombre(), 24, Color.WHITE, colorFondo, "img/alumnoIcon.png"));
         }
         //msj de dias de prestamos
         JLabel diasLabel = new JLabel("Días de prestamo actuales: " + socioActual.getDiasPrestamos());
@@ -1179,14 +1202,15 @@ public class InterfazBiblioteca {
         JButton botonDevolver = crearBoton("<html><center>Devolver<br>Libro</center></html>", 150, e -> {
             Libro seleccionado = listaLibros.getSelectedValue();
             if (seleccionado != null) {
-                if (seleccionado.prestado()) {
+                    if (seleccionado.prestado()) {
                     biblioteca.devolverLibro(seleccionado);
-                    // Primero actualizar TODAS las vistas dependientes
+                    //guardar la devolución antes de refrescar
+                    guardarBiblioteca();
+                    //primero actualizamos todas las vistas dependientes
                     refrescarTodo();
-                    // Luego reconstruir esta pantalla específica
+                    //luego reconstruir esta pantalla específica
                     crearPantallaDevolverLibro(socioActual);
                     mostrarMensajetemporal(mensajeLabel, "Libro devuelto correctamente", 3000);
-
                 } else {
                     mostrarMensajetemporal(mensajeLabel, "Ese libro ya fue devuelto", 3000);
                 }
@@ -1215,7 +1239,7 @@ public class InterfazBiblioteca {
             }
         });
 
-        //btn para que el docente pueda pedir más dias. hay que inciarlo en un null
+        //btn para que el docente pueda pedir más dias. hay que inciarlo un null
         JButton botonPedirMasDias = null;
         if (socio instanceof Docente) {
             botonPedirMasDias = crearBoton("<html><center>Pedir +<br>días</center></html>", 150, e -> {
@@ -1224,7 +1248,7 @@ public class InterfazBiblioteca {
                     if(docente.getDiasPrestamos() <=60){
                         docente.cambiarDiasDePrestamo(5);//por ahora le dejamos que le den 5 días al gente
                         diasLabel.setText("Días de prestamo actuales: " + docente.getDiasPrestamos());
-                        mostrarMensajetemporal(mensajeLabel, "Se agregaron 5 días de préstamo", 3000);
+                        mostrarMensajetemporal(mensajeLabel, "Se agregaron 5 días de préstamo más", 3000);
                     }else{
                         mostrarMensajetemporal(mensajeLabel, "No puede pedir más de 60 días de prestamos", 3000);
                     }
@@ -1253,7 +1277,7 @@ public class InterfazBiblioteca {
         JPanel botoneraSur = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         botoneraSur.setBackground(colorFondo);
         JButton botonVolver = crearBoton("Volver Atrás", 130, e -> mostrarPantallaSocioOpExtras(socioActual));
-        JButton botonSalir = crearBoton("Salir", 130, e -> System.exit(0));
+        JButton botonSalir = crearBoton("Salir", 130, e -> salirYGuardar());
         botoneraSur.add(botonVolver);
         botoneraSur.add(botonSalir);
         panel.add(botoneraSur, BorderLayout.SOUTH);

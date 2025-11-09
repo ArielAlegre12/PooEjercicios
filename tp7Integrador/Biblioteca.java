@@ -3,10 +3,17 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
+import java.io.Serializable;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
+import java.io.IOException;
 
 
-public class Biblioteca
+public class Biblioteca implements Serializable
 {
+    private static final long serialVersionUID = 1L;
     /**
      * Atributos de la clase
      */
@@ -323,5 +330,28 @@ public class Biblioteca
             }
         }
         return listaDocentesResp;
+    }
+    
+    //persistencia simple mediante serialización de java
+    public boolean guardarEnArchivo(String ruta) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ruta))) {
+            oos.writeObject(this);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static Biblioteca cargarDesdeArchivo(String ruta) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ruta))) {
+            Object obj = ois.readObject();
+            if (obj instanceof Biblioteca) {
+                return (Biblioteca) obj;
+            }
+        } catch (Exception e) {
+            //si sucede algún error, retornamos null para indicar que no se pudo cargar
+        }
+        return null;
     }
 }
