@@ -401,7 +401,7 @@ public class InterfazBiblioteca {
                 }
                 String detalles = "<html><body style='text-aling:center;'>"
                         + "<b>Titulo:</b> " + seleccionado.getTitulo() + "<br"
-                        + "<b>Edición:</b> " + seleccionado.getEdicion() + "<br>"
+                        + "<b>Edición:</b> " + seleccionado.getEdicion() + "<b>°</b> " +"<br>"
                         + "<b>Año:</b> " + seleccionado.getAnio() + "<br>"
                         + "<b>Estado:</b> " + estado + "<br>"
                         + "</body></html>";
@@ -760,7 +760,7 @@ public class InterfazBiblioteca {
                     detalles += "<b>Carrera:</b> " + campoExtra + "<br>";
                 }
                 detalles += "</body></html>";
-                mostrarMensajetemporal(mensajeLabel, detalles, 10000);
+                mostrarMensajetemporal(mensajeLabel, detalles, 5500);
             } else {
                 mostrarMensajetemporal(mensajeLabel, "Seleccione un socio para ver sus características", 3000);
             }
