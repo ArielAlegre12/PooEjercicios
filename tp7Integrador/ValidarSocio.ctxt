@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ValidarSocio
-comment0.text=\r\n\ clase\ que\ valida\ las\ entradas\ del\ socio.\r\n
+comment0.text=\r\n\ clase\ que\ valida\ las\ entradas\ del\ socio.\r\n\ \r\n\ @author\ Alegre\ Ariel\ Santiago\r\n
 comment1.params=nombre\ dniTexto\ tipoSocio\ campoExtra
 comment1.target=void\ validar(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
 comment2.params=nombre\ campoExtra\ tipoSocio
@@ -9,4 +9,10 @@ comment2.text=\r\n\ comprueba\ los\ campos\ obligatorios\r\n
 comment3.params=dniTexto
 comment3.target=void\ validarDni(java.lang.String)
 comment3.text=\r\n\ validar\ el\ dni\r\n
-numComments=4
+comment4.params=nombre
+comment4.target=void\ ValidarNombre(java.lang.String)
+comment4.text=\r\n\ Validar\ ingreso\ correcto\ del\ nombre,\ evita\ que\ ingrese\ n\u00FAmeros,\ evita\ que\ ingrese\ s\u00EDmbolos,\ exigir\ al\ menos\ 3\ letras\r\n
+comment5.params=campoExtra\ tipoSocio
+comment5.target=void\ ValidarCampoExtra(java.lang.String,\ java.lang.String)
+comment5.text=\r\n\ Validar\ ingreso\ correcto\ del\ area\ o\ carrera\r\n
+numComments=6

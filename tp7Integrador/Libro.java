@@ -1,3 +1,8 @@
+/**
+ * Clase que representa un Libro el cual posee cero o más préstamos, fundamental para el manejo de bilbioteca.
+ * 
+ *  @author Antoniow Agustín
+ */
 import java.util.ArrayList;
 import java.io.Serializable;
 public class Libro implements Serializable
@@ -87,5 +92,4 @@ public class Libro implements Serializable
            return null;
        }
    }
-   
 }

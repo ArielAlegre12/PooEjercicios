@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=LibroNoPrestadoException
+comment0.text=\r\n\ clase\ para\ mandar\ los\ mensaje\ de\ exceptios\ a\ Libro\r\n\ \r\n\ @author\ Barrios\ Guadalupe,\ Boilini\ Uriel,\ Alfonso\ Mariana\r\n
 comment1.params=mensaje
 comment1.target=LibroNoPrestadoException(java.lang.String)
 numComments=2

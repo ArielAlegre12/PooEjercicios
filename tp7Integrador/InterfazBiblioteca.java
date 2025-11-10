@@ -1,4 +1,3 @@
-//holasdsdfsdf
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -200,13 +199,13 @@ public class InterfazBiblioteca {
         });
         //instanciar la img para ponerla al lado del boton
         botonLibros.setIcon(new ImageIcon(
-                new ImageIcon("img/iconoLibros.jpg").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
+                new ImageIcon(getClass().getResource("img/iconoLibros.jpg")).getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
         //boton gestionar socios
         JButton botonSocios = crearBoton("Gestionar Socios", 250, e -> {
             refrescarListaSocios();
             layout.show(contenedor, "GestionSocios");
         });
-        botonSocios.setIcon(new ImageIcon(new ImageIcon("img/iconAlumProfe.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
+        botonSocios.setIcon(new ImageIcon(new ImageIcon(getClass().getResource("img/iconAlumProfe.png")).getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH)));
 
         //panel central con botones.
         JPanel opcionesPanel = new JPanel();
@@ -248,7 +247,7 @@ public class InterfazBiblioteca {
         titulo.setForeground(colorTexto);
 
         //instancio la imagen
-        ImageIcon iconoOriginal = new ImageIcon(rutaIcono);
+        ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/" + rutaIcono));
         Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
         JLabel icono = new JLabel(new ImageIcon(imagenEscalada));
 
@@ -266,11 +265,11 @@ public class InterfazBiblioteca {
      * que será usado en el inicio
      */
     private JPanel crearPanelImagenes(Color fondo) {
-        ImageIcon profeOriginal = new ImageIcon("img/docenteAnimado.jpg");
+        ImageIcon profeOriginal = new ImageIcon(getClass().getResource("img/docenteAnimado.jpg"));
         Image profeEscalado = profeOriginal.getImage().getScaledInstance(50, 90, Image.SCALE_SMOOTH);
         JLabel profe = new JLabel(new ImageIcon(profeEscalado));
 
-        ImageIcon alumnoOriginal = new ImageIcon("img/estudiante animado.jpg");
+        ImageIcon alumnoOriginal = new ImageIcon(getClass().getResource("img/estudiante animado.jpg"));
         Image alumnoEscalado = alumnoOriginal.getImage().getScaledInstance(50, 90, Image.SCALE_SMOOTH);
         JLabel alumno = new JLabel(new ImageIcon(alumnoEscalado));
 
@@ -820,9 +819,9 @@ public class InterfazBiblioteca {
         JPanel titulo = crearTituloConIcono("Seleccionar tipo de Socio", 24, Color.WHITE, colorFondo,"img/sociosIcon.png");
         //botones de selección
         JButton botonDocente = crearBoton("Docente", 150, e -> mostrarFormularioSocio("Docente"));
-        botonDocente.setIcon(new ImageIcon(new ImageIcon("img/docenteIcon.png").getImage().getScaledInstance(30, 40, Image.SCALE_SMOOTH)));
+        botonDocente.setIcon(new ImageIcon(new ImageIcon(getClass().getResource("img/docenteIcon.png")).getImage().getScaledInstance(30, 40, Image.SCALE_SMOOTH)));
         JButton botonEstudiante = crearBoton("Estudiante", 150, e -> mostrarFormularioSocio("Estudiante"));
-        botonEstudiante.setIcon(new ImageIcon(new ImageIcon("img/alumnoIcon.png").getImage().getScaledInstance(30, 40, Image.SCALE_SMOOTH)));
+        botonEstudiante.setIcon(new ImageIcon(new ImageIcon(getClass().getResource("img/alumnoIcon.png")).getImage().getScaledInstance(30, 40, Image.SCALE_SMOOTH)));
 
         //panel central
         JPanel centro = new JPanel();

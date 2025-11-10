@@ -1,4 +1,8 @@
-
+/**
+ * Clase biblioteca.
+ * 
+ * @author Barrios Guadalupe, Boilini Uriel, Alfonso Mariana
+ */
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;

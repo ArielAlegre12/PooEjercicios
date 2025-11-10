@@ -1,6 +1,8 @@
 import java.util.*;
 /**
  * Clase exception para validar los errores comunes que puede tener al ingresar datos del libro
+ * 
+ * @author Alegre Ariel santiago
  */
 public class ValidarLibro{
     public static void validar(String titulo, String editorial, String edicion, String anio) throws ValidarIngresoLibrosException {
@@ -41,7 +43,7 @@ public class ValidarLibro{
     
     private static void validarAnioLogico(String anio) throws ValidarIngresoLibrosException{
         int intAnio = Integer.parseInt(anio);
-        if(intAnio < 1800 || intAnio >= 2026){
+        if(intAnio < 1800 || intAnio >= Calendar.getInstance().get(Calendar.YEAR)){
             throw new ValidarIngresoLibrosException("Ingresa un año dentro del rango(1800 - 2025). CRACK!");
         }
     }

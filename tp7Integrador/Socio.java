@@ -12,8 +12,7 @@ public abstract class Socio implements Serializable{
     private int dniSocio;
     private String nombre;
     private int diasPrestamo;
-    private ArrayList<Prestamo> prestamos;
-    
+    private ArrayList<Prestamo> prestamos;   
     /**
      * Constructor que incializa al socio con un array de prestamos.
      * @param p_dniSocio dni del socio.

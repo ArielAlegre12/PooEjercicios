@@ -1,7 +1,11 @@
+/**
+ * Clase ejecutable biblioteca que instancia una e instancia socios, libros y préstamos.
+ * 
+ * @author Barrios Guadalupe, Boilini Uriel, Alfonso Mariana 
+ */
 import java.util.Scanner;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
 public class GestionBiblioteca {
     public static void main(String args[]) {
         Scanner leer = new Scanner(System.in);

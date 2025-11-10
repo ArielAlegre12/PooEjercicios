@@ -2,7 +2,7 @@
 /**
  * Write a description of class Docente here.
  * 
- * @author (your name) 
+ * @author Colman Lucas  
  * @version (a version number or a date)
  */
 import java.util.*;

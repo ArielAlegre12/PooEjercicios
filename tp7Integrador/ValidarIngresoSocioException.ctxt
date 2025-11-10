@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ValidarIngresoSocioException
-comment0.text=\r\n\ \r\n
+comment0.text=\r\n\ Clase\ para\ mandar\ los\ mensajes\ de\ excepciones.\r\n\ \r\n\ @author\ Alegre\ Ariel\ Santiago.\r\n
 comment1.params=mensaje
 comment1.target=ValidarIngresoSocioException(java.lang.String)
 numComments=2

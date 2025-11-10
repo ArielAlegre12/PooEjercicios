@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ValidarLibro
-comment0.text=\r\n\ Clase\ exception\ para\ validar\ los\ errores\ comunes\ que\ puede\ tener\ al\ ingresar\ datos\ del\ libro\r\n
+comment0.text=\r\n\ Clase\ exception\ para\ validar\ los\ errores\ comunes\ que\ puede\ tener\ al\ ingresar\ datos\ del\ libro\r\n\ \r\n\ @author\ Alegre\ Ariel\ santiago\r\n
 comment1.params=titulo\ editorial\ edicion\ anio
 comment1.target=void\ validar(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
 comment2.params=titulo\ editorial
